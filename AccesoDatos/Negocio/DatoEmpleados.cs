@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using AccesoDatos.Conexion;
+using DatoEmpleado.Conexion;
 using System.Data;
-using Comun.Atributos;
+using Empleado.Atributos;
 
-namespace AccesoDatos.Entidades
+namespace DatoEmpleado.Entidades
 {
-    public class Persona
+    public class DatoEmpleados
     {
         //Variables
         ConexionBD conn = new ConexionBD();
@@ -62,7 +62,7 @@ namespace AccesoDatos.Entidades
             return td;
         }
 
-        public void Insertar(AttributesPeople obj)
+        public void Insertar(Empleados obj)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace AccesoDatos.Entidades
             }
         }
 
-        public void Modificar(AttributesPeople obj)
+        public void Modificar(Empleados obj)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace AccesoDatos.Entidades
             }
         }
 
-        public void Eliminar(AttributesPeople obj)
+        public void Eliminar(Empleados obj)
         {
             try
             {

@@ -46,13 +46,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+    <ProjectReference Include="..\AccesoDatos\DatoEmpleado.csproj">
       <Project>{e2bb1781-7b10-4940-84b2-de57ae9599f8}</Project>
-      <Name>AccesoDatos</Name>
+      <Name>DatoEmpleado</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Comun\Comun.csproj">
+    <ProjectReference Include="..\Comun\Empleado.csproj">
       <Project>{231bee05-9af4-4340-9058-56342baf12a3}</Project>
-      <Name>Comun</Name>
+      <Name>Empleado</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

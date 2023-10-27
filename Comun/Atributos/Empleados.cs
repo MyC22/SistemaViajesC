@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Comun.Atributos
+namespace Empleado.Atributos
 {
-    public class AttributesPeople
+    public class Empleados
     {
         private int iD;
         private string nombre;

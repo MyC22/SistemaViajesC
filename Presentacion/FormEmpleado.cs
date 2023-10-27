@@ -12,16 +12,16 @@ using Dominio.Crud;
 
 namespace Presentacion
 {
-    public partial class Form1 : Form
+    public partial class FormEmpleado : Form
     {
-        public Form1()
+        public FormEmpleado()
         {
             InitializeComponent();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         CPersona persona = new CPersona();
-        AttributesPeople attributes = new AttributesPeople();
+        Empleado attributes = new Empleado();
         bool edit = false;
 
         private void btnCerrar_Click(object sender, EventArgs e)

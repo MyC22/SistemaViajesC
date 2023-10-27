@@ -94,14 +94,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\ConexionBD.cs" />
-    <Compile Include="Entidades\Persona.cs" />
+    <Compile Include="Negocio\DatoEmpleados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Comun\Comun.csproj">
+    <ProjectReference Include="..\Comun\Empleado.csproj">
       <Project>{231bee05-9af4-4340-9058-56342baf12a3}</Project>
-      <Name>Comun</Name>
+      <Name>Empleado</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

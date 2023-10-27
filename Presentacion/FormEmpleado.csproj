@@ -52,16 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormEmpleado.Designer.cs">
+      <DependentUpon>FormEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormEmpleado.resx">
+      <DependentUpon>FormEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,9 +97,9 @@
     <None Include="Resources\icons8-minimizar-48.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Comun\Comun.csproj">
+    <ProjectReference Include="..\Comun\Empleado.csproj">
       <Project>{231bee05-9af4-4340-9058-56342baf12a3}</Project>
-      <Name>Comun</Name>
+      <Name>Empleado</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
       <Project>{3bdc64e8-8ab2-4ebd-b7b0-cb561498625f}</Project>
