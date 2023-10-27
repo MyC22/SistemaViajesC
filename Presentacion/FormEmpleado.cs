@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Comun.Atributos;
+using Empleado.Atributos;
 using Dominio.Crud;
 
 namespace Presentacion
@@ -21,7 +21,7 @@ namespace Presentacion
         }
 
         CPersona persona = new CPersona();
-        Empleado attributes = new Empleado();
+        Empleados attributes = new Empleados();
         bool edit = false;
 
         private void btnCerrar_Click(object sender, EventArgs e)
