@@ -99,12 +99,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Comun\Empleado.csproj">
-      <Project>{231bee05-9af4-4340-9058-56342baf12a3}</Project>
-      <Name>Empleado</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>

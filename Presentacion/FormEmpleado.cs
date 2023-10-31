@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Empleado.Atributos;
-using Dominio.Crud;
+//using Empleado.Atributos;
+//using Dominio.Crud;
 
 namespace Presentacion
 {
@@ -20,8 +20,8 @@ namespace Presentacion
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        CPersona persona = new CPersona();
-        Empleados attributes = new Empleados();
+        //CPersona persona = new CPersona();
+        //Empleados attributes = new Empleados();
         bool edit = false;
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -42,8 +42,8 @@ namespace Presentacion
 
         private void getData()
         {
-            CPersona cPersona = new CPersona();
-            dvgDatos.DataSource = cPersona.Mostrar();
+            //CPersona cPersona = new CPersona();
+            //dvgDatos.DataSource = cPersona.Mostrar();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace Presentacion
         {
             if (edit == false)
             {
-                try 
+                /*try 
                 {
                     attributes.ID = Convert.ToInt32(txtID.Text);
                     attributes.Nombre = txtNombre.Text;
@@ -116,12 +116,12 @@ namespace Presentacion
                 catch(Exception ex)
                 {
                     MessageBox.Show($"SE PRODUJO UN ERROR: {ex.ToString()}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                }*/
 
             }else if(edit == true)
             {
                 //ACTUALIZAR
-                try
+                /*try
                 {
                     attributes.ID = Convert.ToInt32(txtID.Text);
                     attributes.Nombre = txtNombre.Text;
@@ -139,10 +139,10 @@ namespace Presentacion
                 catch (Exception ex)
                 {
                     MessageBox.Show($"SE PRODUJO EL SIGUIENTE ERROR: {ex.ToString()}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                }*/
             }
         }
-
+        
         private void btnModificar_Click(object sender, EventArgs e)
         {
 
@@ -176,7 +176,7 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dvgDatos.SelectedRows.Count > 0)
+            /*if (dvgDatos.SelectedRows.Count > 0)
             {
                 DialogResult dialog = new DialogResult();
                 dialog = MessageBox.Show("¿DESEAS ELIMINAR ESTE REGISTRO?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -194,13 +194,13 @@ namespace Presentacion
                         MessageBox.Show($"SE PRODUJO EL SIGUIENTE ERROR: {ex.ToString()}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
+            }*/
         }
-
+        
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            CPersona cPersona = new CPersona();
-            dvgDatos.DataSource = cPersona.Buscar(txtBuscar.Text);
+            //CPersona cPersona = new CPersona();
+            //dvgDatos.DataSource = cPersona.Buscar(txtBuscar.Text);
         }
     }
 }
