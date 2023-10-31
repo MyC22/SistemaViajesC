@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace sistema_de_viajes
+namespace Formularios
 {
-    public partial class TablaModelo : Form
+    public partial class Menuprincipal : Form
     {
-        public TablaModelo()
+        public Menuprincipal()
         {
             InitializeComponent();
         }
