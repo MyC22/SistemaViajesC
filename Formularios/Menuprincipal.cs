@@ -14,7 +14,7 @@ namespace Formularios
 {
     public partial class Menuprincipal : Form
     {
-        public Menuprincipal()
+        public Menuprincipal(int idempleado)
         {
             InitializeComponent();
         }
@@ -23,6 +23,23 @@ namespace Formularios
         {
             TablaEmpleado te = new TablaEmpleado();
             te.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Menuprincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void cerrarSeccionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Iniciarsecion ini= new Iniciarsecion();
+            ini.Show();
+            this.Hide();
         }
     }
 }

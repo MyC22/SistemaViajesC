@@ -30,23 +30,49 @@ namespace Objetos
             if (dr.HasRows == true) {con.Close(); return true; }
             else {con.Close(); return false;}
         }
-        public Boolean Validar(Usuario u)
+        public Boolean ValidarDni(empleado e)
         {
             Conexion con = new Conexion();
-            SqlCommand cmd = new SqlCommand("Select Usuario from Usuario where (Usuario = @Usuario and Contrasena = @Contrasena)", con.Open());
+            SqlCommand cmd = new SqlCommand("Select Dni from Empleado where Dni = @dni", con.Open());
+            cmd.Parameters.AddWithValue("@dni", e.dni);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows == true) { con.Close(); return true; }
+            else { con.Close(); return false; }
+        }
+        public int  Validar(Usuario u)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("Select IDEmpleado from Usuario where (Usuario = @Usuario and Contrasena = @Contrasena)", con.Open());
             cmd.Parameters.AddWithValue("@Usuario", u.usuario);
             cmd.Parameters.AddWithValue("@Contrasena", u.contraseña);
             SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows == true) {con.Close(); return true;}
-            else {con.Close(); return  false;}
+            if (dr.Read())
+            {
+                if(dr.FieldCount < 2)
+                { return (int)dr["IDEmpleado"];}
+                else { return 0; }
+            }else { return 0; }
             
         }
         public DataTable listarEmpleado()
         {
             Conexion con = new Conexion();
             DataTable dt = new DataTable();
-            SqlDataAdapter cmd = new SqlDataAdapter("Select e.ID,e.Nombres,e.Apellido,c.Cargo from Empleado as e inner join Cargo as c on e.IDCargo = c.ID", con.Open());
+            SqlDataAdapter cmd = new SqlDataAdapter("Select e.ID,e.Nombres,e.Apellido,e.Dni,c.Cargo from Empleado as e inner join Cargo as c on e.IDCargo = c.ID", con.Open());
             cmd.Fill(dt);
+            con.Close();
+            return dt;
+        }
+        public DataTable buscarEmpleado(String filtro, String nombre)
+        {
+            Conexion con = new Conexion();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("buscarEmpleado", con.Open());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@filtro", filtro);
+            cmd.Parameters.AddWithValue("@nombre", nombre);
+            SqlDataAdapter dr = new SqlDataAdapter(cmd);
+            dr.Fill(dt);
             con.Close();
             return dt;
         }
@@ -76,5 +102,34 @@ namespace Objetos
             con.Close();
             return dt;
         }
+        public SqlDataReader listarEmpleadoId(int id)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("listarEmpleadoId", con.Open());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+
+        }
+        public void editarEmpleado(empleado e, Usuario u)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("editarEmpleado", con.Open());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@idempleado", e.id);
+            cmd.Parameters.AddWithValue("@nombre", e.nombre);
+            cmd.Parameters.AddWithValue("@apellido", e.apellido);
+            cmd.Parameters.AddWithValue("@Dni", e.dni);
+            cmd.Parameters.AddWithValue("@Edad", e.edad);
+            cmd.Parameters.AddWithValue("@sexo", e.sexo);
+            cmd.Parameters.AddWithValue("@idcargo", e.cargo);
+            cmd.Parameters.AddWithValue("@usuario", u.usuario);
+            cmd.Parameters.AddWithValue("@tipo", u.tipo);
+            cmd.Parameters.AddWithValue("@contrasena", u.contraseña);
+            cmd.ExecuteNonQuery();
+
+        }
+
     }
 }
