@@ -46,109 +46,100 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buscarboletos.cs">
+    <Compile Include="BuscarBoletos\Buscarboletos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Buscarboletos.Designer.cs">
+    <Compile Include="BuscarBoletos\Buscarboletos.Designer.cs">
       <DependentUpon>Buscarboletos.cs</DependentUpon>
     </Compile>
-    <Compile Include="BuscarFactura.cs">
+    <Compile Include="BuscarFactura\BuscarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BuscarFactura.designer.cs">
+    <Compile Include="BuscarFactura\BuscarFactura.designer.cs">
       <DependentUpon>BuscarFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearBoleto.cs">
+    <Compile Include="CrearBoleto\CrearBoleto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearBoleto.designer.cs">
+    <Compile Include="CrearBoleto\CrearBoleto.designer.cs">
       <DependentUpon>CrearBoleto.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearViajes.cs">
+    <Compile Include="CrearViajes\CrearViajes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearViajes.designer.cs">
+    <Compile Include="CrearViajes\CrearViajes.designer.cs">
       <DependentUpon>CrearViajes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Iniciarsecion.cs">
+    <Compile Include="IniciarSeccion\Iniciarsecion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Iniciarsecion.designer.cs">
+    <Compile Include="IniciarSeccion\Iniciarsecion.designer.cs">
       <DependentUpon>Iniciarsecion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menuprincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menuprincipal.Designer.cs">
-      <DependentUpon>Menuprincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Seleccionarprograma.cs">
+    <Compile Include="SeleccionarPrograma\Seleccionarprograma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seleccionarprograma.designer.cs">
+    <Compile Include="SeleccionarPrograma\Seleccionarprograma.designer.cs">
       <DependentUpon>Seleccionarprograma.cs</DependentUpon>
     </Compile>
-    <Compile Include="SeleccionarCliente.cs">
+    <Compile Include="SelecionarCliente\SeleccionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SeleccionarCliente.designer.cs">
+    <Compile Include="SelecionarCliente\SeleccionarCliente.designer.cs">
       <DependentUpon>SeleccionarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="TablaBuses.cs">
+    <Compile Include="TablaBuses\TablaBuses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TablaBuses.designer.cs">
+    <Compile Include="TablaBuses\TablaBuses.designer.cs">
       <DependentUpon>TablaBuses.cs</DependentUpon>
     </Compile>
-    <Compile Include="TablaCargos.cs">
+    <Compile Include="TablaCargo\TablaCargos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TablaCargos.designer.cs">
+    <Compile Include="TablaCargo\TablaCargos.designer.cs">
       <DependentUpon>TablaCargos.cs</DependentUpon>
     </Compile>
-    <Compile Include="TablaCliente.cs">
+    <Compile Include="TablaCliente\TablaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TablaCliente.designer.cs">
+    <Compile Include="TablaCliente\TablaCliente.designer.cs">
       <DependentUpon>TablaCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="TablaEmpleado.cs">
+    <Compile Include="TablaEmpleado\TablaEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TablaEmpleado.designer.cs">
+    <Compile Include="TablaEmpleado\TablaEmpleado.designer.cs">
       <DependentUpon>TablaEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="TablaModelo.cs">
+    <Compile Include="TablaModelo\TablaModelo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TablaModelo.designer.cs">
+    <Compile Include="TablaModelo\TablaModelo.designer.cs">
       <DependentUpon>TablaModelo.cs</DependentUpon>
     </Compile>
-    <Compile Include="TablaPrograma.cs">
+    <Compile Include="TablaPrograma\TablaPrograma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TablaPrograma.designer.cs">
+    <Compile Include="TablaPrograma\TablaPrograma.designer.cs">
       <DependentUpon>TablaPrograma.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Buscarboletos.resx">
+    <EmbeddedResource Include="BuscarBoletos\Buscarboletos.resx">
       <DependentUpon>Buscarboletos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BuscarFactura.resx">
+    <EmbeddedResource Include="BuscarFactura\BuscarFactura.resx">
       <DependentUpon>BuscarFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrearBoleto.resx">
+    <EmbeddedResource Include="CrearBoleto\CrearBoleto.resx">
       <DependentUpon>CrearBoleto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrearViajes.resx">
+    <EmbeddedResource Include="CrearViajes\CrearViajes.resx">
       <DependentUpon>CrearViajes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Iniciarsecion.resx">
+    <EmbeddedResource Include="IniciarSeccion\Iniciarsecion.resx">
       <DependentUpon>Iniciarsecion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menuprincipal.resx">
-      <DependentUpon>Menuprincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,28 +150,28 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Seleccionarprograma.resx">
+    <EmbeddedResource Include="SeleccionarPrograma\Seleccionarprograma.resx">
       <DependentUpon>Seleccionarprograma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SeleccionarCliente.resx">
+    <EmbeddedResource Include="SelecionarCliente\SeleccionarCliente.resx">
       <DependentUpon>SeleccionarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TablaBuses.resx">
+    <EmbeddedResource Include="TablaBuses\TablaBuses.resx">
       <DependentUpon>TablaBuses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TablaCargos.resx">
+    <EmbeddedResource Include="TablaCargo\TablaCargos.resx">
       <DependentUpon>TablaCargos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TablaCliente.resx">
+    <EmbeddedResource Include="TablaCliente\TablaCliente.resx">
       <DependentUpon>TablaCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TablaEmpleado.resx">
+    <EmbeddedResource Include="TablaEmpleado\TablaEmpleado.resx">
       <DependentUpon>TablaEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TablaModelo.resx">
+    <EmbeddedResource Include="TablaModelo\TablaModelo.resx">
       <DependentUpon>TablaModelo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TablaPrograma.resx">
+    <EmbeddedResource Include="TablaPrograma\TablaPrograma.resx">
       <DependentUpon>TablaPrograma.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -196,6 +187,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\icons8-cerrar-ventana-48.png" />
+    <Content Include="Resources\icons8-maximizar-40.png" />
+    <Content Include="Resources\icons8-minimizar-48.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

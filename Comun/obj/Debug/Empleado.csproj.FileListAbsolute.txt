@@ -1,0 +1,6 @@
+C:\Users\Nonename.DESKTOP-L06N8E0\Downloads\SistemaViajesC-master\Comun\bin\Debug\Comun.dll
+C:\Users\Nonename.DESKTOP-L06N8E0\Downloads\SistemaViajesC-master\Comun\bin\Debug\Comun.pdb
+C:\Users\Nonename.DESKTOP-L06N8E0\Downloads\SistemaViajesC-master\Comun\obj\Debug\Empleado.csproj.AssemblyReference.cache
+C:\Users\Nonename.DESKTOP-L06N8E0\Downloads\SistemaViajesC-master\Comun\obj\Debug\Empleado.csproj.CoreCompileInputs.cache
+C:\Users\Nonename.DESKTOP-L06N8E0\Downloads\SistemaViajesC-master\Comun\obj\Debug\Comun.dll
+C:\Users\Nonename.DESKTOP-L06N8E0\Downloads\SistemaViajesC-master\Comun\obj\Debug\Comun.pdb
