@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Empleado.Atributos
+namespace Objetos
 {
     public class Empleados
     {

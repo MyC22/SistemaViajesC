@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace DatoEmpleado.Conexion
+namespace Objetos
 {
-    public class ConexionBD
+    public class Conexion
     {
-        private SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=CRUD_N_CAPAS;Integrated Security=True");
+        private SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=sistemaviajes;Integrated Security=True");
 
-        public SqlConnection OpenConnection() 
+        public SqlConnection Open() 
         {
             if (conn.State == ConnectionState.Closed) conn.Open();
             return conn;
         }
 
-        public SqlConnection CloseConnection()
+        public SqlConnection Close()
         {
             if(conn.State == ConnectionState.Open) conn.Close(); 
             return conn;

@@ -76,6 +76,12 @@
     <Compile Include="IniciarSeccion\Iniciarsecion.designer.cs">
       <DependentUpon>Iniciarsecion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menuprincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menuprincipal.Designer.cs">
+      <DependentUpon>Menuprincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleccionarPrograma\Seleccionarprograma.cs">
@@ -141,6 +147,9 @@
     <EmbeddedResource Include="IniciarSeccion\Iniciarsecion.resx">
       <DependentUpon>Iniciarsecion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menuprincipal.resx">
+      <DependentUpon>Menuprincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -191,6 +200,12 @@
     <Content Include="Resources\icons8-cerrar-ventana-48.png" />
     <Content Include="Resources\icons8-maximizar-40.png" />
     <Content Include="Resources\icons8-minimizar-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Objetos\Objetos.csproj">
+      <Project>{53073a8f-1f54-4b39-9cfb-e4f3f1f4baf0}</Project>
+      <Name>Objetos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

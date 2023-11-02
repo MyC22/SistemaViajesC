@@ -1,0 +1,6 @@
+C:\Users\Nonename.DESKTOP-L06N8E0\Documents\GitHub\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.AssemblyReference.cache
+C:\Users\Nonename.DESKTOP-L06N8E0\Documents\GitHub\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.CoreCompileInputs.cache
+C:\Users\Nonename.DESKTOP-L06N8E0\Documents\GitHub\SistemaViajesC\Objetos\bin\Debug\Objetos.dll
+C:\Users\Nonename.DESKTOP-L06N8E0\Documents\GitHub\SistemaViajesC\Objetos\bin\Debug\Objetos.pdb
+C:\Users\Nonename.DESKTOP-L06N8E0\Documents\GitHub\SistemaViajesC\Objetos\obj\Debug\Objetos.dll
+C:\Users\Nonename.DESKTOP-L06N8E0\Documents\GitHub\SistemaViajesC\Objetos\obj\Debug\Objetos.pdb

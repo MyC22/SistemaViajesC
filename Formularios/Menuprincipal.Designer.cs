@@ -40,10 +40,10 @@
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.boletosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reservacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.boletosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.recervacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reservacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,13 +72,13 @@
             // cerrarSeccionToolStripMenuItem
             // 
             this.cerrarSeccionToolStripMenuItem.Name = "cerrarSeccionToolStripMenuItem";
-            this.cerrarSeccionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSeccionToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cerrarSeccionToolStripMenuItem.Text = "Cerrar Seccion";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // datosToolStripMenuItem
@@ -103,6 +103,7 @@
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
             this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.empleadosToolStripMenuItem.Text = "Empleados";
+            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
             // busesToolStripMenuItem
             // 
@@ -129,14 +130,20 @@
             // boletosToolStripMenuItem
             // 
             this.boletosToolStripMenuItem.Name = "boletosToolStripMenuItem";
-            this.boletosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.boletosToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.boletosToolStripMenuItem.Text = "Boletos";
             // 
             // facturasToolStripMenuItem
             // 
             this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
-            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.facturasToolStripMenuItem.Text = "Facturas";
+            // 
+            // reservacionesToolStripMenuItem
+            // 
+            this.reservacionesToolStripMenuItem.Name = "reservacionesToolStripMenuItem";
+            this.reservacionesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.reservacionesToolStripMenuItem.Text = "Reservaciones";
             // 
             // crearToolStripMenuItem
             // 
@@ -150,20 +157,14 @@
             // boletosToolStripMenuItem1
             // 
             this.boletosToolStripMenuItem1.Name = "boletosToolStripMenuItem1";
-            this.boletosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.boletosToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
             this.boletosToolStripMenuItem1.Text = "Boletos";
             // 
             // recervacionesToolStripMenuItem
             // 
             this.recervacionesToolStripMenuItem.Name = "recervacionesToolStripMenuItem";
-            this.recervacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recervacionesToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.recervacionesToolStripMenuItem.Text = "Recervaciones";
-            // 
-            // reservacionesToolStripMenuItem
-            // 
-            this.reservacionesToolStripMenuItem.Name = "reservacionesToolStripMenuItem";
-            this.reservacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reservacionesToolStripMenuItem.Text = "Reservaciones";
             // 
             // Menuprincipal
             // 

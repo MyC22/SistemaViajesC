@@ -31,10 +31,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,23 +42,24 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txtnombre = new System.Windows.Forms.TextBox();
+            this.txtapellido = new System.Windows.Forms.TextBox();
+            this.txtusuario = new System.Windows.Forms.TextBox();
+            this.cbsexo = new System.Windows.Forms.ComboBox();
+            this.cbcargo = new System.Windows.Forms.ComboBox();
+            this.cbpermisos = new System.Windows.Forms.ComboBox();
+            this.numedad = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.txtcontraseña = new System.Windows.Forms.TextBox();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnAñadir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtdni = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numedad)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -88,39 +85,10 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.nombre,
-            this.apellido,
-            this.cargo});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 124);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 140);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(414, 271);
+            this.dataGridView1.Size = new System.Drawing.Size(414, 255);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "⁯ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            // 
-            // cargo
-            // 
-            this.cargo.HeaderText = "cargo";
-            this.cargo.Name = "cargo";
-            this.cargo.ReadOnly = true;
             // 
             // comboBox1
             // 
@@ -219,64 +187,60 @@
             this.label10.TabIndex = 13;
             this.label10.Text = "Permisos";
             // 
-            // textBox2
+            // txtnombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(558, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 14;
+            this.txtnombre.Location = new System.Drawing.Point(558, 84);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(120, 20);
+            this.txtnombre.TabIndex = 14;
             // 
-            // textBox3
+            // txtapellido
             // 
-            this.textBox3.Location = new System.Drawing.Point(558, 119);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 15;
+            this.txtapellido.Location = new System.Drawing.Point(558, 119);
+            this.txtapellido.Name = "txtapellido";
+            this.txtapellido.Size = new System.Drawing.Size(120, 20);
+            this.txtapellido.TabIndex = 15;
             // 
-            // textBox4
+            // txtusuario
             // 
-            this.textBox4.Location = new System.Drawing.Point(558, 154);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(120, 20);
-            this.textBox4.TabIndex = 16;
+            this.txtusuario.Location = new System.Drawing.Point(558, 294);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(120, 20);
+            this.txtusuario.TabIndex = 17;
             // 
-            // textBox5
+            // cbsexo
             // 
-            this.textBox5.Location = new System.Drawing.Point(558, 294);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(120, 20);
-            this.textBox5.TabIndex = 17;
+            this.cbsexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbsexo.FormattingEnabled = true;
+            this.cbsexo.Location = new System.Drawing.Point(557, 224);
+            this.cbsexo.Name = "cbsexo";
+            this.cbsexo.Size = new System.Drawing.Size(121, 21);
+            this.cbsexo.TabIndex = 18;
             // 
-            // comboBox2
+            // cbcargo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(557, 224);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 18;
+            this.cbcargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbcargo.FormattingEnabled = true;
+            this.cbcargo.Location = new System.Drawing.Point(557, 259);
+            this.cbcargo.Name = "cbcargo";
+            this.cbcargo.Size = new System.Drawing.Size(121, 21);
+            this.cbcargo.TabIndex = 19;
             // 
-            // comboBox3
+            // cbpermisos
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(557, 259);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 19;
+            this.cbpermisos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbpermisos.FormattingEnabled = true;
+            this.cbpermisos.Location = new System.Drawing.Point(558, 329);
+            this.cbpermisos.Name = "cbpermisos";
+            this.cbpermisos.Size = new System.Drawing.Size(121, 21);
+            this.cbpermisos.TabIndex = 20;
             // 
-            // comboBox4
+            // numedad
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(558, 329);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 20;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(558, 190);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 21;
+            this.numedad.Location = new System.Drawing.Point(558, 190);
+            this.numedad.Name = "numedad";
+            this.numedad.Size = new System.Drawing.Size(120, 20);
+            this.numedad.TabIndex = 21;
             // 
             // label11
             // 
@@ -287,78 +251,100 @@
             this.label11.TabIndex = 22;
             this.label11.Text = "Contraseña";
             // 
-            // textBox6
+            // txtcontraseña
             // 
-            this.textBox6.Location = new System.Drawing.Point(557, 363);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(120, 20);
-            this.textBox6.TabIndex = 23;
+            this.txtcontraseña.Location = new System.Drawing.Point(557, 363);
+            this.txtcontraseña.Name = "txtcontraseña";
+            this.txtcontraseña.Size = new System.Drawing.Size(120, 20);
+            this.txtcontraseña.TabIndex = 23;
             // 
-            // button2
+            // btnEditar
             // 
-            this.button2.Location = new System.Drawing.Point(731, 148);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEditar.Location = new System.Drawing.Point(731, 148);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 24;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAñadir
             // 
-            this.button3.Location = new System.Drawing.Point(731, 87);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 25;
-            this.button3.Text = "Añadir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAñadir.Location = new System.Drawing.Point(731, 87);
+            this.btnAñadir.Name = "btnAñadir";
+            this.btnAñadir.Size = new System.Drawing.Size(75, 23);
+            this.btnAñadir.TabIndex = 25;
+            this.btnAñadir.Text = "Añadir";
+            this.btnAñadir.UseVisualStyleBackColor = true;
+            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
-            // button4
+            // btnCancelar
             // 
-            this.button4.Location = new System.Drawing.Point(731, 270);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 26;
-            this.button4.Text = "Cancelar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(731, 270);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 26;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button5
+            // btnSalir
             // 
-            this.button5.Location = new System.Drawing.Point(731, 331);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 27;
-            this.button5.Text = "Salir";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnSalir.Location = new System.Drawing.Point(731, 331);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 27;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnGuardar
             // 
-            this.button6.Location = new System.Drawing.Point(731, 209);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 28;
-            this.button6.Text = "Guardar";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnGuardar.Location = new System.Drawing.Point(731, 209);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 28;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // Form2
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(14, 119);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(113, 13);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Selecciona para editar";
+            // 
+            // txtdni
+            // 
+            this.txtdni.Location = new System.Drawing.Point(558, 154);
+            this.txtdni.Mask = "99999999";
+            this.txtdni.Name = "txtdni";
+            this.txtdni.Size = new System.Drawing.Size(119, 20);
+            this.txtdni.TabIndex = 30;
+            this.txtdni.ValidatingType = typeof(int);
+            // 
+            // TablaEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 437);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtdni);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAñadir);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.txtcontraseña);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.numedad);
+            this.Controls.Add(this.cbpermisos);
+            this.Controls.Add(this.cbcargo);
+            this.Controls.Add(this.cbsexo);
+            this.Controls.Add(this.txtusuario);
+            this.Controls.Add(this.txtapellido);
+            this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -373,10 +359,11 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "Form2";
+            this.Name = "TablaEmpleado";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.TablaEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numedad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,10 +374,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
@@ -402,20 +385,21 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox txtnombre;
+        private System.Windows.Forms.TextBox txtapellido;
+        private System.Windows.Forms.TextBox txtusuario;
+        private System.Windows.Forms.ComboBox cbsexo;
+        private System.Windows.Forms.ComboBox cbcargo;
+        private System.Windows.Forms.ComboBox cbpermisos;
+        private System.Windows.Forms.NumericUpDown numedad;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txtcontraseña;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnAñadir;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox txtdni;
     }
 }

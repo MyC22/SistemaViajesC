@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using DatoEmpleado.Conexion;
 using System.Data;
-using Empleado.Atributos;
+using Objetos;
 
-namespace DatoEmpleado.Entidades
+namespace Objetos
 {
     public class DatoEmpleados
     {
         //Variables
-        ConexionBD conn = new ConexionBD();
+        Conexion conn = new Conexion();
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
         DataTable td = new DataTable();
@@ -22,7 +21,7 @@ namespace DatoEmpleado.Entidades
         {
             try
             {
-                cmd.Connection = conn.OpenConnection();
+                cmd.Connection = conn.Open();
                 cmd.CommandText = "SP_Mostrar";
                 cmd.CommandType = CommandType.StoredProcedure;
                 dr = cmd.ExecuteReader();
@@ -34,7 +33,7 @@ namespace DatoEmpleado.Entidades
             }
             finally
             {
-                cmd.Connection = conn.CloseConnection();
+                cmd.Connection = conn.Close();
             }
             return td;
         }
@@ -43,7 +42,7 @@ namespace DatoEmpleado.Entidades
         {
             try
             {
-                cmd.Connection = conn.OpenConnection();
+                cmd.Connection = conn.Open();
                 cmd.CommandText = "SP_Buscar";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Buscar", Buscar);
@@ -57,7 +56,7 @@ namespace DatoEmpleado.Entidades
             }
             finally
             {
-                cmd.Connection = conn.CloseConnection();
+                cmd.Connection = conn.Close();
             }
             return td;
         }
@@ -66,7 +65,7 @@ namespace DatoEmpleado.Entidades
         {
             try
             {
-                cmd.Connection = conn.OpenConnection();
+                cmd.Connection = conn.Open();
                 cmd.CommandText = "SP_Insertar";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID", obj.ID);
@@ -82,7 +81,7 @@ namespace DatoEmpleado.Entidades
             }
             finally
             {
-                cmd.Connection = conn.CloseConnection();
+                cmd.Connection = conn.Close();
             }
         }
 
@@ -90,7 +89,7 @@ namespace DatoEmpleado.Entidades
         {
             try
             {
-                cmd.Connection = conn.OpenConnection();
+                cmd.Connection = conn.Open();
                 cmd.CommandText = "SP_Modificar";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID", obj.ID);
@@ -106,7 +105,7 @@ namespace DatoEmpleado.Entidades
             }
             finally
             {
-                cmd.Connection = conn.CloseConnection();
+                cmd.Connection = conn.Close();
             }
         }
 
@@ -114,7 +113,7 @@ namespace DatoEmpleado.Entidades
         {
             try
             {
-                cmd.Connection = conn.OpenConnection();
+                cmd.Connection = conn.Open();
                 cmd.CommandText = "SP_Eliminar";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID", obj.ID);
@@ -127,7 +126,7 @@ namespace DatoEmpleado.Entidades
             }
             finally
             {
-                cmd.Connection = conn.CloseConnection();
+                cmd.Connection = conn.Close();
             }
         }
     }

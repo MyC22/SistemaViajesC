@@ -51,6 +51,7 @@
     <Compile Include="Empleado\DatoEmpleados.cs" />
     <Compile Include="Empleado\Empleado.cs" />
     <Compile Include="Empleado\Empleados.cs" />
+    <Compile Include="Empleado\ModeloEmpleado.cs" />
     <Compile Include="Factura\Factura.cs" />
     <Compile Include="Pasajero\Pasajero.cs" />
     <Compile Include="Programacion\Programacion.cs" />

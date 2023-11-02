@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Objetos.Boletos
+namespace Objetos
 {
     internal class ModeloBoleto
     {

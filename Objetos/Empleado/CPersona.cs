@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using DatoEmpleado.Entidades;
-using Empleado.Atributos;
 
-namespace Dominio.Crud
+
+namespace Objetos
 {
     public class CPersona
     {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Objetos;
+using sistema_de_viajes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,12 @@ namespace Formularios
         public Menuprincipal()
         {
             InitializeComponent();
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TablaEmpleado te = new TablaEmpleado();
+            te.Show();
         }
     }
 }
