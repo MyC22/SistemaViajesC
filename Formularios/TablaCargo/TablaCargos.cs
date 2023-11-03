@@ -17,5 +17,9 @@ namespace sistema_de_viajes
             InitializeComponent();
         }
 
+        private void TablaCargos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
