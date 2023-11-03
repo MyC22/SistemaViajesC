@@ -44,7 +44,11 @@
     <Compile Include="Boletos\Boletos.cs" />
     <Compile Include="Boletos\ModeloBoleto.cs" />
     <Compile Include="Boletos\NegocioBoletos.cs" />
+    <Compile Include="Buses\Bus.cs" />
     <Compile Include="Buses\Buses.cs" />
+    <Compile Include="Buses\CBuss.cs" />
+    <Compile Include="Buses\DatoBuss.cs" />
+    <Compile Include="Buses\ModeloBuss.cs" />
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ModeloCliente.cs" />
     <Compile Include="Clientes\NegocioCliente.cs" />
