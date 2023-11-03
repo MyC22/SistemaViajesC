@@ -10,7 +10,7 @@ namespace Objetos
 {
     public class Conexion
     {
-        private SqlConnection conn = new SqlConnection("Data Source=DESKTOP-69GMECD\\SQLEXPRESS;Initial Catalog=sistemaviajes;Integrated Security=True");
+        private SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=sistemaviajes;Integrated Security=True");
 
         public SqlConnection Open() 
         {
