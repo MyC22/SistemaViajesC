@@ -52,6 +52,8 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -169,6 +171,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.textBox5);
@@ -191,7 +195,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(537, 63);
+            this.comboBox2.Location = new System.Drawing.Point(803, 63);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(177, 21);
             this.comboBox2.TabIndex = 34;
@@ -199,7 +203,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(485, 66);
+            this.label7.Location = new System.Drawing.Point(742, 66);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 33;
@@ -207,15 +211,15 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(282, 64);
+            this.textBox5.Location = new System.Drawing.Point(537, 63);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(197, 20);
+            this.textBox5.Size = new System.Drawing.Size(199, 20);
             this.textBox5.TabIndex = 32;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(234, 67);
+            this.label6.Location = new System.Drawing.Point(489, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 31;
@@ -224,15 +228,15 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(52, 64);
+            this.comboBox1.Location = new System.Drawing.Point(282, 63);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(171, 21);
+            this.comboBox1.Size = new System.Drawing.Size(201, 21);
             this.comboBox1.TabIndex = 30;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 67);
+            this.label5.Location = new System.Drawing.Point(245, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 29;
@@ -262,6 +266,22 @@
             this.button6.Size = new System.Drawing.Size(34, 33);
             this.button6.TabIndex = 127;
             this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 70);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 13);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "DNI:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(52, 64);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(187, 20);
+            this.textBox6.TabIndex = 36;
             // 
             // CrearBoleto
             // 
@@ -308,5 +328,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label8;
     }
 }
