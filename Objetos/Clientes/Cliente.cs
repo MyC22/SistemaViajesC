@@ -10,9 +10,20 @@ namespace Objetos
             public string nombre { get; set; }
             public string apellido { get; set; }
             public string dni { get; set; }
-            public string correo { get; set; }
             public int celular { get; set; }
-            public DateTime nacimiento { get; set; }
+        }
+
+        public class destino
+        {
+            public int id { get; set; }
+            public string lugar { get; set;}
+
+        }
+
+        public class tipo 
+        {
+            public int id { get; set; }
+            public string calidad {  get; set; }
         }
     }
 }
