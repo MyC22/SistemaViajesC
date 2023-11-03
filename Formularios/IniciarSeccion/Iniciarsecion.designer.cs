@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Iniciarsecion));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txtusuario = new System.Windows.Forms.TextBox();
             this.txtcontraseña = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 34);
+            this.label1.Location = new System.Drawing.Point(51, 180);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
@@ -47,7 +49,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 70);
+            this.label2.Location = new System.Drawing.Point(33, 215);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 1;
@@ -55,35 +57,44 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(95, 107);
+            this.button1.Location = new System.Drawing.Point(136, 257);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Ingresar";
+            this.button1.Text = "Inciar Sesion";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtusuario
             // 
-            this.txtusuario.Location = new System.Drawing.Point(143, 31);
+            this.txtusuario.Location = new System.Drawing.Point(109, 177);
             this.txtusuario.Name = "txtusuario";
-            this.txtusuario.Size = new System.Drawing.Size(100, 20);
+            this.txtusuario.Size = new System.Drawing.Size(168, 20);
             this.txtusuario.TabIndex = 3;
             // 
             // txtcontraseña
             // 
-            this.txtcontraseña.Location = new System.Drawing.Point(143, 67);
+            this.txtcontraseña.Location = new System.Drawing.Point(109, 212);
             this.txtcontraseña.Name = "txtcontraseña";
             this.txtcontraseña.PasswordChar = '*';
-            this.txtcontraseña.Size = new System.Drawing.Size(100, 20);
+            this.txtcontraseña.Size = new System.Drawing.Size(168, 20);
             this.txtcontraseña.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Location = new System.Drawing.Point(126, 23);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(127, 127);
+            this.panel1.TabIndex = 5;
             // 
             // Iniciarsecion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(286, 155);
+            this.ClientSize = new System.Drawing.Size(378, 307);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtcontraseña);
             this.Controls.Add(this.txtusuario);
             this.Controls.Add(this.button1);
@@ -104,6 +115,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtusuario;
         private System.Windows.Forms.TextBox txtcontraseña;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
