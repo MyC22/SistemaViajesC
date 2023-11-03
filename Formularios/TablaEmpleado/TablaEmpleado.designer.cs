@@ -357,6 +357,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "TablaEmpleado";
             this.Text = "Tabla Empleado";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TablaEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numedad)).EndInit();

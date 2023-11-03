@@ -279,6 +279,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Buscarboletos";
             this.Text = "Buscar Boletos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Buscarboletos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);

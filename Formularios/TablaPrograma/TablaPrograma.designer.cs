@@ -416,6 +416,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "TablaPrograma";
             this.Text = "Crear Programa";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form7_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

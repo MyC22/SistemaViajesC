@@ -67,7 +67,7 @@ namespace sistema_de_viajes
         }
         private void TablaEmpleado_Load(object sender, EventArgs e)
         {
-            label2.Text = "";
+            /*label2.Text = "";
             dataGridView1.DataSource = me.listarEmpleado();
             btnEditar.Enabled = false;
             btnGuardar.Enabled = false;
@@ -79,7 +79,7 @@ namespace sistema_de_viajes
             cbcargo.ValueMember = "ID";
             cbcargo.DisplayMember = "Cargo";
             cbcargo.SelectedIndex = -1;
-            desactivartxt();
+            desactivartxt();*/
         }
         private void desactivartxt()
         {
@@ -108,19 +108,19 @@ namespace sistema_de_viajes
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            label2.Text = "Añadir";
+            /*label2.Text = "Añadir";
             estado = "g";
             btnGuardar.Enabled=true;
-            activartxt();
+            activartxt();*/
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            btnEditar.Enabled = false;
+            /*btnEditar.Enabled = false;
             btnGuardar.Enabled = false;
             btnAñadir.Enabled = true;
             limpiar();
-            desactivartxt();
+            desactivartxt();*/
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -179,7 +179,7 @@ namespace sistema_de_viajes
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            /*int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
             em.id = id;
             label2.Text = "Descripcion";
             SqlDataReader dr= me.listarEmpleadoId(id);
@@ -199,18 +199,18 @@ namespace sistema_de_viajes
                 btnEditar.Enabled = true;
 
             }
-            datos();
+            datos();*/
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            label2.Text = "Editar";
+            /*label2.Text = "Editar";
             estado = "e";
             btnGuardar.Enabled = true;
             activartxt();
-            btnAñadir.Enabled = false;
+            btnAñadir.Enabled = false; */
         }
-
+            
         private void button1_Click(object sender, EventArgs e)
         {
             if(txtfiltro.Text != "")

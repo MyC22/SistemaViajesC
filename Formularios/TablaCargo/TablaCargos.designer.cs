@@ -175,6 +175,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "TablaCargos";
             this.Text = "Cargos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TablaCargos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
