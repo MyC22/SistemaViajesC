@@ -307,6 +307,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "BuscarFactura";
             this.Text = "Buscar Factura";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BuscarFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);

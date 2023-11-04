@@ -362,7 +362,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "TablaCliente";
             this.Text = "Clientes";
-            this.Load += new System.EventHandler(this.TablaCliente_Load);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

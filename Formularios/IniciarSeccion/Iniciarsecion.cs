@@ -8,31 +8,31 @@ namespace sistema_de_viajes
 {
     public partial class Iniciarsecion : Form
     {
+        private ModeloEmpleado me = new ModeloEmpleado();
+        private Usuario u = new Usuario();
+        private bool usuarioHaIniciadoSesion = false;
+
         public Iniciarsecion()
         {
-            InitializeComponent();  
+            InitializeComponent();
         }
-        ModeloEmpleado me = new ModeloEmpleado();
-        Usuario u = new Usuario();
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (me.leerUsuario().HasRows == false)
+            if (me.leerUsuario().HasRows == false && !usuarioHaIniciadoSesion)
             {
-                this.Hide();
-                TablaEmpleado te = new TablaEmpleado();
-                te.Show();
-                te.nuevo = true;
-                MessageBox.Show("Bienvenido, create tu nuevo usuario como empleado");
+                MessageBox.Show("Bienvenido, Inicie seccion para entrar al programa");
             }
         }
+
         private void leer()
         {
             u.usuario = txtusuario.Text;
             u.contraseña = txtcontraseña.Text;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-
             leer();
             if (me.ValidarUser(u))
             {
@@ -41,10 +41,17 @@ namespace sistema_de_viajes
                     Menuprincipal menu = new Menuprincipal(me.Validar(u));
                     menu.Show();
                     this.Hide();
+                    usuarioHaIniciadoSesion = true;
                 }
-                else MessageBox.Show("Error en la contraseña");
+                else
+                {
+                    MessageBox.Show("Error en la contraseña");
+                }
             }
-            else MessageBox.Show("Error en el usuario");
+            else
+            {
+                MessageBox.Show("Error en el usuario");
+            }
         }
     }
 }

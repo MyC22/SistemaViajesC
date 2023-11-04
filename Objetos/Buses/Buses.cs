@@ -1,25 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Objetos
+namespace Objetos.Buses
 {
-    public class Buses
+    internal class Buses
     {
-        public class buses
-        {
-            public int id { get; set; }
-            public int modelo { get; set; }
-            public string placa { get; set; }
-            public string lugar { get; set; }
-            public DateTime disponible { get; set; }
-        }
-        public class modelo
-        {
-            public int id { get; set; }
-            public string nombre { get; set; }
-            public string tamaño { get; set; }
-            public int asientos { get; set; }
-            public int pisos { get; set; }
-        }
+      
+            private int Placa;
+            private string Color;
 
+            private string Estado;
+
+            public int placa { get => Placa; set => Placa = value; }
+            public string color { get => Color; set => Color = value; }
+            public string estado { get => Estado; set => Estado = value; }
+
+
+
+            ///public string Sexo { get => sexo; set => sexo = value; }
+        
     }
 }

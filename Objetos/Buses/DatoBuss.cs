@@ -5,24 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
-using Objetos;
 
-namespace Objetos
+namespace Objetos.Buses
 {
-    public class DatoEmpleados
+    internal class DatoBuss
     {
-        //Variables
         Conexion conn = new Conexion();
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
         DataTable td = new DataTable();
-
-        public DataTable Mostrar()
+        public DataTable Mostrar_Buss()
         {
             try
             {
                 cmd.Connection = conn.Open();
-                cmd.CommandText = "SP_Mostrar";
+                cmd.CommandText = "SP_Mostrar_Buss";
                 cmd.CommandType = CommandType.StoredProcedure;
                 dr = cmd.ExecuteReader();
                 td.Load(dr);
@@ -37,15 +34,14 @@ namespace Objetos
             }
             return td;
         }
-
-        public DataTable Buscar(string Buscar)
+        public DataTable Buscar_Buss(string Placa)
         {
             try
             {
                 cmd.Connection = conn.Open();
-                cmd.CommandText = "SP_Buscar";
+                cmd.CommandText = "SP_Buscar_Buss";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Buscar", Buscar);
+                cmd.Parameters.AddWithValue("@Buscar", Placa);
                 dr = cmd.ExecuteReader();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 td.Load(dr);
@@ -60,18 +56,16 @@ namespace Objetos
             }
             return td;
         }
-
-        public void Insertar(Empleados obj)
+        public void Insertar_Buss(Buses obj)
         {
             try
             {
                 cmd.Connection = conn.Open();
-                cmd.CommandText = "SP_Insertar";
+                cmd.CommandText = "SP_Insertar_Buss";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", obj.ID);
-                cmd.Parameters.AddWithValue("@Nombre", obj.Nombre);
-                cmd.Parameters.AddWithValue("@Apellido", obj.Apellido);
-                cmd.Parameters.AddWithValue("@Sexo", obj.Sexo);
+                cmd.Parameters.AddWithValue("@Placa", obj.placa);
+                cmd.Parameters.AddWithValue("@Color", obj.color);
+                cmd.Parameters.AddWithValue("@Estado", obj.estado);
                 cmd.ExecuteNonQuery();
                 cmd.Parameters.Clear();
             }
@@ -84,18 +78,16 @@ namespace Objetos
                 cmd.Connection = conn.Close();
             }
         }
-
-        public void Modificar(Empleados obj)
+        public void Modificar_Buss(Buses obj)
         {
             try
             {
                 cmd.Connection = conn.Open();
-                cmd.CommandText = "SP_Modificar";
+                cmd.CommandText = "SP_Modificar_Buss";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", obj.ID);
-                cmd.Parameters.AddWithValue("@Nombre", obj.Nombre);
-                cmd.Parameters.AddWithValue("@Apellido", obj.Apellido);
-                cmd.Parameters.AddWithValue("@Sexo", obj.Sexo);
+                cmd.Parameters.AddWithValue("@Placa", obj.placa);
+                cmd.Parameters.AddWithValue("@Color", obj.color);
+                cmd.Parameters.AddWithValue("@Estado", obj.estado);
                 cmd.ExecuteNonQuery();
                 cmd.Parameters.Clear();
             }
@@ -108,15 +100,14 @@ namespace Objetos
                 cmd.Connection = conn.Close();
             }
         }
-
-        public void Eliminar(Empleados obj)
+        public void Eliminar_Buss(Buses obj)
         {
             try
             {
                 cmd.Connection = conn.Open();
-                cmd.CommandText = "SP_Eliminar";
+                cmd.CommandText = "SP_Eliminar_Buss";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", obj.ID);
+                cmd.Parameters.AddWithValue("@Placa", obj.placa);
                 cmd.ExecuteReader();
                 cmd.Parameters.Clear();
             }

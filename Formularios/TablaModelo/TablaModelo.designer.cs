@@ -250,6 +250,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "TablaModelo";
             this.Text = "Tabla Modelo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
