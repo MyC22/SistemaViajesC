@@ -28,7 +28,7 @@ namespace sistema_de_viajes
         Usuario u = new Usuario();
         private void limpiar()
         {
-            label2.Text = "";
+            label12.Text = "";
             txtapellido.Clear();
             txtcontraseña.Clear();
             txtdni.Clear();
@@ -67,10 +67,16 @@ namespace sistema_de_viajes
         }
         private void TablaEmpleado_Load(object sender, EventArgs e)
         {
-            label2.Text = "";
+            toolTip1.SetToolTip(btnañadir, "Añadir");
+            toolTip1.SetToolTip(btneliminar, "Eliminar");
+            toolTip1.SetToolTip(btncancelar, "Cancelar");
+            toolTip1.SetToolTip(btnguardar, "Guardar");
+            toolTip1.SetToolTip(btneditar, "Editar");
+            label12.Text = "";
             dataGridView1.DataSource = me.listarEmpleado();
-            btnEditar.Enabled = false;
-            btnGuardar.Enabled = false;
+            btneditar.Enabled = false;
+            btnguardar.Enabled = false;
+            btneliminar.Enabled = false;
             cbpermisos.Items.Add("Admin");
             cbpermisos.Items.Add("Usuario");
             cbsexo.Items.Add("Masculino");
@@ -108,10 +114,14 @@ namespace sistema_de_viajes
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            label2.Text = "Añadir";
+            limpiar();
+            label12.Text = "Añadir";
             estado = "g";
-            btnGuardar.Enabled=true;
+            btnguardar.Enabled=true;
             activartxt();
+            dataGridView1.Enabled = false;
+            btneditar.Enabled = false;
+            btneliminar.Enabled = false;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -121,6 +131,7 @@ namespace sistema_de_viajes
             btnadd.Enabled = true;
             limpiar();
             desactivartxt();
+            dataGridView1.Enabled = true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -151,6 +162,11 @@ namespace sistema_de_viajes
                         limpiar();
                         desactivartxt();
                         dataGridView1.DataSource = me.listarEmpleado();
+                        dataGridView1.Enabled = true;
+                        btneditar.Enabled = false;
+                        btnguardar.Enabled = false;
+                        btnañadir.Enabled = true;
+                        btneliminar.Enabled = false;
                         MessageBox.Show("se guardo");
                     }
                     
@@ -166,6 +182,11 @@ namespace sistema_de_viajes
                         limpiar();
                         desactivartxt();
                         dataGridView1.DataSource = me.listarEmpleado();
+                        btneditar.Enabled = false;
+                        btnguardar.Enabled = false;
+                        btnañadir.Enabled = true;
+                        btneliminar.Enabled = false;
+                        dataGridView1.Enabled = true;
                         MessageBox.Show("se guardo");
                     }
                 }
@@ -181,7 +202,7 @@ namespace sistema_de_viajes
         {
             int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
             em.id = id;
-            label2.Text = "Descripcion";
+            label12.Text = "Descripcion";
             SqlDataReader dr= me.listarEmpleadoId(id);
             if (dr.Read())
             {
@@ -196,26 +217,40 @@ namespace sistema_de_viajes
                 cbpermisos.SelectedIndex = idtipo;
                 cbsexo.SelectedIndex = Convert.ToInt32(dr["SexoEmpl"].ToString());
                 numedad.Value = (int)dr["EdadEmpl"];
-                btnEditar.Enabled = true;
-
+                btneditar.Enabled = true;
+                btneliminar.Enabled = true;
             }
             datos();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            label2.Text = "Editar";
+            dataGridView1.Enabled = false;
+            label12.Text = "Editar";
             estado = "e";
-            btnGuardar.Enabled = true;
+            btnguardar.Enabled = true;
             activartxt();
             btnadd.Enabled = false;
         }
-
+            
         private void button1_Click(object sender, EventArgs e)
         {
             if(txtfiltro.Text != "")
             { dataGridView1.DataSource = me.buscarEmpleado(cbfiltro.Text, txtfiltro.Text); }
             else dataGridView1.DataSource = me.listarEmpleado();
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            me.eliminarEmpleado(em.id);
+            limpiar();
+            desactivartxt();
+            dataGridView1.Enabled = true;
+            btneditar.Enabled = false;
+            btnguardar.Enabled = false;
+            btnañadir.Enabled = true;
+            MessageBox.Show("Se elimino con exito");
+            cbcargo.DataSource = me.listarcargos();
         }
     }
 }
