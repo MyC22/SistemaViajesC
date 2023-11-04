@@ -16,10 +16,5 @@ namespace sistema_de_viajes
         {
             InitializeComponent();
         }
-
-        private void SeleccionarCliente_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

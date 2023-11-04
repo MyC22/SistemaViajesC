@@ -26,7 +26,6 @@ BEGIN
 END;
 
 go
-
 create procedure listarEmpleadoId @id int
 as begin
 select * from Empleado as e inner join Usuario as u on u.IDEmpleado = e.ID inner join Cargo as c on c.ID = e.IDCargo where @id = e.ID order by e.ID;
@@ -50,7 +49,6 @@ update  Empleado
 update Usuario set Usuario= @usuario, Contrasena=@contrasena, Tipocuenta=@tipo where IDEmpleado=@idempleado;
 end
 go
-
 CREATE PROCEDURE buscarEmpleado
     @filtro varchar(50),
 	@nombre varchar(50)

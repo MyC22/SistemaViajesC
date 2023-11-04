@@ -126,9 +126,9 @@ namespace sistema_de_viajes
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            btnEditar.Enabled = false;
-            btnGuardar.Enabled = false;
-            btnadd.Enabled = true;
+            btneditar.Enabled = false;
+            btnguardar.Enabled = false;
+            btnañadir.Enabled = true;
             limpiar();
             desactivartxt();
             dataGridView1.Enabled = true;
@@ -230,7 +230,7 @@ namespace sistema_de_viajes
             estado = "e";
             btnguardar.Enabled = true;
             activartxt();
-            btnadd.Enabled = false;
+            btnañadir.Enabled = false;
         }
             
         private void button1_Click(object sender, EventArgs e)
