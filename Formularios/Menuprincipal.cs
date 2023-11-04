@@ -84,5 +84,29 @@ namespace Formularios
             TablaPrograma tablaPrograma = new TablaPrograma();
             tablaPrograma.Show();
         }
+
+        private void cargosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TablaCargos tablaCargos = new TablaCargos();
+            tablaCargos.Show();
+        }
+
+        private void modeloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TablaModelo tablaModelo = new TablaModelo();
+            tablaModelo.Show();
+        }
+
+        private void reservacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Seleccionarprograma seleccionarprograma = new Seleccionarprograma();
+            seleccionarprograma.Show();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SeleccionarCliente seleccionarCliente = new SeleccionarCliente();
+            seleccionarCliente.Show();
+        }
     }
 }
