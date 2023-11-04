@@ -16,5 +16,10 @@ namespace sistema_de_viajes
         {
             InitializeComponent();
         }
+
+        private void TablaCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

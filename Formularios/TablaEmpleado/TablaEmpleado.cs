@@ -118,7 +118,7 @@ namespace sistema_de_viajes
         {
             btnEditar.Enabled = false;
             btnGuardar.Enabled = false;
-            btnAñadir.Enabled = true;
+            btnadd.Enabled = true;
             limpiar();
             desactivartxt();
         }
@@ -208,7 +208,7 @@ namespace sistema_de_viajes
             estado = "e";
             btnGuardar.Enabled = true;
             activartxt();
-            btnAñadir.Enabled = false;
+            btnadd.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)

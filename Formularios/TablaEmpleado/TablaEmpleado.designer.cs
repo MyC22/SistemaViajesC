@@ -53,9 +53,9 @@
             this.txtdni = new System.Windows.Forms.MaskedTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.añadir = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -294,32 +294,32 @@
             this.button5.TabIndex = 119;
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnEditar
             // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(50, 9);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(31, 33);
-            this.button3.TabIndex = 123;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.Location = new System.Drawing.Point(50, 9);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(31, 33);
+            this.btnEditar.TabIndex = 123;
+            this.btnEditar.UseVisualStyleBackColor = true;
             // 
-            // añadir
+            // btnadd
             // 
-            this.añadir.Image = ((System.Drawing.Image)(resources.GetObject("añadir.Image")));
-            this.añadir.Location = new System.Drawing.Point(12, 9);
-            this.añadir.Name = "añadir";
-            this.añadir.Size = new System.Drawing.Size(32, 33);
-            this.añadir.TabIndex = 122;
-            this.añadir.UseVisualStyleBackColor = true;
+            this.btnadd.Image = ((System.Drawing.Image)(resources.GetObject("btnadd.Image")));
+            this.btnadd.Location = new System.Drawing.Point(12, 9);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(32, 33);
+            this.btnadd.TabIndex = 122;
+            this.btnadd.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnGuardar
             // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(87, 9);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(31, 33);
-            this.button4.TabIndex = 121;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.Location = new System.Drawing.Point(87, 9);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(31, 33);
+            this.btnGuardar.TabIndex = 121;
+            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -347,9 +347,9 @@
             this.ClientSize = new System.Drawing.Size(1073, 449);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.añadir);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnadd);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtfiltro);
@@ -392,9 +392,9 @@
         private System.Windows.Forms.MaskedTextBox txtdni;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button añadir;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label2;
     }
