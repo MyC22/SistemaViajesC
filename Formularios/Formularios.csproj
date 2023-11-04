@@ -90,11 +90,11 @@
     <Compile Include="SeleccionarPrograma\Seleccionarprograma.designer.cs">
       <DependentUpon>Seleccionarprograma.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelecionarCliente\SeleccionarCliente.cs">
+    <Compile Include="SelecionarCliente\SeleecionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelecionarCliente\SeleccionarCliente.designer.cs">
-      <DependentUpon>SeleccionarCliente.cs</DependentUpon>
+    <Compile Include="SelecionarCliente\SeleecionarCliente.designer.cs">
+      <DependentUpon>SeleecionarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="TablaBuses\TablaBuses.cs">
       <SubType>Form</SubType>
@@ -162,8 +162,8 @@
     <EmbeddedResource Include="SeleccionarPrograma\Seleccionarprograma.resx">
       <DependentUpon>Seleccionarprograma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelecionarCliente\SeleccionarCliente.resx">
-      <DependentUpon>SeleccionarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="SelecionarCliente\SeleecionarCliente.resx">
+      <DependentUpon>SeleecionarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TablaBuses\TablaBuses.resx">
       <DependentUpon>TablaBuses.cs</DependentUpon>

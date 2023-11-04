@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace sistema_de_viajes
 {
-    public partial class TablaCliente : Form
+    public partial class SeleecionarCliente : Form
     {
-        public TablaCliente()
+        public SeleecionarCliente()
         {
             InitializeComponent();
         }

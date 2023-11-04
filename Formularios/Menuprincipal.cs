@@ -69,7 +69,7 @@ namespace Formularios
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TablaCliente tablaCliente = new TablaCliente();
+            SeleecionarCliente tablaCliente = new TablaCliente();
             tablaCliente.Show();
         }
 
