@@ -61,5 +61,10 @@ else if @filtro = 'Nombres'
 else if @filtro = 'Dni'
    Select e.ID,e.Nombres,e.Apellido,e.Dni,c.Cargo from Empleado as e  inner join Cargo as c on e.IDCargo = c.ID where e.Dni LIKe '%' + @nombre + '%';
 END;
+go
 
-
+create procedure eliminarEmpleado @id int  as
+begin
+delete from Usuario where IDEmpleado = @id;
+delete from Empleado where ID = @id;
+end;

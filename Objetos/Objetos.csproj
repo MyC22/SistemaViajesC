@@ -53,10 +53,7 @@
     <Compile Include="Clientes\ModeloCliente.cs" />
     <Compile Include="Clientes\NegocioCliente.cs" />
     <Compile Include="Conexion\ConexionBD.cs" />
-    <Compile Include="Empleado\CPersona.cs" />
-    <Compile Include="Empleado\DatoEmpleados.cs" />
     <Compile Include="Empleado\Empleado.cs" />
-    <Compile Include="Empleado\Empleados.cs" />
     <Compile Include="Empleado\ModeloEmpleado.cs" />
     <Compile Include="Factura\Factura.cs" />
     <Compile Include="Pasajero\Pasajero.cs" />

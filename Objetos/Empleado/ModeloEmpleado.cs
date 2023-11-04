@@ -130,6 +130,14 @@ namespace Objetos
             cmd.ExecuteNonQuery();
 
         }
+        public void eliminarEmpleado(int id)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("eliminarEmpleado", con.Open());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+        }
 
     }
 }
