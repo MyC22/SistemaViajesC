@@ -184,7 +184,7 @@
             // button2
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(794, 21);
+            this.button2.Location = new System.Drawing.Point(124, 21);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(34, 33);
             this.button2.TabIndex = 68;

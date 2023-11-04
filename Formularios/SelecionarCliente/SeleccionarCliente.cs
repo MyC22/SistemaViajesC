@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace sistema_de_viajes
+namespace Formularios.SelecionarCliente
 {
-    public partial class TablaCliente : Form
+    public partial class SeleccionarCliente : Form
     {
-        public TablaCliente()
+        public SeleccionarCliente()
         {
             InitializeComponent();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

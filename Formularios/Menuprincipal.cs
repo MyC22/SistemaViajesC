@@ -1,4 +1,5 @@
-﻿using Objetos;
+﻿using Formularios.SelecionarCliente;
+using Objetos;
 using Presentacion;
 using sistema_de_viajes;
 using System;
@@ -69,8 +70,8 @@ namespace Formularios
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SeleecionarCliente tablaCliente = new TablaCliente();
-            tablaCliente.Show();
+            SeleccionarCliente mostrarClientes = new SeleccionarCliente();
+            mostrarClientes.Show();
         }
 
         private void busesToolStripMenuItem_Click(object sender, EventArgs e)

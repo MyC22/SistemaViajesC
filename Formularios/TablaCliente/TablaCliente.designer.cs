@@ -329,7 +329,7 @@
             // button6
             // 
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(1065, 19);
+            this.button6.Location = new System.Drawing.Point(124, 12);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(34, 33);
             this.button6.TabIndex = 122;
@@ -345,7 +345,7 @@
             this.label7.TabIndex = 123;
             this.label7.Text = "Buscar";
             // 
-            // TablaCliente
+            // SeleecionarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -360,7 +360,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "TablaCliente";
+            this.Name = "SeleecionarCliente";
             this.Text = "Clientes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

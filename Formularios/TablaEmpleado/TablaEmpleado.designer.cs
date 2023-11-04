@@ -102,14 +102,14 @@
             "Nombres",
             "Dni",
             "Cargo"});
-            this.cbfiltro.Location = new System.Drawing.Point(407, 19);
+            this.cbfiltro.Location = new System.Drawing.Point(409, 12);
             this.cbfiltro.Name = "cbfiltro";
             this.cbfiltro.Size = new System.Drawing.Size(146, 21);
             this.cbfiltro.TabIndex = 3;
             // 
             // txtfiltro
             // 
-            this.txtfiltro.Location = new System.Drawing.Point(559, 20);
+            this.txtfiltro.Location = new System.Drawing.Point(561, 13);
             this.txtfiltro.Name = "txtfiltro";
             this.txtfiltro.Size = new System.Drawing.Size(146, 20);
             this.txtfiltro.TabIndex = 4;
@@ -307,7 +307,7 @@
             // button5
             // 
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(711, 15);
+            this.button5.Location = new System.Drawing.Point(713, 8);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(40, 28);
             this.button5.TabIndex = 119;
@@ -345,7 +345,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.label2.Location = new System.Drawing.Point(312, 17);
+            this.label2.Location = new System.Drawing.Point(314, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 25);
             this.label2.TabIndex = 125;
@@ -363,9 +363,9 @@
             // btncancelar
             // 
             this.btncancelar.Image = ((System.Drawing.Image)(resources.GetObject("btncancelar.Image")));
-            this.btncancelar.Location = new System.Drawing.Point(1025, 9);
+            this.btncancelar.Location = new System.Drawing.Point(160, 11);
             this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Size = new System.Drawing.Size(36, 31);
+            this.btncancelar.Size = new System.Drawing.Size(35, 31);
             this.btncancelar.TabIndex = 127;
             this.btncancelar.UseVisualStyleBackColor = true;
             // 
@@ -373,7 +373,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 449);
+            this.ClientSize = new System.Drawing.Size(1074, 449);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.label2);
