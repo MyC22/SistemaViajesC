@@ -48,7 +48,6 @@
             this.cbsexo = new System.Windows.Forms.ComboBox();
             this.cbcargo = new System.Windows.Forms.ComboBox();
             this.cbpermisos = new System.Windows.Forms.ComboBox();
-            this.numedad = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.txtcontraseña = new System.Windows.Forms.TextBox();
             this.txtdni = new System.Windows.Forms.MaskedTextBox();
@@ -66,8 +65,8 @@
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
             this.btneliminar = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
+            this.dtnacimiento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numedad)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,11 +143,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 182);
+            this.label6.Location = new System.Drawing.Point(13, 181);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Edad:";
+            this.label6.Text = "Nacimiento:";
             // 
             // label7
             // 
@@ -234,13 +233,6 @@
             this.cbpermisos.Size = new System.Drawing.Size(158, 21);
             this.cbpermisos.TabIndex = 20;
             // 
-            // numedad
-            // 
-            this.numedad.Location = new System.Drawing.Point(83, 175);
-            this.numedad.Name = "numedad";
-            this.numedad.Size = new System.Drawing.Size(158, 20);
-            this.numedad.TabIndex = 21;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -269,6 +261,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.dtnacimiento);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtdni);
@@ -278,7 +271,6 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.numedad);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.cbpermisos);
             this.panel1.Controls.Add(this.label8);
@@ -322,6 +314,7 @@
             this.btneditar.Size = new System.Drawing.Size(31, 33);
             this.btneditar.TabIndex = 123;
             this.btneditar.UseVisualStyleBackColor = true;
+            this.btneditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnañadir
             // 
@@ -331,6 +324,7 @@
             this.btnañadir.Size = new System.Drawing.Size(32, 33);
             this.btnañadir.TabIndex = 122;
             this.btnañadir.UseVisualStyleBackColor = true;
+            this.btnañadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
             // btnguardar
             // 
@@ -340,6 +334,7 @@
             this.btnguardar.Size = new System.Drawing.Size(31, 33);
             this.btnguardar.TabIndex = 121;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label2
             // 
@@ -359,15 +354,25 @@
             this.btneliminar.Size = new System.Drawing.Size(30, 33);
             this.btneliminar.TabIndex = 126;
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // btncancelar
             // 
             this.btncancelar.Image = ((System.Drawing.Image)(resources.GetObject("btncancelar.Image")));
-            this.btncancelar.Location = new System.Drawing.Point(160, 11);
+            this.btncancelar.Location = new System.Drawing.Point(160, 9);
             this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Size = new System.Drawing.Size(35, 31);
+            this.btncancelar.Size = new System.Drawing.Size(35, 34);
             this.btncancelar.TabIndex = 127;
             this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // dtnacimiento
+            // 
+            this.dtnacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtnacimiento.Location = new System.Drawing.Point(83, 175);
+            this.dtnacimiento.Name = "dtnacimiento";
+            this.dtnacimiento.Size = new System.Drawing.Size(158, 20);
+            this.dtnacimiento.TabIndex = 32;
             // 
             // TablaEmpleado
             // 
@@ -390,7 +395,6 @@
             this.Text = "Tabla Empleado";
             this.Load += new System.EventHandler(this.TablaEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numedad)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -417,7 +421,6 @@
         private System.Windows.Forms.ComboBox cbsexo;
         private System.Windows.Forms.ComboBox cbcargo;
         private System.Windows.Forms.ComboBox cbpermisos;
-        private System.Windows.Forms.NumericUpDown numedad;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtcontraseña;
         private System.Windows.Forms.MaskedTextBox txtdni;
@@ -435,5 +438,6 @@
         private System.Windows.Forms.ToolTip toolTip5;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.DateTimePicker dtnacimiento;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablaPrograma));
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -61,10 +62,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.añadir = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.btneliminar = new System.Windows.Forms.Button();
+            this.btneditar = new System.Windows.Forms.Button();
+            this.btnañadir = new System.Windows.Forms.Button();
+            this.btnguardar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -367,51 +374,61 @@
             this.panel1.Size = new System.Drawing.Size(1072, 159);
             this.panel1.TabIndex = 68;
             // 
-            // button1
+            // btncancelar
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(50, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(31, 33);
-            this.button1.TabIndex = 123;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btncancelar.Image = ((System.Drawing.Image)(resources.GetObject("btncancelar.Image")));
+            this.btncancelar.Location = new System.Drawing.Point(155, 10);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(35, 34);
+            this.btncancelar.TabIndex = 137;
+            this.btncancelar.UseVisualStyleBackColor = true;
             // 
-            // añadir
+            // btneliminar
             // 
-            this.añadir.Image = ((System.Drawing.Image)(resources.GetObject("añadir.Image")));
-            this.añadir.Location = new System.Drawing.Point(12, 10);
-            this.añadir.Name = "añadir";
-            this.añadir.Size = new System.Drawing.Size(32, 33);
-            this.añadir.TabIndex = 122;
-            this.añadir.UseVisualStyleBackColor = true;
+            this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
+            this.btneliminar.Location = new System.Drawing.Point(119, 10);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(30, 33);
+            this.btneliminar.TabIndex = 136;
+            this.btneliminar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btneditar
             // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(87, 10);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(31, 33);
-            this.button4.TabIndex = 121;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btneditar.Image = ((System.Drawing.Image)(resources.GetObject("btneditar.Image")));
+            this.btneditar.Location = new System.Drawing.Point(45, 10);
+            this.btneditar.Name = "btneditar";
+            this.btneditar.Size = new System.Drawing.Size(31, 33);
+            this.btneditar.TabIndex = 135;
+            this.btneditar.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnañadir
             // 
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(125, 10);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(34, 33);
-            this.button6.TabIndex = 126;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnañadir.Image = ((System.Drawing.Image)(resources.GetObject("btnañadir.Image")));
+            this.btnañadir.Location = new System.Drawing.Point(7, 10);
+            this.btnañadir.Name = "btnañadir";
+            this.btnañadir.Size = new System.Drawing.Size(32, 33);
+            this.btnañadir.TabIndex = 134;
+            this.btnañadir.UseVisualStyleBackColor = true;
+            // 
+            // btnguardar
+            // 
+            this.btnguardar.Image = ((System.Drawing.Image)(resources.GetObject("btnguardar.Image")));
+            this.btnguardar.Location = new System.Drawing.Point(82, 10);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(31, 33);
+            this.btnguardar.TabIndex = 133;
+            this.btnguardar.UseVisualStyleBackColor = true;
             // 
             // TablaPrograma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 578);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.añadir);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btneliminar);
+            this.Controls.Add(this.btneditar);
+            this.Controls.Add(this.btnañadir);
+            this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TablaPrograma";
@@ -462,9 +479,15 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button añadir;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.Button btneliminar;
+        private System.Windows.Forms.Button btneditar;
+        private System.Windows.Forms.Button btnañadir;
+        private System.Windows.Forms.Button btnguardar;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
+        private System.Windows.Forms.ToolTip toolTip4;
+        private System.Windows.Forms.ToolTip toolTip5;
     }
 }

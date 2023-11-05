@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearViajes));
-            this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,21 +41,14 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.añadir = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.btneliminar = new System.Windows.Forms.Button();
+            this.btneditar = new System.Windows.Forms.Button();
+            this.btnañadir = new System.Windows.Forms.Button();
+            this.btnguardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button3
-            // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(87, 21);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(31, 33);
-            this.button3.TabIndex = 57;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -163,44 +155,63 @@
             this.button4.TabIndex = 69;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // añadir
+            // btncancelar
             // 
-            this.añadir.Image = ((System.Drawing.Image)(resources.GetObject("añadir.Image")));
-            this.añadir.Location = new System.Drawing.Point(12, 21);
-            this.añadir.Name = "añadir";
-            this.añadir.Size = new System.Drawing.Size(32, 33);
-            this.añadir.TabIndex = 64;
-            this.añadir.UseVisualStyleBackColor = true;
+            this.btncancelar.Image = ((System.Drawing.Image)(resources.GetObject("btncancelar.Image")));
+            this.btncancelar.Location = new System.Drawing.Point(157, 12);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(35, 34);
+            this.btncancelar.TabIndex = 142;
+            this.btncancelar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btneliminar
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(50, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(31, 33);
-            this.button1.TabIndex = 67;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
+            this.btneliminar.Location = new System.Drawing.Point(121, 12);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(30, 33);
+            this.btneliminar.TabIndex = 141;
+            this.btneliminar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btneditar
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(124, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(34, 33);
-            this.button2.TabIndex = 68;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btneditar.Image = ((System.Drawing.Image)(resources.GetObject("btneditar.Image")));
+            this.btneditar.Location = new System.Drawing.Point(47, 12);
+            this.btneditar.Name = "btneditar";
+            this.btneditar.Size = new System.Drawing.Size(31, 33);
+            this.btneditar.TabIndex = 140;
+            this.btneditar.UseVisualStyleBackColor = true;
+            // 
+            // btnañadir
+            // 
+            this.btnañadir.Image = ((System.Drawing.Image)(resources.GetObject("btnañadir.Image")));
+            this.btnañadir.Location = new System.Drawing.Point(9, 12);
+            this.btnañadir.Name = "btnañadir";
+            this.btnañadir.Size = new System.Drawing.Size(32, 33);
+            this.btnañadir.TabIndex = 139;
+            this.btnañadir.UseVisualStyleBackColor = true;
+            // 
+            // btnguardar
+            // 
+            this.btnguardar.Image = ((System.Drawing.Image)(resources.GetObject("btnguardar.Image")));
+            this.btnguardar.Location = new System.Drawing.Point(84, 12);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(31, 33);
+            this.btnguardar.TabIndex = 138;
+            this.btnguardar.UseVisualStyleBackColor = true;
             // 
             // CrearViajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 284);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.añadir);
+            this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btneditar);
+            this.Controls.Add(this.btnañadir);
+            this.Controls.Add(this.btnguardar);
             this.Name = "CrearViajes";
             this.Text = "Crear Viajes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -212,7 +223,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Origen;
         private System.Windows.Forms.DataGridViewTextBoxColumn Destino;
@@ -224,9 +234,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button añadir;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.Button btneliminar;
+        private System.Windows.Forms.Button btneditar;
+        private System.Windows.Forms.Button btnañadir;
+        private System.Windows.Forms.Button btnguardar;
     }
 }

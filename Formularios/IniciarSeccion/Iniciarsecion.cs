@@ -10,7 +10,6 @@ namespace sistema_de_viajes
     {
         private ModeloEmpleado me = new ModeloEmpleado();
         private Usuario u = new Usuario();
-        private bool usuarioHaIniciadoSesion = false;
 
         public Iniciarsecion()
         {
@@ -19,9 +18,11 @@ namespace sistema_de_viajes
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (me.leerUsuario().HasRows == false && !usuarioHaIniciadoSesion)
+            if (me.leerUsuario().HasRows == false)
             {
-                MessageBox.Show("Bienvenido, Inicie seccion para entrar al programa");
+                TablaEmpleado te = new TablaEmpleado();
+                te.Show();
+                MessageBox.Show("Bienvenido, registre su cuenta primero para crear su usuario e iniciar seccion");
             }
         }
 
@@ -41,7 +42,6 @@ namespace sistema_de_viajes
                     Menuprincipal menu = new Menuprincipal(me.Validar(u));
                     menu.Show();
                     this.Hide();
-                    usuarioHaIniciadoSesion = true;
                 }
                 else
                 {

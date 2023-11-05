@@ -37,7 +37,7 @@ namespace sistema_de_viajes
             cbcargo.SelectedIndex = -1;
             cbpermisos.SelectedIndex = -1;
             cbsexo.SelectedIndex = -1;
-            numedad.Value = 0;
+            dtnacimiento.ResetText();
         }
         private Boolean validardatos()
         {
@@ -48,8 +48,7 @@ namespace sistema_de_viajes
                 txtusuario.Text != "" &&
                 cbcargo.SelectedValue != null &&
                 cbpermisos.Text != "" &&
-                cbsexo.SelectedIndex != null &&
-                numedad.Value != null) { return true; }
+                cbsexo.SelectedIndex != null) { return true; }
             else return false;
 
         }
@@ -57,7 +56,7 @@ namespace sistema_de_viajes
         {
             em.nombre = txtnombre.Text;
             em.apellido = txtapellido.Text;
-            em.edad = (int)numedad.Value;
+            em.nacimiento = (DateTime)dtnacimiento.Value;
             em.cargo = (int)cbcargo.SelectedValue;
             em.dni = txtdni.Text;
             em.sexo = cbsexo.SelectedIndex.ToString();
@@ -97,7 +96,7 @@ namespace sistema_de_viajes
             cbsexo .Enabled = false;
             cbcargo.Enabled = false;
             cbpermisos.Enabled = false;
-            numedad .Enabled = false;
+            dtnacimiento .Enabled = false;
         }
         private void activartxt()
         {
@@ -109,7 +108,7 @@ namespace sistema_de_viajes
             cbcargo .Enabled = true;
             cbpermisos  .Enabled = true;
             cbsexo .Enabled = true;
-            numedad.Enabled = true;
+            dtnacimiento.Enabled = true;
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
@@ -216,7 +215,7 @@ namespace sistema_de_viajes
                 int idtipo = cbpermisos.FindStringExact(dr["Tipocuenta"].ToString());
                 cbpermisos.SelectedIndex = idtipo;
                 cbsexo.SelectedIndex = Convert.ToInt32(dr["SexoEmpl"].ToString());
-                numedad.Value = (int)dr["EdadEmpl"];
+                dtnacimiento.Value = (DateTime)dr["Nacimiento"];
                 btneditar.Enabled = true;
                 btneliminar.Enabled = true;
             }
@@ -243,6 +242,7 @@ namespace sistema_de_viajes
         private void btneliminar_Click(object sender, EventArgs e)
         {
             me.eliminarEmpleado(em.id);
+            dataGridView1.DataSource = me.listarEmpleado();
             limpiar();
             desactivartxt();
             dataGridView1.Enabled = true;
@@ -250,7 +250,8 @@ namespace sistema_de_viajes
             btnguardar.Enabled = false;
             btnañadir.Enabled = true;
             MessageBox.Show("Se elimino con exito");
-            cbcargo.DataSource = me.listarcargos();
+            
         }
+
     }
 }

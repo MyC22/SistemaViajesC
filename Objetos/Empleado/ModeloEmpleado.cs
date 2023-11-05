@@ -84,7 +84,7 @@ namespace Objetos
             cmd.Parameters.AddWithValue("@nombre", e.nombre);
             cmd.Parameters.AddWithValue("@apellido", e.apellido);
             cmd.Parameters.AddWithValue("@Dni", e.dni);
-            cmd.Parameters.AddWithValue("@Edad", e.edad);
+            cmd.Parameters.AddWithValue("@nacimiento", e.nacimiento);
             cmd.Parameters.AddWithValue("@sexo", e.sexo);
             cmd.Parameters.AddWithValue("@idcargo", e.cargo);
             cmd.Parameters.AddWithValue("@usuario", u.usuario);
@@ -121,7 +121,7 @@ namespace Objetos
             cmd.Parameters.AddWithValue("@nombre", e.nombre);
             cmd.Parameters.AddWithValue("@apellido", e.apellido);
             cmd.Parameters.AddWithValue("@Dni", e.dni);
-            cmd.Parameters.AddWithValue("@Edad", e.edad);
+            cmd.Parameters.AddWithValue("@nacimiento", e.nacimiento);
             cmd.Parameters.AddWithValue("@sexo", e.sexo);
             cmd.Parameters.AddWithValue("@idcargo", e.cargo);
             cmd.Parameters.AddWithValue("@usuario", u.usuario);
