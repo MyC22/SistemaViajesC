@@ -1,8 +1,12 @@
+
+--------------------------- Empleado-----------------------------
+use sistemaviajes
+go
 CREATE PROCEDURE guardarEmpleado
     @nombre VARCHAR(100),
     @apellido VARCHAR(100),
     @Dni char(8),
-    @Edad int,
+    @nacimiento date,
     @sexo char(1),
 	@idcargo int,
 	@usuario varchar(50),
@@ -14,8 +18,8 @@ BEGIN
 
     DECLARE @Idempleado INT;
 
-    INSERT INTO Empleado (Nombres, Apellido, EdadEmpl, SexoEmpl, Dni, IDCargo) 
-    VALUES (@nombre, @apellido, @Edad,@sexo,@Dni,@idcargo);
+    INSERT INTO Empleado (Nombres, Apellido, Nacimiento, SexoEmpl, Dni, IDCargo) 
+    VALUES (@nombre, @apellido, @nacimiento,@sexo,@Dni,@idcargo);
 
     SET @Idempleado = SCOPE_IDENTITY();
 
@@ -36,7 +40,7 @@ CREATE PROCEDURE editarEmpleado
     @nombre VARCHAR(100),
     @apellido VARCHAR(100),
     @Dni char(8),
-    @Edad int,
+    @nacimiento date,
     @sexo char(1),
 	@idcargo int,
 	@usuario varchar(50),
@@ -45,7 +49,7 @@ CREATE PROCEDURE editarEmpleado
 AS
 BEGIN
 update  Empleado
-    set Nombres = @nombre, Apellido=@apellido, EdadEmpl=@Edad,SexoEmpl=@sexo,Dni=@Dni,IDCargo=@idcargo where ID=@idempleado;
+    set Nombres = @nombre, Apellido=@apellido, Nacimiento=@nacimiento,SexoEmpl=@sexo,Dni=@Dni,IDCargo=@idcargo where ID=@idempleado;
 update Usuario set Usuario= @usuario, Contrasena=@contrasena, Tipocuenta=@tipo where IDEmpleado=@idempleado;
 end
 go
@@ -68,3 +72,5 @@ begin
 delete from Usuario where IDEmpleado = @id;
 delete from Empleado where ID = @id;
 end;
+
+

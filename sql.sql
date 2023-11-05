@@ -123,3 +123,7 @@ ALTER TABLE Boletos ADD CONSTRAINT FKBoletos402866 FOREIGN KEY (IDComprobante) R
 ALTER TABLE Comprobante ADD CONSTRAINT FKComprobant709029 FOREIGN KEY (IDCliente) REFERENCES Cliente (ID);
 ALTER TABLE Recervaciones ADD CONSTRAINT FKRecervacio28818 FOREIGN KEY (IDCliente) REFERENCES Cliente (ID);
 ALTER TABLE Buses ADD CONSTRAINT FKBuses525865 FOREIGN KEY (IDModelo) REFERENCES ModeloBus (ID);
+go
+insert into Cargo (Cargo, Descripcion) values ('Administrador','Administrador')
+go
+insert into Cargo (Cargo, Descripcion) values ('Gerente general','Encargado general de la empresa')
