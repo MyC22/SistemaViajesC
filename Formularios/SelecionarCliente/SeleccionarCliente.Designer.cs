@@ -42,7 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtnombrecliente = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btBuscar = new System.Windows.Forms.Button();
             this.txtapellidocliente = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -104,7 +104,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtnombrecliente);
-            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.btBuscar);
             this.panel1.Controls.Add(this.txtapellidocliente);
             this.panel1.Location = new System.Drawing.Point(12, 53);
             this.panel1.Name = "panel1";
@@ -169,14 +169,15 @@
             this.txtnombrecliente.Size = new System.Drawing.Size(199, 20);
             this.txtnombrecliente.TabIndex = 14;
             // 
-            // button5
+            // btBuscar
             // 
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(1033, 21);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(40, 28);
-            this.button5.TabIndex = 132;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btBuscar.Image")));
+            this.btBuscar.Location = new System.Drawing.Point(1033, 21);
+            this.btBuscar.Name = "btBuscar";
+            this.btBuscar.Size = new System.Drawing.Size(40, 28);
+            this.btBuscar.TabIndex = 132;
+            this.btBuscar.UseVisualStyleBackColor = true;
+            this.btBuscar.Click += new System.EventHandler(this.btBuscar_Click);
             // 
             // txtapellidocliente
             // 
@@ -197,6 +198,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1087, 316);
             this.dataGridView1.TabIndex = 139;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // SeleccionarCliente
             // 
@@ -234,7 +236,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtnombrecliente;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btBuscar;
         private System.Windows.Forms.TextBox txtapellidocliente;
         private System.Windows.Forms.DataGridView dataGridView1;
     }

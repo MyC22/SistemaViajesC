@@ -4,26 +4,20 @@ namespace Objetos
 {
     public class Cliente
     {
-        public class cliente
-        {
-            public int id { get; set; }
-            public string nombre { get; set; }
-            public string apellido { get; set; }
-            public string dni { get; set; }
-            public int celular { get; set; }
-        }
+        public int ID { get; set; }
+        public string Nombres { get; set; }
+        public string Apellido { get; set; }
+        public string DNI { get; set; }
+        public int Celular { get; set; }
+    }
 
-        public class destino
-        {
-            public int id { get; set; }
-            public string lugar { get; set;}
-
-        }
-
-        public class tipo 
-        {
-            public int id { get; set; }
-            public string calidad {  get; set; }
-        }
+    public class Lugar
+    {
+        public int ID { get; set; }
+        public string Distrito { get; set; }
+        public string Direccion { get; set; }
+        public string Terminal { get; set; }
+        public string Departamento { get; set; }
+        public string Estado { get; set; }
     }
 }
