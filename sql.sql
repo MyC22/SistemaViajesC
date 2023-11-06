@@ -45,6 +45,7 @@ CREATE TABLE Cronograma_viajes (
   ID           int IDENTITY NOT NULL, 
   Placa        char(6) NOT NULL, 
   IDRuta       int NOT NULL, 
+  IDusuario    varchar(50) NOT NULL, 
   Fecha_salida datetime NOT NULL, 
   PRIMARY KEY (ID));
 CREATE TABLE Empleado (
@@ -109,6 +110,7 @@ CREATE TABLE Usuario (
   Contrasena varchar(50) NOT NULL, 
   Tipocuenta varchar(50) NOT NULL, 
   PRIMARY KEY (Usuario));
+ALTER TABLE Cronograma_viajes ADD CONSTRAINT FKCronograma605734 FOREIGN KEY (IDusuario) REFERENCES Usuario (Usuario);
 ALTER TABLE Recervaciones ADD CONSTRAINT FKRecervacio330165 FOREIGN KEY (IDCronograma) REFERENCES Cronograma_viajes (ID);
 ALTER TABLE Cronograma_viajes ADD CONSTRAINT FKCronograma54920 FOREIGN KEY (Placa) REFERENCES Buses (Placa);
 ALTER TABLE Cronograma_viajes ADD CONSTRAINT FKCronograma852108 FOREIGN KEY (IDRuta) REFERENCES Ruta (ID);
