@@ -1,4 +1,6 @@
-﻿namespace Objetos
+﻿using System;
+
+namespace Objetos
 {
     public class Empleado
     {
@@ -8,7 +10,7 @@
             public string nombre { get; set; }
             public string apellido { get; set; }
             public string dni { get; set; }
-            public int edad { get; set; }
+            public DateTime nacimiento { get; set; }
             public string sexo { get; set; }
             public int cargo { get; set; }
         }

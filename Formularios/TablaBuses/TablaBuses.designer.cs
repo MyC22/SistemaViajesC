@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablaBuses));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,11 +54,17 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.añadir = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.btneliminar = new System.Windows.Forms.Button();
+            this.btneditar = new System.Windows.Forms.Button();
+            this.btnañadir = new System.Windows.Forms.Button();
+            this.btnguardar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -269,42 +276,6 @@
             this.button5.Text = "Salir";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button3
-            // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(50, 9);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(31, 33);
-            this.button3.TabIndex = 81;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // añadir
-            // 
-            this.añadir.Image = ((System.Drawing.Image)(resources.GetObject("añadir.Image")));
-            this.añadir.Location = new System.Drawing.Point(12, 9);
-            this.añadir.Name = "añadir";
-            this.añadir.Size = new System.Drawing.Size(32, 33);
-            this.añadir.TabIndex = 80;
-            this.añadir.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(87, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(31, 33);
-            this.button2.TabIndex = 79;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(124, 9);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(34, 33);
-            this.button6.TabIndex = 82;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -315,17 +286,63 @@
             this.label7.TabIndex = 83;
             this.label7.Text = "Buscar";
             // 
+            // btncancelar
+            // 
+            this.btncancelar.Image = ((System.Drawing.Image)(resources.GetObject("btncancelar.Image")));
+            this.btncancelar.Location = new System.Drawing.Point(160, 6);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(35, 34);
+            this.btncancelar.TabIndex = 142;
+            this.btncancelar.UseVisualStyleBackColor = true;
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
+            this.btneliminar.Location = new System.Drawing.Point(124, 6);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(30, 33);
+            this.btneliminar.TabIndex = 141;
+            this.btneliminar.UseVisualStyleBackColor = true;
+            // 
+            // btneditar
+            // 
+            this.btneditar.Image = ((System.Drawing.Image)(resources.GetObject("btneditar.Image")));
+            this.btneditar.Location = new System.Drawing.Point(50, 6);
+            this.btneditar.Name = "btneditar";
+            this.btneditar.Size = new System.Drawing.Size(31, 33);
+            this.btneditar.TabIndex = 140;
+            this.btneditar.UseVisualStyleBackColor = true;
+            // 
+            // btnañadir
+            // 
+            this.btnañadir.Image = ((System.Drawing.Image)(resources.GetObject("btnañadir.Image")));
+            this.btnañadir.Location = new System.Drawing.Point(12, 6);
+            this.btnañadir.Name = "btnañadir";
+            this.btnañadir.Size = new System.Drawing.Size(32, 33);
+            this.btnañadir.TabIndex = 139;
+            this.btnañadir.UseVisualStyleBackColor = true;
+            // 
+            // btnguardar
+            // 
+            this.btnguardar.Image = ((System.Drawing.Image)(resources.GetObject("btnguardar.Image")));
+            this.btnguardar.Location = new System.Drawing.Point(87, 6);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(31, 33);
+            this.btnguardar.TabIndex = 138;
+            this.btnguardar.UseVisualStyleBackColor = true;
+            // 
             // TablaBuses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 400);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btneliminar);
+            this.Controls.Add(this.btneditar);
+            this.Controls.Add(this.btnañadir);
+            this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.añadir);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
@@ -363,14 +380,20 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button añadir;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.Button btneliminar;
+        private System.Windows.Forms.Button btneditar;
+        private System.Windows.Forms.Button btnañadir;
+        private System.Windows.Forms.Button btnguardar;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
+        private System.Windows.Forms.ToolTip toolTip4;
+        private System.Windows.Forms.ToolTip toolTip5;
     }
 }
