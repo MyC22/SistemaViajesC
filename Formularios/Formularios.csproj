@@ -64,12 +64,6 @@
     <Compile Include="CrearBoleto\CrearBoleto.designer.cs">
       <DependentUpon>CrearBoleto.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearViajes\CrearViajes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CrearViajes\CrearViajes.designer.cs">
-      <DependentUpon>CrearViajes.cs</DependentUpon>
-    </Compile>
     <Compile Include="IniciarSeccion\Iniciarsecion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +114,12 @@
     <Compile Include="TablaEmpleado\TablaEmpleado.designer.cs">
       <DependentUpon>TablaEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="TablaLugar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TablaLugar.Designer.cs">
+      <DependentUpon>TablaLugar.cs</DependentUpon>
+    </Compile>
     <Compile Include="TablaModelo\TablaModelo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +132,12 @@
     <Compile Include="TablaPrograma\TablaPrograma.designer.cs">
       <DependentUpon>TablaPrograma.cs</DependentUpon>
     </Compile>
+    <Compile Include="TablaRuta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TablaRuta.Designer.cs">
+      <DependentUpon>TablaRuta.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BuscarBoletos\Buscarboletos.resx">
       <DependentUpon>Buscarboletos.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,9 +146,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearBoleto\CrearBoleto.resx">
       <DependentUpon>CrearBoleto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrearViajes\CrearViajes.resx">
-      <DependentUpon>CrearViajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IniciarSeccion\Iniciarsecion.resx">
       <DependentUpon>Iniciarsecion.cs</DependentUpon>
@@ -177,11 +180,17 @@
     <EmbeddedResource Include="TablaEmpleado\TablaEmpleado.resx">
       <DependentUpon>TablaEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TablaLugar.resx">
+      <DependentUpon>TablaLugar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TablaModelo\TablaModelo.resx">
       <DependentUpon>TablaModelo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TablaPrograma\TablaPrograma.resx">
       <DependentUpon>TablaPrograma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TablaRuta.resx">
+      <DependentUpon>TablaRuta.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -197,15 +206,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\icons8-cerrar-ventana-48.png" />
-    <Content Include="Resources\icons8-maximizar-40.png" />
-    <Content Include="Resources\icons8-minimizar-48.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Objetos\Objetos.csproj">
       <Project>{53073a8f-1f54-4b39-9cfb-e4f3f1f4baf0}</Project>
       <Name>Objetos</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

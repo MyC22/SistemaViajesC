@@ -17,14 +17,5 @@ namespace sistema_de_viajes
             InitializeComponent();
         }
 
-        private void Form7_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

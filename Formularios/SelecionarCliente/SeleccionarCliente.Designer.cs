@@ -46,6 +46,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -54,7 +55,7 @@
             // btncancelar
             // 
             this.btncancelar.Image = ((System.Drawing.Image)(resources.GetObject("btncancelar.Image")));
-            this.btncancelar.Location = new System.Drawing.Point(50, 14);
+            this.btncancelar.Location = new System.Drawing.Point(1063, 461);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(36, 31);
             this.btncancelar.TabIndex = 145;
@@ -63,7 +64,7 @@
             // btnañadirCliente
             // 
             this.btnañadirCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnañadirCliente.Image")));
-            this.btnañadirCliente.Location = new System.Drawing.Point(12, 13);
+            this.btnañadirCliente.Location = new System.Drawing.Point(93, 461);
             this.btnañadirCliente.Name = "btnañadirCliente";
             this.btnañadirCliente.Size = new System.Drawing.Size(32, 33);
             this.btnañadirCliente.TabIndex = 142;
@@ -217,11 +218,22 @@
             this.label2.TabIndex = 134;
             this.label2.Text = "Seleccione el cliente que desea comprar";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.label6.Location = new System.Drawing.Point(10, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(210, 25);
+            this.label6.TabIndex = 147;
+            this.label6.Text = "Selecciona al cliente";
+            // 
             // SeleccionarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 500);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btncancelar);
@@ -260,5 +272,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
     }
 }
