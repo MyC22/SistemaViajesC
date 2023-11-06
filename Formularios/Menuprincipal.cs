@@ -52,8 +52,8 @@ namespace Formularios
 
         private void recervacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CrearViajes crearViajes = new CrearViajes();
-            crearViajes.Show();
+            TablaRuta TablaRuta = new TablaRuta();
+            TablaRuta.Show();
         }
 
         private void boletosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,6 +108,12 @@ namespace Formularios
         {
             SeleccionarCliente seleccionarCliente = new SeleccionarCliente();
             seleccionarCliente.Show();
+        }
+
+        private void lugarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TablaLugar tablaLugar = new TablaLugar();
+            tablaLugar.Show();
         }
     }
 }

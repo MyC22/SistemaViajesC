@@ -46,9 +46,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.añadir = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -192,20 +192,11 @@
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(50, 12);
+            this.button1.Location = new System.Drawing.Point(981, 510);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 33);
             this.button1.TabIndex = 69;
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // añadir
-            // 
-            this.añadir.Image = ((System.Drawing.Image)(resources.GetObject("añadir.Image")));
-            this.añadir.Location = new System.Drawing.Point(12, 12);
-            this.añadir.Name = "añadir";
-            this.añadir.Size = new System.Drawing.Size(32, 33);
-            this.añadir.TabIndex = 71;
-            this.añadir.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -225,13 +216,23 @@
             this.label4.TabIndex = 135;
             this.label4.Text = "Seleccione el cronograma que desea el cliente";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.label5.Location = new System.Drawing.Point(10, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(256, 25);
+            this.label5.TabIndex = 136;
+            this.label5.Text = "Cronogramas disponibles";
+            // 
             // Seleccionarprograma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1027, 545);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.añadir);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
@@ -265,9 +266,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button añadir;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
