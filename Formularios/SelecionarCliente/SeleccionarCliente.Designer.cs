@@ -230,6 +230,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "SeleccionarCliente";
             this.Text = "SeleccionarCliente";
+            this.Load += new System.EventHandler(this.SeleccionarCliente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -10,3 +10,9 @@ D:\source visual 2022\repos\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.Asse
 D:\source visual 2022\repos\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.CoreCompileInputs.cache
 D:\source visual 2022\repos\SistemaViajesC\Objetos\obj\Debug\Objetos.dll
 D:\source visual 2022\repos\SistemaViajesC\Objetos\obj\Debug\Objetos.pdb
+C:\Users\CK\Desktop\SistemaViajesC#\Objetos\bin\Debug\Objetos.dll
+C:\Users\CK\Desktop\SistemaViajesC#\Objetos\bin\Debug\Objetos.pdb
+C:\Users\CK\Desktop\SistemaViajesC#\Objetos\obj\Debug\Objetos.csproj.AssemblyReference.cache
+C:\Users\CK\Desktop\SistemaViajesC#\Objetos\obj\Debug\Objetos.csproj.CoreCompileInputs.cache
+C:\Users\CK\Desktop\SistemaViajesC#\Objetos\obj\Debug\Objetos.dll
+C:\Users\CK\Desktop\SistemaViajesC#\Objetos\obj\Debug\Objetos.pdb

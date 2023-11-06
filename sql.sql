@@ -1,5 +1,8 @@
 create database sistemaviajes
 go
+
+drop database sistemaviajes
+
 use sistemaviajes
 go
 CREATE TABLE Boletos (
@@ -127,3 +130,7 @@ go
 insert into Cargo (Cargo, Descripcion) values ('Administrador','Administrador')
 go
 insert into Cargo (Cargo, Descripcion) values ('Gerente general','Encargado general de la empresa')
+
+select * from Cargo
+
+insert into Usuario(IDEmpleado,Usuario, Contrasena, TipoCuenta) values ('001','Denis','123456','administrador')

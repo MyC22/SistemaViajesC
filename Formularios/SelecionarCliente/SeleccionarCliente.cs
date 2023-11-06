@@ -55,5 +55,10 @@ namespace Formularios.SelecionarCliente
         {
 
         }
+
+        private void SeleccionarCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
