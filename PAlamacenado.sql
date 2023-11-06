@@ -74,3 +74,66 @@ delete from Empleado where ID = @id;
 end;
 
 
+--------------------------- Lugares-----------------------------
+/*Buscar Lugar*/
+CREATE PROCEDURE BuscarLugar
+    @ID INT = NULL,
+    @Distrito VARCHAR(50) = NULL,
+    @Departamento VARCHAR(50) = NULL
+AS
+BEGIN
+    SELECT *
+    FROM Lugar
+    WHERE (@ID IS NULL OR ID = @ID)
+      AND (@Distrito IS NULL OR Distrito = @Distrito)
+      AND (@Departamento IS NULL OR Departamento = @Departamento)
+END
+
+/*Mostrar Lugares*/
+CREATE PROCEDURE MostrarTodosLosLugares
+AS
+BEGIN
+    SELECT *
+    FROM Lugar
+END
+
+/*Agregar Lugares*/
+CREATE PROCEDURE AgregarLugar
+    @Distrito VARCHAR(50),
+    @Direccion VARCHAR(100),
+    @Terminal VARCHAR(50),
+    @Departamento VARCHAR(50),
+    @Estado VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Lugar (Distrito, Direccion, Terminal, Departamento, Estado)
+    VALUES (@Distrito, @Direccion, @Terminal, @Departamento, @Estado)
+END
+
+/*Editar Lugares*/
+CREATE PROCEDURE EditarLugar
+    @ID INT,
+    @Distrito VARCHAR(50),
+    @Direccion VARCHAR(100),
+    @Terminal VARCHAR(50),
+    @Departamento VARCHAR(50),
+    @Estado VARCHAR(50)
+AS
+BEGIN
+    UPDATE Lugar
+    SET Distrito = @Distrito,
+        Direccion = @Direccion,
+        Terminal = @Terminal,
+        Departamento = @Departamento,
+        Estado = @Estado
+    WHERE ID = @ID
+END
+
+/*Eliminar Lugares*/
+CREATE PROCEDURE [dbo].[EliminarLugar]
+    @ID INT
+AS
+BEGIN
+    DELETE FROM Lugar
+    WHERE ID = @ID
+END

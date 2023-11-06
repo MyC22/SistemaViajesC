@@ -115,5 +115,11 @@ namespace Formularios
             TablaLugar tablaLugar = new TablaLugar();
             tablaLugar.Show();
         }
+
+        private void rutaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TablaRuta tablaRuta = new TablaRuta();
+            tablaRuta.Show();
+        }
     }
 }
