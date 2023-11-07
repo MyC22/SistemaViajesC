@@ -73,7 +73,7 @@ delete from Usuario where IDEmpleado = @id;
 delete from Empleado where ID = @id;
 end;
 
-
+go
 --------------------------- Lugares-----------------------------
 /*Buscar Lugar*/
 CREATE PROCEDURE BuscarLugar
@@ -151,14 +151,51 @@ BEGIN
    select ID,Nombres,Ruc,Correo from Cliente where Tipo = 'Empresa'
 END;
 go
-create procedure guardarEmpresa @nombre varchar(200), @ruc int, @correo Varchar(200), @celular int, @tipo varchar(50), @direccion varchar(100) 
+create procedure guardarEmpresa
+@nombre varchar(200),
+@ruc char(11),
+@correo Varchar(200),
+@celular int,
+@tipo varchar(50),
+@direccion varchar(100) = null
 as begin
-insert into Cliente (Nombres, Ruc, Correo,Celular,Direccion,Tipo) Values (@nombre,@ruc,@correo,@celular,@direccion,@tipo)
+insert into Cliente (Nombres, Ruc, Correo,Celular,Direccion,Tipo) 
+Values (@nombre,@ruc,@correo,@celular,@direccion,@tipo)
 end
 go
-create procedure guardarPersona @nombre varchar(200), @dni char(8), @correo Varchar(200), @celular int, @tipo varchar(50), @Apellido varchar(50), @nacimiento date = null
+create procedure guardarPersona 
+@nombre varchar(200),
+@dni char(8),
+@correo Varchar(200),
+@celular int,
+@tipo varchar(50),
+@Apellido varchar(50),
+@nacimiento date = null
 as begin
-insert into Cliente (Nombres, DNI, Correo,Celular,Apellido,Tipo,nacimiento) Values (@nombre,@Apellido,@dni,@correo,@celular,@tipo, isnull(@nacimiento,null))
+insert into Cliente (Nombres,Apellido, DNI, Correo,Celular,Tipo,nacimiento) 
+Values (@nombre,@Apellido,@dni,@correo,@celular,@tipo, isnull(@nacimiento,null))
 end
 go
+
+create procedure editarCliente 
+@id int,
+@nombre varchar(200),
+@dni char(8) = null,
+@correo Varchar(200),
+@celular int,
+@tipo varchar(50),
+@Apellido varchar(50) = null,
+@nacimiento date = null,
+@ruc char(11)=null,
+@direccion varchar(100)=null 
+as begin
+if @tipo = 'Persona'
+		update Cliente set Nombres = @nombre, DNI=@dni, Correo = @correo,Celular = @celular ,Apellido= @Apellido,nacimiento = @nacimiento where ID = @id;
+else if @tipo = 'Empresa'
+		update Cliente set Nombres = @nombre, Ruc=@ruc, Correo = @correo,Celular = @celular ,Direccion= @direccion where ID = @id;
+end;
+go
+
+
+
 
