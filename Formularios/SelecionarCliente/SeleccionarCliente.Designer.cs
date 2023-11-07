@@ -36,7 +36,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtcelularcliente = new System.Windows.Forms.TextBox();
+            this.txtdni = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.txtcelularcliente);
+            this.panel1.Controls.Add(this.txtdni);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
@@ -128,12 +128,12 @@
             this.label4.TabIndex = 58;
             this.label4.Text = "Tipo:";
             // 
-            // txtcelularcliente
+            // txtdni
             // 
-            this.txtcelularcliente.Location = new System.Drawing.Point(837, 26);
-            this.txtcelularcliente.Name = "txtcelularcliente";
-            this.txtcelularcliente.Size = new System.Drawing.Size(190, 20);
-            this.txtcelularcliente.TabIndex = 133;
+            this.txtdni.Location = new System.Drawing.Point(837, 26);
+            this.txtdni.Name = "txtdni";
+            this.txtdni.Size = new System.Drawing.Size(190, 20);
+            this.txtdni.TabIndex = 133;
             // 
             // label1
             // 
@@ -242,6 +242,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "SeleccionarCliente";
             this.Text = "SeleccionarCliente";
+            this.Load += new System.EventHandler(this.SeleccionarCliente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -257,7 +258,7 @@
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.Button btnañadirCliente;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtcelularcliente;
+        private System.Windows.Forms.TextBox txtdni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;

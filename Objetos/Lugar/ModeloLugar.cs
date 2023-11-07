@@ -10,15 +10,10 @@ namespace Objetos
 {
     public class ModeloLugar
     {
-        private Conexion conexion;
-
-        public ModeloLugar()
-        {
-            conexion = new Conexion();
-        }
 
         public List<Lugarr> BuscarLugares(int? id, string distrito, string departamento)
         {
+            Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
             {
                 using (SqlCommand cmd = new SqlCommand("BuscarLugar", connection))
@@ -55,6 +50,7 @@ namespace Objetos
         
         public List<Lugarr> MostrarTodosLosLugares()
         {
+            Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
             {
                 using (SqlCommand cmd = new SqlCommand("MostrarTodosLosLugares", connection))
@@ -87,6 +83,7 @@ namespace Objetos
 
         public void AgregarLugar(string distrito, string direccion, string terminal, string departamento, string estado)
         {
+            Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
             {
                 using (SqlCommand cmd = new SqlCommand("AgregarLugar", connection))
@@ -106,6 +103,7 @@ namespace Objetos
 
         public void EditarLugar(int id, string distrito, string direccion, string terminal, string departamento, string estado)
         {
+            Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
             {
                 using (SqlCommand cmd = new SqlCommand("EditarLugar", connection))
@@ -126,6 +124,7 @@ namespace Objetos
 
         public void EliminarLugar(int id)
         {
+            Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
             {
                 using (SqlCommand cmd = new SqlCommand("EliminarLugar", connection))
