@@ -70,8 +70,8 @@ namespace Formularios
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SeleccionarCliente mostrarClientes = new SeleccionarCliente();
-            mostrarClientes.Show();
+            TablaCliente TablaCliente = new TablaCliente();
+            TablaCliente.Show();
         }
 
         private void busesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,6 +114,12 @@ namespace Formularios
         {
             TablaLugar tablaLugar = new TablaLugar();
             tablaLugar.Show();
+        }
+
+        private void rutaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TablaRuta tablaRuta = new TablaRuta();
+            tablaRuta.Show();
         }
     }
 }

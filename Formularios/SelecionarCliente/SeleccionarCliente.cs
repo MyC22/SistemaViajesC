@@ -13,42 +13,32 @@ namespace Formularios.SelecionarCliente
 {
     public partial class SeleccionarCliente : Form
     {
-        private ModeloCliente modeloCliente;
-        private List<Cliente> todosLosClientes;
-
+        List<ClienteListaPersona> cl = new List<ClienteListaPersona>();
+        ModeloCliente mc = new ModeloCliente();
         public SeleccionarCliente()
         {
             InitializeComponent();
-            modeloCliente = new ModeloCliente();
-            todosLosClientes = modeloCliente.MostrarClientes();
-            dataGridView1.DataSource = todosLosClientes;
+        }
+        
+        private void SeleccionarCliente_Load(object sender, EventArgs e)
+        { 
+            cl = mc.MostrarClientePersona();
+            dataGridView1.DataSource = cl;
         }
 
         private void btBuscar_Click(object sender, EventArgs e)
         {
             string nombreCliente = txtnombrecliente.Text;
             string apellidoCliente = txtapellidocliente.Text;
-            int celularCliente;
+            string Dni = txtdni.Text;
+            List<ClienteListaPersona> resultadosBusqueda = cl
+                .Where(c =>
+                    (string.IsNullOrEmpty(nombreCliente) || c.Nombres.IndexOf(nombreCliente, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                    (string.IsNullOrEmpty(apellidoCliente) || c.Apellido.IndexOf(apellidoCliente, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                    (string.IsNullOrEmpty(Dni) || c.DNI.IndexOf(Dni, StringComparison.OrdinalIgnoreCase) >= 0))
+                .ToList();
 
-            if (int.TryParse(txtcelularcliente.Text, out celularCliente))
-            {
-                List<Cliente> resultadosBusqueda = todosLosClientes
-                    .Where(c =>
-                        (string.IsNullOrEmpty(nombreCliente) || c.Nombres.IndexOf(nombreCliente, StringComparison.OrdinalIgnoreCase) >= 0) &&
-                        (string.IsNullOrEmpty(apellidoCliente) || c.Apellido.IndexOf(apellidoCliente, StringComparison.OrdinalIgnoreCase) >= 0) &&
-                        (c.Celular == celularCliente))
-                    .ToList();
-
-                dataGridView1.DataSource = resultadosBusqueda;
-
-                txtnombrecliente.Text = "";
-                txtapellidocliente.Text = "";
-                txtcelularcliente.Text = "";
-            }
-            else
-            {
-                MessageBox.Show("Por favor, ingrese un número de celular válido.");
-            }
+            dataGridView1.DataSource = resultadosBusqueda;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -56,9 +46,12 @@ namespace Formularios.SelecionarCliente
 
         }
 
+<<<<<<< HEAD
         private void SeleccionarCliente_Load(object sender, EventArgs e)
         {
 
         }
+=======
+>>>>>>> b722301344b9498b80208a35a17e1c7ded1593d2
     }
 }

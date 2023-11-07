@@ -39,15 +39,16 @@
             this.programacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lugarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.boletosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.boletosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.recervacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lugarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.boletosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rutaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,14 +77,14 @@
             // cerrarSeccionToolStripMenuItem
             // 
             this.cerrarSeccionToolStripMenuItem.Name = "cerrarSeccionToolStripMenuItem";
-            this.cerrarSeccionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSeccionToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cerrarSeccionToolStripMenuItem.Text = "Cerrar Seccion";
             this.cerrarSeccionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSeccionToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -96,7 +97,8 @@
             this.programacionesToolStripMenuItem,
             this.cargosToolStripMenuItem,
             this.modeloToolStripMenuItem,
-            this.lugarToolStripMenuItem});
+            this.lugarToolStripMenuItem,
+            this.rutaToolStripMenuItem});
             this.datosToolStripMenuItem.Name = "datosToolStripMenuItem";
             this.datosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.datosToolStripMenuItem.Text = "Datos";
@@ -142,6 +144,13 @@
             this.modeloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modeloToolStripMenuItem.Text = "Modelo";
             this.modeloToolStripMenuItem.Click += new System.EventHandler(this.modeloToolStripMenuItem_Click);
+            // 
+            // lugarToolStripMenuItem
+            // 
+            this.lugarToolStripMenuItem.Name = "lugarToolStripMenuItem";
+            this.lugarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lugarToolStripMenuItem.Text = "Lugar";
+            this.lugarToolStripMenuItem.Click += new System.EventHandler(this.lugarToolStripMenuItem_Click);
             // 
             // buscarToolStripMenuItem
             // 
@@ -191,13 +200,6 @@
             this.crearToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.crearToolStripMenuItem.Text = "Crear";
             // 
-            // boletosToolStripMenuItem1
-            // 
-            this.boletosToolStripMenuItem1.Name = "boletosToolStripMenuItem1";
-            this.boletosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.boletosToolStripMenuItem1.Text = "Boletos";
-            this.boletosToolStripMenuItem1.Click += new System.EventHandler(this.boletosToolStripMenuItem1_Click);
-            // 
             // recervacionesToolStripMenuItem
             // 
             this.recervacionesToolStripMenuItem.Name = "recervacionesToolStripMenuItem";
@@ -205,12 +207,19 @@
             this.recervacionesToolStripMenuItem.Text = "Rutas";
             this.recervacionesToolStripMenuItem.Click += new System.EventHandler(this.recervacionesToolStripMenuItem_Click);
             // 
-            // lugarToolStripMenuItem
+            // boletosToolStripMenuItem1
             // 
-            this.lugarToolStripMenuItem.Name = "lugarToolStripMenuItem";
-            this.lugarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.lugarToolStripMenuItem.Text = "Lugar";
-            this.lugarToolStripMenuItem.Click += new System.EventHandler(this.lugarToolStripMenuItem_Click);
+            this.boletosToolStripMenuItem1.Name = "boletosToolStripMenuItem1";
+            this.boletosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.boletosToolStripMenuItem1.Text = "Boletos";
+            this.boletosToolStripMenuItem1.Click += new System.EventHandler(this.boletosToolStripMenuItem1_Click);
+            // 
+            // rutaToolStripMenuItem
+            // 
+            this.rutaToolStripMenuItem.Name = "rutaToolStripMenuItem";
+            this.rutaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rutaToolStripMenuItem.Text = "Ruta";
+            this.rutaToolStripMenuItem.Click += new System.EventHandler(this.rutaToolStripMenuItem_Click);
             // 
             // Menuprincipal
             // 
@@ -252,5 +261,6 @@
         private System.Windows.Forms.ToolStripMenuItem modeloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lugarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rutaToolStripMenuItem;
     }
 }
