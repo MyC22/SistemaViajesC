@@ -46,12 +46,5 @@ namespace Formularios.SelecionarCliente
 
         }
 
-<<<<<<< HEAD
-        private void SeleccionarCliente_Load(object sender, EventArgs e)
-        {
-
-        }
-=======
->>>>>>> b722301344b9498b80208a35a17e1c7ded1593d2
     }
 }

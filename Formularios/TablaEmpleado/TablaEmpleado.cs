@@ -128,6 +128,7 @@ namespace sistema_de_viajes
             btneditar.Enabled = false;
             btnguardar.Enabled = false;
             btnañadir.Enabled = true;
+            btneliminar .Enabled = false;
             limpiar();
             desactivartxt();
             dataGridView1.Enabled = true;

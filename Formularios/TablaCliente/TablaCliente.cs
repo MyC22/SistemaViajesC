@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
@@ -46,6 +47,7 @@ namespace sistema_de_viajes
             txtruc.Visible = false;
             txtdireccion.Visible = false;
             rdpersona.Checked = true;
+            radioButton1.Checked = true;
 
         }
         private void limpiar()
@@ -104,6 +106,18 @@ namespace sistema_de_viajes
                    txtcorreo.Text != "") { return true; } else { return false; }
             }else return false;
         }
+        private void datos()
+        {
+            c.Celular = Convert.ToInt32(txtcelular.Text);
+            c.Correo = txtcorreo.Text;
+            c.Apellido = txtapellido.Text;
+            c.DNI = txtdni.Text;
+            c.Nombres = txtnombre.Text;
+            c.Nacimiento = dtnacimiento.Value;
+            c.Ruc = txtruc.Text;
+            c.Direccion = txtdireccion.Text;
+            c.Tipo = rdseleccionado;
+        }
         private void datospersona()
         {
             cpe.Celular = Convert.ToInt32(txtcelular.Text);
@@ -118,7 +132,7 @@ namespace sistema_de_viajes
         {
             ce.Celular = Convert.ToInt32(txtcelular.Text);
             ce.Correo = txtcorreo.Text;
-            ce.Ruc = (int)Convert.ToInt64(txtruc.Text);
+            ce.Ruc = txtruc.Text;
             ce.Nombres = txtnombre.Text;
             ce.Direccion = txtdireccion.Text;
             ce.Tipo = rdseleccionado;
@@ -173,6 +187,7 @@ namespace sistema_de_viajes
         private void btnañadir_Click(object sender, EventArgs e)
         {
             activartxt();
+            limpiar();
             estado = "g";
             btnguardar.Enabled = true;
             activartxt();
@@ -186,9 +201,11 @@ namespace sistema_de_viajes
             btneditar.Enabled = false;
             btnguardar.Enabled = false;
             btnañadir.Enabled = true;
+            btneliminar.Enabled = false;
             limpiar();
             desactivartxt();
             dataGridView1.Enabled = true;
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -226,7 +243,36 @@ namespace sistema_de_viajes
             {
                 if (estado.Equals("e"))
                 {
-
+                    Boolean validar = false;
+                    if (rdpersona.Checked)
+                    {
+                        string dni = c.DNI;
+                        datospersona();
+                        if(dni != c.DNI){ if (mc.ValidarDni(cpe)) { MessageBox.Show("No se edito, no se puede haber Dni de cliente iguales"); } else { validar = true; } } else { validar = true; }
+                    }
+                    else if (rdempresa.Checked)
+                    {
+                        string ruc = c.Ruc;
+                        datosempresa();
+                        if(ruc != c.Ruc){if (mc.ValidarRuc(ce)) { MessageBox.Show("No se edito, no se puede haber ruc de cliente iguales"); } else {validar = true;}}else { validar = true; }
+                    }
+                    if (validar)
+                    {
+                        datos();
+                        mc.editarCliente(c);
+                        limpiar();
+                        desactivartxt();
+                        if (radioButton1.Checked) { 
+                            clp = mc.MostrarClientePersona(); 
+                            dataGridView1.DataSource = clp;
+                        }
+                        if (radioButton2.Checked) { 
+                            cle = mc.MostrarClienteEmpresa();
+                            dataGridView1.DataSource = cle;
+                        }
+                        cancelar();
+                        MessageBox.Show("se edito");
+                    }
                 }
                 if (estado.Equals("g"))
                 {
@@ -263,6 +309,61 @@ namespace sistema_de_viajes
                 }
             }else MessageBox.Show("No se guardo, faltan rellenar datos");
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            c.ID = id;
+            SqlDataReader dr = mc.listarClienteID(id);
+            if (dr.Read())
+            {
+                txtnombre.Text = dr["Nombres"].ToString();
+                txtapellido.Text = dr["Apellido"].ToString();
+                txtruc.Text = dr["Ruc"].ToString();
+                txtdni.Text = dr["DNI"].ToString();
+                txtdireccion.Text = dr["Direccion"].ToString();
+                txtcelular.Text = dr["Celular"].ToString();
+                txtcorreo.Text = dr["Correo"].ToString();
+                if (dr["Tipo"].ToString().Equals(rdpersona.Text))
+                {
+                    rdpersona.Checked = true;
+                    rdempresa.Checked = false;
+                    dtnacimiento.Value = (DateTime)dr["nacimiento"];
+                }
+                if (dr["Tipo"].ToString().Equals(rdempresa.Text))
+                {
+                    rdpersona.Checked = false;
+                    rdempresa.Checked = true;
+                }
+                btneditar.Enabled = true;
+                btneliminar.Enabled = true;
+            }
+            datos();
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            mc.eliminarcliente(c.ID);
+            if (rdpersona.Checked) { dataGridView1.DataSource = mc.MostrarClientePersona(); }
+            if (rdempresa.Checked) { dataGridView1.DataSource = mc.MostrarClienteEmpresa(); }
+            limpiar();
+            desactivartxt();
+            dataGridView1.Enabled = true;
+            btneditar.Enabled = false;
+            btnguardar.Enabled = false;
+            btnañadir.Enabled = true;
+            MessageBox.Show("Se elimino con exito");
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Enabled = false;
+            estado = "e";
+            btnguardar.Enabled = true;
+            activartxt();
+            btnañadir.Enabled = false;
+        }
+
     }
 }
 

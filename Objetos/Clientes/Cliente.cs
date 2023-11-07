@@ -20,7 +20,7 @@ namespace Objetos
         public string Nombres { get; set; }
         public int Celular { get; set; }
         public string Correo { get; set; }
-        public int Ruc { get; set; }
+        public string Ruc { get; set; }
         public string Direccion { get; set; }
         public string Tipo { get; set; }
     }
@@ -32,7 +32,7 @@ namespace Objetos
         public string DNI { get; set; }
         public int Celular { get; set; }
         public string Correo { get; set; }
-        public int Ruc { get; set; }
+        public string Ruc { get; set; }
         public DateTime Nacimiento { get; set; }
         public string Direccion { get; set; }
         public string Tipo { get; set; }

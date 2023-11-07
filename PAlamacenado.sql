@@ -142,13 +142,13 @@ go
 CREATE PROCEDURE MostrarClientePersona
 AS
 BEGIN
-   select ID,Nombres,Apellido,DNI from Cliente
+   select ID,Nombres,Apellido,DNI from Cliente where Tipo = 'Persona'
 END;
 go
 CREATE PROCEDURE MostrarClienteEmpresa
 AS
 BEGIN
-   select ID,Nombres,Ruc,Correo from Cliente
+   select ID,Nombres,Ruc,Correo from Cliente where Tipo = 'Empresa'
 END;
 go
 create procedure guardarEmpresa @nombre varchar(200), @ruc int, @correo Varchar(200), @celular int, @tipo varchar(50), @direccion varchar(100) 
@@ -156,9 +156,9 @@ as begin
 insert into Cliente (Nombres, Ruc, Correo,Celular,Direccion,Tipo) Values (@nombre,@ruc,@correo,@celular,@direccion,@tipo)
 end
 go
-create procedure guardarPersona @nombre varchar(200), @ruc char(8), @correo Varchar(200), @celular int, @tipo varchar(50), @direccion varchar(100) 
+create procedure guardarPersona @nombre varchar(200), @dni char(8), @correo Varchar(200), @celular int, @tipo varchar(50), @Apellido varchar(50), @nacimiento date = null
 as begin
-insert into Cliente (Nombres, Ruc, Correo,Celular,Direccion,Tipo) Values (@nombre,@ruc,@correo,@celular,@direccion,@tipo)
+insert into Cliente (Nombres, DNI, Correo,Celular,Apellido,Tipo,nacimiento) Values (@nombre,@Apellido,@dni,@correo,@celular,@tipo, isnull(@nacimiento,null))
 end
 go
 

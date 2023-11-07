@@ -1,8 +1,5 @@
 create database sistemaviajes
 go
-
-drop database sistemaviajes
-
 use sistemaviajes
 go
 CREATE TABLE Boletos (
@@ -27,8 +24,8 @@ CREATE TABLE Cliente (
   ID         int IDENTITY NOT NULL, 
   Nombres    varchar(200) NOT NULL, 
   Apellido   varchar(50) NULL, 
-  DNI        char(8) NULL UNIQUE, 
-  Ruc        int NULL UNIQUE, 
+  DNI        char(8) NULL , 
+  Ruc        char(11) NULL , 
   Correo     varchar(200) NOT NULL, 
   Celular    int NOT NULL, 
   nacimiento date NULL, 
@@ -132,10 +129,4 @@ go
 insert into Cargo (Cargo, Descripcion) values ('Administrador','Administrador')
 go
 insert into Cargo (Cargo, Descripcion) values ('Gerente general','Encargado general de la empresa')
-<<<<<<< HEAD
-
-select * from Cargo
-
-insert into Usuario(IDEmpleado,Usuario, Contrasena, TipoCuenta) values ('001','Denis','123456','administrador')
-=======
->>>>>>> b722301344b9498b80208a35a17e1c7ded1593d2
+go

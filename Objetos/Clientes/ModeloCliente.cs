@@ -151,6 +151,37 @@ namespace Objetos
             cmd.Parameters.AddWithValue("@nacimiento", c.Nacimiento);
             cmd.ExecuteNonQuery();
         }
-
+        public SqlDataReader listarClienteID(int id)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("select * from CLiente where ID = @id", con.Open());
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
+        public void eliminarcliente(int id)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("Delete from CLiente where ID = @id", con.Open());
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+        }
+        public void editarCliente(Cliente c)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("editarCliente", con.Open());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", c.ID);
+            cmd.Parameters.AddWithValue("@nombre", c.Nombres);
+            cmd.Parameters.AddWithValue("@Apellido", c.Apellido);
+            cmd.Parameters.AddWithValue("@dni", c.DNI);
+            cmd.Parameters.AddWithValue("@correo", c.Correo);
+            cmd.Parameters.AddWithValue("@celular", c.Celular);
+            cmd.Parameters.AddWithValue("@tipo", c.Tipo);
+            cmd.Parameters.AddWithValue("@nacimiento", c.Nacimiento);
+            cmd.Parameters.AddWithValue("@ruc", c.Ruc);
+            cmd.Parameters.AddWithValue("@direccion", c.Direccion);
+            cmd.ExecuteNonQuery();
+        }
     }
 }

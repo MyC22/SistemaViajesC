@@ -51,7 +51,6 @@
     <Compile Include="Buses\ModeloBuss.cs" />
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ModeloCliente.cs" />
-    <Compile Include="Clientes\NegocioCliente.cs" />
     <Compile Include="Conexion\ConexionBD.cs" />
     <Compile Include="Empleado\Empleado.cs" />
     <Compile Include="Empleado\ModeloEmpleado.cs" />
