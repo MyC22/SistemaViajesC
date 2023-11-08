@@ -63,7 +63,7 @@ namespace sistema_modelo
                         .Where(Modelo =>
                         (filtroSeleccionado == "ID" && valorFiltro != "" && Modelo.ID.ToString().Equals(valorFiltro, StringComparison.OrdinalIgnoreCase)) ||
                         (filtroSeleccionado == "Nombre" && valorFiltro != "" && Modelo.Nombre.Equals(valorFiltro, StringComparison.OrdinalIgnoreCase)) ||
-                        (filtroSeleccionado == "Tamaño" && valorFiltro != "" && Modelo.Equals(valorFiltro, StringComparison.OrdinalIgnoreCase)))
+                        (filtroSeleccionado == "Tamaño" && valorFiltro != "" && Modelo.Tamanio.Equals(valorFiltro, StringComparison.OrdinalIgnoreCase)))
                         .ToList();
 
                     dataGridView1.DataSource = ModelosEncontrados;
@@ -108,7 +108,7 @@ namespace sistema_modelo
 
                     try
                     {
-                        modelomodelos.EliminarLugar(id);
+                        modelomodelos.EliminarModelo(id);
 
                         MostrarTodosLosModelos();
                     }
@@ -126,6 +126,81 @@ namespace sistema_modelo
             {
                 MessageBox.Show("No se ha inicializado la propiedad ConnectionString. Verifica la cadena de conexión.");
             }
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            string nombre = txtnombre.Text;
+            string tamanio = txttamanio.Text;
+            int asientos = txtasientos.Text;
+
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tamanio) || string.IsNullOrEmpty(asientos))
+            {
+                MessageBox.Show("Por favor, complete todos los campos antes de guardar.");
+                return;
+            }
+
+            if (modelomodelos != null)
+            {
+                try
+                {
+                    modelomodelos.AgregarModelo(nombre, tamanio, asientos);
+
+                    txtnombre.Text = "";
+                    txttamanio.Text = "";
+                    txtasientos.Text = "";
+
+                    txtnombre.Enabled = false;
+                    txttamanio.Enabled = false;
+                    txtasientos.Enabled = false;
+
+                    MostrarTodosLosModelos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar el lugar: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha inicializado la propiedad ConnectionString. Verifica la cadena de conexión.");
+            }
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+
+                Modelo modelo = TodosLosModelos.FirstOrDefault(l => l.ID == id);
+
+                if (modelo != null)
+                {
+                    txtnombre.Text = modelo.Nombre;
+                    txttamanio.Text = modelo.Tamanio;
+                    txtasientos.Text = modelo.Asientos;
+
+                    txtnombre.Enabled = true;
+                    txttamanio.Enabled = true;
+                    txtasientos.Enabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un lugar para editar.");
+            }
+        }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+            txtnombre.Text = "";
+            txttamanio.Text = "";
+            txtasientos.Text = "";
+
+            txtnombre.Enabled = false;
+            txttamanio.Enabled = false;
+            txtasientos.Enabled = false;
         }
 
         private void TablaModelo_Load(object sender, EventArgs e)

@@ -214,6 +214,7 @@
             this.btncancelar.Size = new System.Drawing.Size(35, 34);
             this.btncancelar.TabIndex = 134;
             this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
             // btneliminar
             // 
@@ -233,6 +234,7 @@
             this.btneditar.Size = new System.Drawing.Size(31, 33);
             this.btneditar.TabIndex = 132;
             this.btneditar.UseVisualStyleBackColor = true;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // btnañadir
             // 
@@ -252,6 +254,7 @@
             this.btnguardar.Size = new System.Drawing.Size(31, 33);
             this.btnguardar.TabIndex = 130;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // TablaModelo
             // 
