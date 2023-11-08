@@ -57,6 +57,8 @@
     <Compile Include="Factura\Factura.cs" />
     <Compile Include="Lugar\Lugar.cs" />
     <Compile Include="Lugar\ModeloLugar.cs" />
+    <Compile Include="Modelo\Modelo.cs" />
+    <Compile Include="Modelo\Modelomodelo.cs" />
     <Compile Include="Pasajero\Pasajero.cs" />
     <Compile Include="Programacion\Programacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
