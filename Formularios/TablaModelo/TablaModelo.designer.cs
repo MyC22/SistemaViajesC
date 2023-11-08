@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablaModelo));
-            this.txtasientos = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,16 +56,11 @@
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+            this.nasiento = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nasiento)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtasientos
-            // 
-            this.txtasientos.Location = new System.Drawing.Point(74, 123);
-            this.txtasientos.Name = "txtasientos";
-            this.txtasientos.Size = new System.Drawing.Size(204, 20);
-            this.txtasientos.TabIndex = 89;
             // 
             // txtnombre
             // 
@@ -174,10 +168,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.nasiento);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txttamanio);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtasientos);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtnombre);
             this.panel1.Controls.Add(this.label4);
@@ -256,6 +250,13 @@
             this.btnguardar.UseVisualStyleBackColor = true;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
+            // nasiento
+            // 
+            this.nasiento.Location = new System.Drawing.Point(74, 124);
+            this.nasiento.Name = "nasiento";
+            this.nasiento.Size = new System.Drawing.Size(204, 20);
+            this.nasiento.TabIndex = 96;
+            // 
             // TablaModelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,13 +280,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nasiento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtasientos;
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -312,5 +313,6 @@
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip4;
         private System.Windows.Forms.ToolTip toolTip5;
+        private System.Windows.Forms.NumericUpDown nasiento;
     }
 }

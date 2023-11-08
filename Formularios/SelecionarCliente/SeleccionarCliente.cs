@@ -18,11 +18,13 @@ namespace Formularios.SelecionarCliente
         List<ClienteListaEmpresa> cle = new List<ClienteListaEmpresa>();
         ModeloCliente mc = new ModeloCliente();
         Cliente c  = new Cliente();
-        public SeleccionarCliente()
+        int idservicio;
+        public SeleccionarCliente(int idservicio)
         {
             InitializeComponent();
+            this.idservicio = idservicio;
         }
-        
+         
         private void SeleccionarCliente_Load(object sender, EventArgs e)
         { 
             clp = mc.MostrarClientePersona();
@@ -112,6 +114,17 @@ namespace Formularios.SelecionarCliente
         private void btncancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            Seleccionarprograma se = new Seleccionarprograma();
+            se.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(c.ID != null)
+            {
+                CrearBoleto cb = new CrearBoleto(idservicio, c.ID);
+                cb.Show();
+            }else { MessageBox.Show("Primero debe seleccionar a un cliente"); }
         }
     }
 }

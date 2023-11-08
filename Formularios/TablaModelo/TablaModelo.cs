@@ -26,7 +26,7 @@ namespace sistema_modelo
             cbofiltrar.SelectedIndex = 0;
 
             txtnombre.Enabled = false;
-            txtasientos.Enabled = false;
+            nasiento.Enabled = false;
             txttamanio.Enabled = false;
 
         }
@@ -90,11 +90,11 @@ namespace sistema_modelo
         {
 
             txtnombre.Enabled = true;
-            txtasientos.Enabled = true;
+            nasiento.Enabled = true;
             txttamanio.Enabled = true;
 
             txtnombre.Text = "";
-            txtasientos.Text = "";
+            nasiento.Value = 0;
             txttamanio.Text = "";
         }
 
@@ -132,9 +132,9 @@ namespace sistema_modelo
         {
             string nombre = txtnombre.Text;
             string tamanio = txttamanio.Text;
-            int asientos = txtasientos.Text;
+            int asientos = (int)nasiento.Value;
 
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tamanio) || string.IsNullOrEmpty(asientos))
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tamanio))
             {
                 MessageBox.Show("Por favor, complete todos los campos antes de guardar.");
                 return;
@@ -148,11 +148,11 @@ namespace sistema_modelo
 
                     txtnombre.Text = "";
                     txttamanio.Text = "";
-                    txtasientos.Text = "";
+                    nasiento.Value = 0;
 
                     txtnombre.Enabled = false;
                     txttamanio.Enabled = false;
-                    txtasientos.Enabled = false;
+                    nasiento.Enabled = false;
 
                     MostrarTodosLosModelos();
                 }
@@ -179,11 +179,11 @@ namespace sistema_modelo
                 {
                     txtnombre.Text = modelo.Nombre;
                     txttamanio.Text = modelo.Tamanio;
-                    txtasientos.Text = modelo.Asientos;
+                    nasiento.Value = modelo.Asientos;
 
                     txtnombre.Enabled = true;
                     txttamanio.Enabled = true;
-                    txtasientos.Enabled = true;
+                    nasiento.Enabled = true;
                 }
             }
             else
@@ -196,11 +196,11 @@ namespace sistema_modelo
         {
             txtnombre.Text = "";
             txttamanio.Text = "";
-            txtasientos.Text = "";
+            nasiento.Value = 0;
 
             txtnombre.Enabled = false;
             txttamanio.Enabled = false;
-            txtasientos.Enabled = false;
+            nasiento.Enabled = false;
         }
 
         private void TablaModelo_Load(object sender, EventArgs e)

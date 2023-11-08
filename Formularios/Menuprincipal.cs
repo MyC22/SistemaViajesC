@@ -44,12 +44,6 @@ namespace Formularios
             this.Hide();
         }
 
-        private void boletosToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            CrearBoleto crearBoleto = new CrearBoleto();
-            crearBoleto.Show();
-        }
-
         private void recervacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TablaRuta TablaRuta = new TablaRuta();
@@ -98,18 +92,6 @@ namespace Formularios
             tablaModelo.Show();
         }
 
-        private void reservacionesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Seleccionarprograma seleccionarprograma = new Seleccionarprograma();
-            seleccionarprograma.Show();
-        }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SeleccionarCliente seleccionarCliente = new SeleccionarCliente();
-            seleccionarCliente.Show();
-        }
-
         private void lugarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TablaLugar tablaLugar = new TablaLugar();
@@ -120,6 +102,12 @@ namespace Formularios
         {
             TablaRuta tablaRuta = new TablaRuta();
             tablaRuta.Show();
+        }
+
+        private void boletosToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            Seleccionarprograma se = new Seleccionarprograma();
+            se.Show();
         }
     }
 }

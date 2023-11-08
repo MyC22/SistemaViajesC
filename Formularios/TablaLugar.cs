@@ -226,10 +226,5 @@ namespace Formularios
             txtDireccion.Enabled = false;
             cbEstado.Enabled = false;
         }
-
-        private void TablaLugar_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
