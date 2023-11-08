@@ -253,6 +253,5 @@ namespace sistema_de_viajes
             MessageBox.Show("Se elimino con exito");
             
         }
-
     }
 }

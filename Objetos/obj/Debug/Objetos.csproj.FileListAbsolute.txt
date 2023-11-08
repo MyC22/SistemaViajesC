@@ -16,3 +16,9 @@ C:\Users\CK\Desktop\SistemaViajesC#\Objetos\obj\Debug\Objetos.csproj.AssemblyRef
 C:\Users\CK\Desktop\SistemaViajesC#\Objetos\obj\Debug\Objetos.csproj.CoreCompileInputs.cache
 C:\Users\CK\Desktop\SistemaViajesC#\Objetos\obj\Debug\Objetos.dll
 C:\Users\CK\Desktop\SistemaViajesC#\Objetos\obj\Debug\Objetos.pdb
+C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\bin\Debug\Objetos.dll
+C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\bin\Debug\Objetos.pdb
+C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.AssemblyReference.cache
+C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.CoreCompileInputs.cache
+C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\obj\Debug\Objetos.dll
+C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\obj\Debug\Objetos.pdb

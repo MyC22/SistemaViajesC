@@ -52,6 +52,7 @@
             this.txtcontraseña = new System.Windows.Forms.TextBox();
             this.txtdni = new System.Windows.Forms.MaskedTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtnacimiento = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
@@ -65,7 +66,6 @@
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
             this.btneliminar = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
-            this.dtnacimiento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -286,6 +286,14 @@
             this.panel1.Size = new System.Drawing.Size(275, 391);
             this.panel1.TabIndex = 31;
             // 
+            // dtnacimiento
+            // 
+            this.dtnacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtnacimiento.Location = new System.Drawing.Point(83, 175);
+            this.dtnacimiento.Name = "dtnacimiento";
+            this.dtnacimiento.Size = new System.Drawing.Size(158, 20);
+            this.dtnacimiento.TabIndex = 32;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -365,14 +373,6 @@
             this.btncancelar.TabIndex = 127;
             this.btncancelar.UseVisualStyleBackColor = true;
             this.btncancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // dtnacimiento
-            // 
-            this.dtnacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtnacimiento.Location = new System.Drawing.Point(83, 175);
-            this.dtnacimiento.Name = "dtnacimiento";
-            this.dtnacimiento.Size = new System.Drawing.Size(158, 20);
-            this.dtnacimiento.TabIndex = 32;
             // 
             // TablaEmpleado
             // 

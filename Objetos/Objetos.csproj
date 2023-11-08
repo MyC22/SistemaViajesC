@@ -49,6 +49,8 @@
     <Compile Include="Buses\CBuss.cs" />
     <Compile Include="Buses\DatoBuss.cs" />
     <Compile Include="Buses\ModeloBuss.cs" />
+    <Compile Include="Cargo\Cargo.cs" />
+    <Compile Include="Cargo\ModeloCargo.cs" />
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ModeloCliente.cs" />
     <Compile Include="Conexion\ConexionBD.cs" />
