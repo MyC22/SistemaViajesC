@@ -216,7 +216,9 @@ namespace sistema_de_viajes
                 txtdniB.Visible = true;
                 lrucB.Visible = false;
                 txtrucB.Visible = false;
-
+                txtnombrecliente.Text = "";
+                txtdniB.Text = "";
+                txtrucB.Text = "";
                 clp = mc.MostrarClientePersona();
                 dataGridView1.DataSource = clp;
             }
@@ -228,10 +230,11 @@ namespace sistema_de_viajes
             {
                 LdniB.Visible = false;
                 txtdniB.Visible = false;
-
                 lrucB.Visible = true;
                 txtrucB.Visible = true;
-
+                txtnombrecliente.Text = "";
+                txtdniB.Text = "";
+                txtrucB.Text = "";
                 cle = mc.MostrarClienteEmpresa();
                 dataGridView1.DataSource = cle;
             }
@@ -248,13 +251,13 @@ namespace sistema_de_viajes
                     {
                         string dni = c.DNI;
                         datospersona();
-                        if(dni != c.DNI){ if (mc.ValidarDni(cpe)) { MessageBox.Show("No se edito, no se puede haber Dni de cliente iguales"); } else { validar = true; } } else { validar = true; }
+                        if(dni != cpe.DNI){ if (mc.ValidarDni(cpe)) { MessageBox.Show("No se edito, no se puede haber Dni de cliente iguales"); } else { validar = true; } } else { validar = true; }
                     }
                     else if (rdempresa.Checked)
                     {
                         string ruc = c.Ruc;
                         datosempresa();
-                        if(ruc != c.Ruc){if (mc.ValidarRuc(ce)) { MessageBox.Show("No se edito, no se puede haber ruc de cliente iguales"); } else {validar = true;}}else { validar = true; }
+                        if(ruc != ce.Ruc){if (mc.ValidarRuc(ce)) { MessageBox.Show("No se edito, no se puede haber ruc de cliente iguales"); } else {validar = true;}}else { validar = true; }
                     }
                     if (validar)
                     {
@@ -364,6 +367,37 @@ namespace sistema_de_viajes
             btnañadir.Enabled = false;
         }
 
+        private void btBuscar_Click(object sender, EventArgs e)
+        {
+            if(txtnombrecliente.Text != "" || txtdniB.Text != "" || txtrucB.Text != "")
+            {
+                if(radioButton1.Checked)
+                {
+                    string nombreCliente = txtnombrecliente.Text;
+                    string Dni = txtdniB.Text;
+                    List<ClienteListaPersona> resultadosBusqueda = clp
+                        .Where(c =>
+                            (string.IsNullOrEmpty(nombreCliente) || c.Nombres.IndexOf(nombreCliente, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                            (string.IsNullOrEmpty(Dni) || c.DNI.IndexOf(Dni, StringComparison.OrdinalIgnoreCase) >= 0))
+                        .ToList();
+                    dataGridView1.DataSource = resultadosBusqueda;
+                }
+                if (radioButton2.Checked)
+                {
+                    string nombreCliente = txtnombrecliente.Text;
+                    string ruc = txtrucB.Text;
+                    List<ClienteListaEmpresa> resultadosBusqueda = cle
+                        .Where(c =>
+                            (string.IsNullOrEmpty(nombreCliente) || c.Nombres.IndexOf(nombreCliente, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                            (string.IsNullOrEmpty(ruc) || c.Ruc.IndexOf(ruc, StringComparison.OrdinalIgnoreCase) >= 0))
+                        .ToList();
+                    dataGridView1.DataSource = resultadosBusqueda;
+                }
+            }else {
+                if (radioButton1.Checked) { dataGridView1.DataSource = mc.MostrarClientePersona(); }
+                if (radioButton2.Checked) { dataGridView1.DataSource = mc.MostrarClienteEmpresa(); }
+            }
+        }
     }
 }
 

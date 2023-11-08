@@ -480,6 +480,7 @@
             this.btBuscar.Size = new System.Drawing.Size(40, 28);
             this.btBuscar.TabIndex = 132;
             this.btBuscar.UseVisualStyleBackColor = true;
+            this.btBuscar.Click += new System.EventHandler(this.btBuscar_Click);
             // 
             // TablaCliente
             // 
