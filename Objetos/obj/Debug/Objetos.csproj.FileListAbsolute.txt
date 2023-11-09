@@ -22,3 +22,9 @@ C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\obj\D
 C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.CoreCompileInputs.cache
 C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\obj\Debug\Objetos.dll
 C:\Users\jeffe\OneDrive\Documentos\Github Proyectos\SistemaViajesC\Objetos\obj\Debug\Objetos.pdb
+C:\Users\campo\OneDrive\Documentos\Senati\Proyectos Empresa\SistemaViajesC\Objetos\bin\Debug\Objetos.dll
+C:\Users\campo\OneDrive\Documentos\Senati\Proyectos Empresa\SistemaViajesC\Objetos\bin\Debug\Objetos.pdb
+C:\Users\campo\OneDrive\Documentos\Senati\Proyectos Empresa\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.AssemblyReference.cache
+C:\Users\campo\OneDrive\Documentos\Senati\Proyectos Empresa\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.CoreCompileInputs.cache
+C:\Users\campo\OneDrive\Documentos\Senati\Proyectos Empresa\SistemaViajesC\Objetos\obj\Debug\Objetos.dll
+C:\Users\campo\OneDrive\Documentos\Senati\Proyectos Empresa\SistemaViajesC\Objetos\obj\Debug\Objetos.pdb

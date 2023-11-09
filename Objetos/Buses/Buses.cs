@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace Objetos.Buses
 {
-    internal class Buses
+    public class Buses //Atributos
     {
       
-            private int Placa;
-            private string Color;
+        private int Placa;
 
-            private string Estado;
+        private int idModelo;
 
-            public int placa { get => Placa; set => Placa = value; }
-            public string color { get => Color; set => Color = value; }
-            public string estado { get => Estado; set => Estado = value; }
+        private string Lugar;
 
+        private DateTime Disponibilidad;
 
-
-            ///public string Sexo { get => sexo; set => sexo = value; }
-        
+        public int Placa1 { get => Placa; set => Placa = value; }
+        public int IdModelo { get => idModelo; set => idModelo = value; }
+        public string Lugar1 { get => Lugar; set => Lugar = value; }
+        public DateTime Disponibilidad1 { get => Disponibilidad; set => Disponibilidad = value; }
     }
 }

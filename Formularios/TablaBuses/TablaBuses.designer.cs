@@ -30,54 +30,54 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablaBuses));
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateDisponible = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textLugar = new System.Windows.Forms.TextBox();
+            this.textPlaca = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textFiltrar = new System.Windows.Forms.TextBox();
+            this.comboFiltrar = new System.Windows.Forms.ComboBox();
+            this.DvgDatos = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Asientos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.comboModelo = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textAsientos = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btncancelar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
-            this.btnañadir = new System.Windows.Forms.Button();
+            this.btnanadir = new System.Windows.Forms.Button();
             this.btnguardar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DvgDatos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dateDisponible
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(75, 177);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2023, 10, 18, 11, 14, 24, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(193, 20);
-            this.dateTimePicker1.TabIndex = 77;
-            this.dateTimePicker1.Value = new System.DateTime(2023, 10, 18, 0, 0, 0, 0);
+            this.dateDisponible.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateDisponible.Location = new System.Drawing.Point(75, 177);
+            this.dateDisponible.MaxDate = new System.DateTime(2023, 10, 18, 11, 14, 24, 0);
+            this.dateDisponible.Name = "dateDisponible";
+            this.dateDisponible.Size = new System.Drawing.Size(193, 20);
+            this.dateDisponible.TabIndex = 77;
+            this.dateDisponible.Value = new System.DateTime(2023, 10, 18, 0, 0, 0, 0);
             // 
             // label6
             // 
@@ -97,19 +97,27 @@
             this.button4.Text = "Cancelar";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // textLugar
             // 
-            this.textBox4.Location = new System.Drawing.Point(75, 139);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(193, 20);
-            this.textBox4.TabIndex = 67;
+            this.textLugar.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.textLugar.Location = new System.Drawing.Point(75, 139);
+            this.textLugar.Name = "textLugar";
+            this.textLugar.Size = new System.Drawing.Size(193, 20);
+            this.textLugar.TabIndex = 67;
+            this.textLugar.Text = "Lugar";
+            this.textLugar.Enter += new System.EventHandler(this.textLugar_Enter);
+            this.textLugar.Leave += new System.EventHandler(this.textLugar_Leave);
             // 
-            // textBox2
+            // textPlaca
             // 
-            this.textBox2.Location = new System.Drawing.Point(75, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(193, 20);
-            this.textBox2.TabIndex = 65;
+            this.textPlaca.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.textPlaca.Location = new System.Drawing.Point(75, 62);
+            this.textPlaca.Name = "textPlaca";
+            this.textPlaca.Size = new System.Drawing.Size(193, 20);
+            this.textPlaca.TabIndex = 65;
+            this.textPlaca.Text = "Nro Placa";
+            this.textPlaca.Enter += new System.EventHandler(this.textPlaca_Enter);
+            this.textPlaca.Leave += new System.EventHandler(this.textPlaca_Leave);
             // 
             // label5
             // 
@@ -138,36 +146,39 @@
             this.label3.TabIndex = 61;
             this.label3.Text = "Placa:";
             // 
-            // textBox1
+            // textFiltrar
             // 
-            this.textBox1.Location = new System.Drawing.Point(628, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 59;
+            this.textFiltrar.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.textFiltrar.Location = new System.Drawing.Point(628, 16);
+            this.textFiltrar.Name = "textFiltrar";
+            this.textFiltrar.Size = new System.Drawing.Size(146, 20);
+            this.textFiltrar.TabIndex = 59;
+            this.textFiltrar.Text = "Buscar por filtro";
+            this.textFiltrar.Enter += new System.EventHandler(this.textFiltrar_Enter);
             // 
-            // comboBox1
+            // comboFiltrar
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(452, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 21);
-            this.comboBox1.TabIndex = 58;
+            this.comboFiltrar.FormattingEnabled = true;
+            this.comboFiltrar.Location = new System.Drawing.Point(452, 16);
+            this.comboFiltrar.Name = "comboFiltrar";
+            this.comboFiltrar.Size = new System.Drawing.Size(170, 21);
+            this.comboFiltrar.TabIndex = 58;
             // 
-            // dataGridView1
+            // DvgDatos
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DvgDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DvgDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DvgDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Placa,
             this.Modelo,
             this.Lugar,
             this.Disponible,
             this.Asientos});
-            this.dataGridView1.Location = new System.Drawing.Point(324, 48);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(644, 335);
-            this.dataGridView1.TabIndex = 57;
+            this.DvgDatos.Location = new System.Drawing.Point(324, 48);
+            this.DvgDatos.Name = "DvgDatos";
+            this.DvgDatos.Size = new System.Drawing.Size(644, 335);
+            this.DvgDatos.TabIndex = 57;
             // 
             // ID
             // 
@@ -203,37 +214,38 @@
             this.Asientos.HeaderText = "Asientos";
             this.Asientos.Name = "Asientos";
             // 
-            // comboBox2
+            // comboModelo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(74, 99);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(194, 21);
-            this.comboBox2.TabIndex = 78;
+            this.comboModelo.FormattingEnabled = true;
+            this.comboModelo.Location = new System.Drawing.Point(74, 99);
+            this.comboModelo.Name = "comboModelo";
+            this.comboModelo.Size = new System.Drawing.Size(194, 21);
+            this.comboModelo.TabIndex = 78;
             // 
-            // button1
+            // btnBuscar
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(789, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 28);
-            this.button1.TabIndex = 79;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(789, 11);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 28);
+            this.btnBuscar.TabIndex = 79;
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.textAsientos);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.textLugar);
+            this.panel1.Controls.Add(this.comboModelo);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dateDisponible);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textPlaca);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Location = new System.Drawing.Point(12, 48);
@@ -251,12 +263,16 @@
             this.label2.TabIndex = 81;
             this.label2.Text = "Buses";
             // 
-            // textBox3
+            // textAsientos
             // 
-            this.textBox3.Location = new System.Drawing.Point(75, 216);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(193, 20);
-            this.textBox3.TabIndex = 80;
+            this.textAsientos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.textAsientos.Location = new System.Drawing.Point(75, 216);
+            this.textAsientos.Name = "textAsientos";
+            this.textAsientos.Size = new System.Drawing.Size(193, 20);
+            this.textAsientos.TabIndex = 80;
+            this.textAsientos.Text = "Nro Asientos";
+            this.textAsientos.Enter += new System.EventHandler(this.textAsientos_Enter);
+            this.textAsientos.Leave += new System.EventHandler(this.textAsientos_Leave);
             // 
             // label1
             // 
@@ -288,6 +304,7 @@
             // 
             // btncancelar
             // 
+            this.btncancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btncancelar.Image = ((System.Drawing.Image)(resources.GetObject("btncancelar.Image")));
             this.btncancelar.Location = new System.Drawing.Point(160, 6);
             this.btncancelar.Name = "btncancelar";
@@ -297,6 +314,7 @@
             // 
             // btneliminar
             // 
+            this.btneliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
             this.btneliminar.Location = new System.Drawing.Point(124, 6);
             this.btneliminar.Name = "btneliminar";
@@ -306,30 +324,36 @@
             // 
             // btneditar
             // 
+            this.btneditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btneditar.Image = ((System.Drawing.Image)(resources.GetObject("btneditar.Image")));
             this.btneditar.Location = new System.Drawing.Point(50, 6);
             this.btneditar.Name = "btneditar";
             this.btneditar.Size = new System.Drawing.Size(31, 33);
             this.btneditar.TabIndex = 140;
             this.btneditar.UseVisualStyleBackColor = true;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
-            // btnañadir
+            // btnanadir
             // 
-            this.btnañadir.Image = ((System.Drawing.Image)(resources.GetObject("btnañadir.Image")));
-            this.btnañadir.Location = new System.Drawing.Point(12, 6);
-            this.btnañadir.Name = "btnañadir";
-            this.btnañadir.Size = new System.Drawing.Size(32, 33);
-            this.btnañadir.TabIndex = 139;
-            this.btnañadir.UseVisualStyleBackColor = true;
+            this.btnanadir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnanadir.Image = ((System.Drawing.Image)(resources.GetObject("btnanadir.Image")));
+            this.btnanadir.Location = new System.Drawing.Point(12, 6);
+            this.btnanadir.Name = "btnanadir";
+            this.btnanadir.Size = new System.Drawing.Size(32, 33);
+            this.btnanadir.TabIndex = 139;
+            this.btnanadir.UseVisualStyleBackColor = true;
+            this.btnanadir.Click += new System.EventHandler(this.btnanadir_Click);
             // 
             // btnguardar
             // 
+            this.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnguardar.Image = ((System.Drawing.Image)(resources.GetObject("btnguardar.Image")));
             this.btnguardar.Location = new System.Drawing.Point(87, 6);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(31, 33);
             this.btnguardar.TabIndex = 138;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // TablaBuses
             // 
@@ -339,18 +363,19 @@
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btneditar);
-            this.Controls.Add(this.btnañadir);
+            this.Controls.Add(this.btnanadir);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.textFiltrar);
+            this.Controls.Add(this.comboFiltrar);
+            this.Controls.Add(this.DvgDatos);
             this.Name = "TablaBuses";
             this.Text = "Buses";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.TablaBuses_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DvgDatos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -360,27 +385,27 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateDisponible;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textLugar;
+        private System.Windows.Forms.TextBox textPlaca;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textFiltrar;
+        private System.Windows.Forms.ComboBox comboFiltrar;
+        private System.Windows.Forms.DataGridView DvgDatos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Placa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Disponible;
         private System.Windows.Forms.DataGridViewTextBoxColumn Asientos;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboModelo;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textAsientos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label2;
@@ -388,7 +413,7 @@
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btneditar;
-        private System.Windows.Forms.Button btnañadir;
+        private System.Windows.Forms.Button btnanadir;
         private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;

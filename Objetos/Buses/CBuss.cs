@@ -4,10 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Objetos.Buses;
 namespace Objetos.Buses
 {
-    internal class CBuss
+    public class CBuss
     {
         DatoBuss carro = new DatoBuss();
         public DataTable MostrarBuss()
@@ -23,21 +23,13 @@ namespace Objetos.Buses
             td = carro.Buscar_Buss(Buscar);
             return td;
         }
-
-
-        public void InsertarBuss(Buses obj)
+        public void  InsertarBuss(Buses obj)
         {
             carro.Insertar_Buss(obj);
         }
-
-        public void ModificarBuss(Buses obj)
+        public void Modificar(Buses obj)
         {
-            carro.Insertar_Buss(obj);
-        }
-
-        public void EliminarBuss(Buses obj)
-        {
-            carro.Eliminar_Buss(obj);
+            carro.Modificar_Buss(obj)
         }
     }
 }

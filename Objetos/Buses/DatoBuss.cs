@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using Objetos.Buses;
 
 namespace Objetos.Buses
 {
@@ -41,7 +42,7 @@ namespace Objetos.Buses
                 cmd.Connection = conn.Open();
                 cmd.CommandText = "SP_Buscar_Buss";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Buscar", Placa);
+                cmd.Parameters.AddWithValue("@Placa", Placa);
                 dr = cmd.ExecuteReader();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 td.Load(dr);
@@ -63,9 +64,10 @@ namespace Objetos.Buses
                 cmd.Connection = conn.Open();
                 cmd.CommandText = "SP_Insertar_Buss";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Placa", obj.placa);
-                cmd.Parameters.AddWithValue("@Color", obj.color);
-                cmd.Parameters.AddWithValue("@Estado", obj.estado);
+                cmd.Parameters.AddWithValue("@Placa", obj.Placa1);
+                cmd.Parameters.AddWithValue("@IdModelo", obj.IdModelo);
+                cmd.Parameters.AddWithValue("@Lugar", obj.Lugar1);
+                cmd.Parameters.AddWithValue("@Disponibilidad", obj.Disponibilidad1);
                 cmd.ExecuteNonQuery();
                 cmd.Parameters.Clear();
             }
@@ -85,9 +87,10 @@ namespace Objetos.Buses
                 cmd.Connection = conn.Open();
                 cmd.CommandText = "SP_Modificar_Buss";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Placa", obj.placa);
-                cmd.Parameters.AddWithValue("@Color", obj.color);
-                cmd.Parameters.AddWithValue("@Estado", obj.estado);
+                cmd.Parameters.AddWithValue("@Placa", obj.Placa1);
+                cmd.Parameters.AddWithValue("@IdModelo", obj.IdModelo);
+                cmd.Parameters.AddWithValue("@Lugar", obj.Lugar1);
+                cmd.Parameters.AddWithValue("@Disponibilidad", obj.Disponibilidad1);
                 cmd.ExecuteNonQuery();
                 cmd.Parameters.Clear();
             }
@@ -107,7 +110,7 @@ namespace Objetos.Buses
                 cmd.Connection = conn.Open();
                 cmd.CommandText = "SP_Eliminar_Buss";
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Placa", obj.placa);
+                cmd.Parameters.AddWithValue("@Placa", obj.Placa1);
                 cmd.ExecuteReader();
                 cmd.Parameters.Clear();
             }
