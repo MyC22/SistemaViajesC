@@ -197,5 +197,72 @@ end;
 go
 
 
+------------------Ruta ------------------------
+/*Mostrar Rutas*/
+CREATE PROCEDURE MostrarRutas
+AS
+BEGIN
+    SELECT R.ID, R.Nombre, L1.Distrito AS Origen, L2.Distrito AS Destino, R.Demora
+    FROM Ruta R
+    INNER JOIN Lugar L1 ON R.IDOrigen = L1.ID
+    INNER JOIN Lugar L2 ON R.IDDestino = L2.ID;
+END
 
+/*Buscar Ruta*/
+CREATE PROCEDURE BuscarRuta
+    @ID INT = NULL,
+    @NombreRuta VARCHAR(50) = NULL
+AS
+BEGIN
+    SELECT R.ID, R.Nombre, L1.Distrito AS Origen, L2.Distrito AS Destino, R.Demora
+    FROM Ruta R
+    INNER JOIN Lugar L1 ON R.IDOrigen = L1.ID
+    INNER JOIN Lugar L2 ON R.IDDestino = L2.ID
+    WHERE (@ID IS NULL OR R.ID = @ID)
+      AND (@NombreRuta IS NULL OR R.Nombre LIKE '%' + @NombreRuta + '%');
+END
 
+/*Elimar Ruta*/
+CREATE PROCEDURE EliminarRutaPorID
+@RutaID INT
+AS
+BEGIN
+    DELETE FROM Ruta
+    WHERE ID = @RutaID;
+END
+
+/*Editar Ruta*/
+CREATE PROCEDURE EditarRuta
+@RutaID INT,
+@IDOrigen INT,
+@IDDestino INT,
+@NombreRuta VARCHAR(50),
+@Demora TIME
+AS
+BEGIN
+    UPDATE Ruta
+    SET IDOrigen = @IDOrigen,
+        IDDestino = @IDDestino,
+        Nombre = @NombreRuta,
+        Demora = @Demora
+    WHERE ID = @RutaID;
+END
+
+/*Agregar Ruta*/
+CREATE PROCEDURE AgregarRuta
+    @IDOrigen INT,
+    @IDDestino INT,
+    @NombreRuta VARCHAR(50),
+    @Demora TIME
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Lugar WHERE ID = @IDOrigen) AND EXISTS (SELECT 1 FROM Lugar WHERE ID = @IDDestino)
+    BEGIN
+        INSERT INTO Ruta (IDOrigen, IDDestino, Nombre, Demora)
+        VALUES (@IDOrigen, @IDDestino, @NombreRuta, @Demora);
+    END
+    ELSE
+    BEGIN
+        THROW 51000, 'Uno o ambos lugares especificados no existen. No se pudo agregar la ruta.', 1;
+    END
+END

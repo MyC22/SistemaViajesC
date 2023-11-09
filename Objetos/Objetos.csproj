@@ -64,6 +64,8 @@
     <Compile Include="Pasajero\Pasajero.cs" />
     <Compile Include="Programacion\Programacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ruta\ModeloRuta.cs" />
+    <Compile Include="Ruta\Ruta.cs" />
     <Compile Include="Viajes\Viajes.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -35,21 +35,21 @@
             this.btneditar = new System.Windows.Forms.Button();
             this.btnañadir = new System.Windows.Forms.Button();
             this.btnguardar = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btbuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.maskedTxtDemora = new System.Windows.Forms.MaskedTextBox();
+            this.cbDestino = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.cbcargo = new System.Windows.Forms.ComboBox();
+            this.cborigen = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtfiltro = new System.Windows.Forms.TextBox();
             this.cbfiltro = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,7 @@
             this.btneliminar.Size = new System.Drawing.Size(30, 33);
             this.btneliminar.TabIndex = 148;
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // label2
             // 
@@ -90,6 +91,7 @@
             this.btneditar.Size = new System.Drawing.Size(31, 33);
             this.btneditar.TabIndex = 146;
             this.btneditar.UseVisualStyleBackColor = true;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // btnañadir
             // 
@@ -99,6 +101,7 @@
             this.btnañadir.Size = new System.Drawing.Size(32, 33);
             this.btnañadir.TabIndex = 145;
             this.btnañadir.UseVisualStyleBackColor = true;
+            this.btnañadir.Click += new System.EventHandler(this.btnañadir_Click);
             // 
             // btnguardar
             // 
@@ -108,33 +111,53 @@
             this.btnguardar.Size = new System.Drawing.Size(31, 33);
             this.btnguardar.TabIndex = 144;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
-            // button5
+            // btbuscar
             // 
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(740, 7);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(40, 28);
-            this.button5.TabIndex = 143;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btbuscar.Image = ((System.Drawing.Image)(resources.GetObject("btbuscar.Image")));
+            this.btbuscar.Location = new System.Drawing.Point(740, 7);
+            this.btbuscar.Name = "btbuscar";
+            this.btbuscar.Size = new System.Drawing.Size(40, 28);
+            this.btbuscar.TabIndex = 143;
+            this.btbuscar.UseVisualStyleBackColor = true;
+            this.btbuscar.Click += new System.EventHandler(this.btBuscar_Click);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.maskedTextBox1);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.maskedTxtDemora);
+            this.panel1.Controls.Add(this.cbDestino);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.cbcargo);
+            this.panel1.Controls.Add(this.cborigen);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtnombre);
             this.panel1.Location = new System.Drawing.Point(7, 42);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(319, 311);
             this.panel1.TabIndex = 142;
+            // 
+            // maskedTxtDemora
+            // 
+            this.maskedTxtDemora.Location = new System.Drawing.Point(89, 169);
+            this.maskedTxtDemora.Mask = "00:00";
+            this.maskedTxtDemora.Name = "maskedTxtDemora";
+            this.maskedTxtDemora.Size = new System.Drawing.Size(216, 20);
+            this.maskedTxtDemora.TabIndex = 33;
+            this.maskedTxtDemora.ValidatingType = typeof(System.DateTime);
+            // 
+            // cbDestino
+            // 
+            this.cbDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDestino.FormattingEnabled = true;
+            this.cbDestino.Location = new System.Drawing.Point(89, 140);
+            this.cbDestino.Name = "cbDestino";
+            this.cbDestino.Size = new System.Drawing.Size(216, 21);
+            this.cbDestino.TabIndex = 32;
             // 
             // label12
             // 
@@ -183,17 +206,14 @@
             this.label11.TabIndex = 22;
             this.label11.Text = "Demora:";
             // 
-            // cbcargo
+            // cborigen
             // 
-            this.cbcargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbcargo.FormattingEnabled = true;
-            this.cbcargo.Items.AddRange(new object[] {
-            "Activo",
-            "Cerrado"});
-            this.cbcargo.Location = new System.Drawing.Point(89, 111);
-            this.cbcargo.Name = "cbcargo";
-            this.cbcargo.Size = new System.Drawing.Size(216, 21);
-            this.cbcargo.TabIndex = 19;
+            this.cborigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cborigen.FormattingEnabled = true;
+            this.cborigen.Location = new System.Drawing.Point(89, 111);
+            this.cborigen.Name = "cborigen";
+            this.cborigen.Size = new System.Drawing.Size(216, 21);
+            this.cborigen.TabIndex = 19;
             // 
             // label9
             // 
@@ -221,10 +241,6 @@
             // cbfiltro
             // 
             this.cbfiltro.FormattingEnabled = true;
-            this.cbfiltro.Items.AddRange(new object[] {
-            "Nombres",
-            "Dni",
-            "Cargo"});
             this.cbfiltro.Location = new System.Drawing.Point(436, 11);
             this.cbfiltro.Name = "cbfiltro";
             this.cbfiltro.Size = new System.Drawing.Size(146, 21);
@@ -243,27 +259,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(493, 311);
             this.dataGridView1.TabIndex = 139;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Activo",
-            "Cerrado"});
-            this.comboBox1.Location = new System.Drawing.Point(89, 140);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(216, 21);
-            this.comboBox1.TabIndex = 32;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(89, 169);
-            this.maskedTextBox1.Mask = "00:00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(216, 20);
-            this.maskedTextBox1.TabIndex = 33;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
             // TablaRuta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,7 +270,7 @@
             this.Controls.Add(this.btneditar);
             this.Controls.Add(this.btnañadir);
             this.Controls.Add(this.btnguardar);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btbuscar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtfiltro);
             this.Controls.Add(this.cbfiltro);
@@ -298,20 +293,20 @@
         private System.Windows.Forms.Button btneditar;
         private System.Windows.Forms.Button btnañadir;
         private System.Windows.Forms.Button btnguardar;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btbuscar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbcargo;
+        private System.Windows.Forms.ComboBox cborigen;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.TextBox txtfiltro;
         private System.Windows.Forms.ComboBox cbfiltro;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTxtDemora;
+        private System.Windows.Forms.ComboBox cbDestino;
     }
 }
