@@ -52,6 +52,8 @@
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ModeloCliente.cs" />
     <Compile Include="Conexion\ConexionBD.cs" />
+    <Compile Include="Cronograma\Cronograma.cs" />
+    <Compile Include="Cronograma\ModeloCronograma.cs" />
     <Compile Include="Empleado\Empleado.cs" />
     <Compile Include="Empleado\ModeloEmpleado.cs" />
     <Compile Include="Factura\Factura.cs" />
@@ -60,7 +62,6 @@
     <Compile Include="Modelo\Modelo.cs" />
     <Compile Include="Modelo\Modelomodelo.cs" />
     <Compile Include="Pasajero\Pasajero.cs" />
-    <Compile Include="Programacion\Programacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ruta\ModeloRuta.cs" />
     <Compile Include="Ruta\Ruta.cs" />

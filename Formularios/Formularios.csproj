@@ -84,6 +84,12 @@
     <Compile Include="SeleccionarPrograma\Seleccionarprograma.designer.cs">
       <DependentUpon>Seleccionarprograma.cs</DependentUpon>
     </Compile>
+    <Compile Include="SeleccionarRuta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarRuta.Designer.cs">
+      <DependentUpon>SeleccionarRuta.cs</DependentUpon>
+    </Compile>
     <Compile Include="SelecionarCliente\SeleccionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </Compile>
     <EmbeddedResource Include="SeleccionarPrograma\Seleccionarprograma.resx">
       <DependentUpon>Seleccionarprograma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarRuta.resx">
+      <DependentUpon>SeleccionarRuta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelecionarCliente\SeleccionarCliente.resx">
       <DependentUpon>SeleccionarCliente.cs</DependentUpon>

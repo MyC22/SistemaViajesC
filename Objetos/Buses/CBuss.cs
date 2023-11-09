@@ -29,7 +29,7 @@ namespace Objetos.Buses
         }
         public void Modificar(Buses obj)
         {
-            carro.Modificar_Buss(obj)
+            carro.Modificar_Buss(obj);
         }
     }
 }

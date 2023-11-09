@@ -17,9 +17,11 @@ namespace Formularios
 {
     public partial class Menuprincipal : Form
     {
+        int id;
         public Menuprincipal(int idempleado)
         {
             InitializeComponent();
+            id = idempleado;
         }
 
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,7 +79,7 @@ namespace Formularios
 
         private void programacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TablaPrograma tablaPrograma = new TablaPrograma();
+            TablaPrograma tablaPrograma = new TablaPrograma(id);
             tablaPrograma.Show();
         }
 
