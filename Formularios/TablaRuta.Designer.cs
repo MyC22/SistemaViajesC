@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablaRuta));
             this.btncancelar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.btneditar = new System.Windows.Forms.Button();
             this.btnañadir = new System.Windows.Forms.Button();
             this.btnguardar = new System.Windows.Forms.Button();
@@ -47,9 +47,14 @@
             this.cborigen = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
-            this.txtfiltro = new System.Windows.Forms.TextBox();
-            this.cbfiltro = new System.Windows.Forms.ComboBox();
+            this.txtnombreB = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.txtorigenB = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDestinoB = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +67,7 @@
             this.btncancelar.Size = new System.Drawing.Size(35, 34);
             this.btncancelar.TabIndex = 149;
             this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click_1);
             // 
             // btneliminar
             // 
@@ -72,16 +78,6 @@
             this.btneliminar.TabIndex = 148;
             this.btneliminar.UseVisualStyleBackColor = true;
             this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.label2.Location = new System.Drawing.Point(341, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 25);
-            this.label2.TabIndex = 147;
-            this.label2.Text = "Buscar";
             // 
             // btneditar
             // 
@@ -116,9 +112,9 @@
             // btbuscar
             // 
             this.btbuscar.Image = ((System.Drawing.Image)(resources.GetObject("btbuscar.Image")));
-            this.btbuscar.Location = new System.Drawing.Point(740, 7);
+            this.btbuscar.Location = new System.Drawing.Point(976, 7);
             this.btbuscar.Name = "btbuscar";
-            this.btbuscar.Size = new System.Drawing.Size(40, 28);
+            this.btbuscar.Size = new System.Drawing.Size(40, 29);
             this.btbuscar.TabIndex = 143;
             this.btbuscar.UseVisualStyleBackColor = true;
             this.btbuscar.Click += new System.EventHandler(this.btBuscar_Click);
@@ -231,20 +227,12 @@
             this.txtnombre.Size = new System.Drawing.Size(217, 20);
             this.txtnombre.TabIndex = 14;
             // 
-            // txtfiltro
+            // txtnombreB
             // 
-            this.txtfiltro.Location = new System.Drawing.Point(588, 12);
-            this.txtfiltro.Name = "txtfiltro";
-            this.txtfiltro.Size = new System.Drawing.Size(146, 20);
-            this.txtfiltro.TabIndex = 141;
-            // 
-            // cbfiltro
-            // 
-            this.cbfiltro.FormattingEnabled = true;
-            this.cbfiltro.Location = new System.Drawing.Point(436, 11);
-            this.cbfiltro.Name = "cbfiltro";
-            this.cbfiltro.Size = new System.Drawing.Size(146, 21);
-            this.cbfiltro.TabIndex = 140;
+            this.txtnombreB.Location = new System.Drawing.Point(403, 14);
+            this.txtnombreB.Name = "txtnombreB";
+            this.txtnombreB.Size = new System.Drawing.Size(146, 20);
+            this.txtnombreB.TabIndex = 141;
             // 
             // dataGridView1
             // 
@@ -256,27 +244,76 @@
             this.dataGridView1.Location = new System.Drawing.Point(332, 42);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(493, 311);
+            this.dataGridView1.Size = new System.Drawing.Size(684, 311);
             this.dataGridView1.TabIndex = 139;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // txtorigenB
+            // 
+            this.txtorigenB.Location = new System.Drawing.Point(626, 13);
+            this.txtorigenB.Name = "txtorigenB";
+            this.txtorigenB.Size = new System.Drawing.Size(126, 20);
+            this.txtorigenB.TabIndex = 150;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(328, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 20);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Nombre:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(560, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 20);
+            this.label6.TabIndex = 151;
+            this.label6.Text = "Origen:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(770, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 20);
+            this.label2.TabIndex = 153;
+            this.label2.Text = "Destino:";
+            // 
+            // txtDestinoB
+            // 
+            this.txtDestinoB.Location = new System.Drawing.Point(844, 12);
+            this.txtDestinoB.Name = "txtDestinoB";
+            this.txtDestinoB.Size = new System.Drawing.Size(126, 20);
+            this.txtDestinoB.TabIndex = 152;
             // 
             // TablaRuta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 375);
+            this.ClientSize = new System.Drawing.Size(1030, 375);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtDestinoB);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtorigenB);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btneliminar);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btneditar);
             this.Controls.Add(this.btnañadir);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.btbuscar);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtfiltro);
-            this.Controls.Add(this.cbfiltro);
+            this.Controls.Add(this.txtnombreB);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TablaRuta";
             this.Text = "TablaRuta";
+            this.Load += new System.EventHandler(this.TablaRuta_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -289,7 +326,6 @@
 
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.Button btneliminar;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btneditar;
         private System.Windows.Forms.Button btnañadir;
         private System.Windows.Forms.Button btnguardar;
@@ -303,10 +339,15 @@
         private System.Windows.Forms.ComboBox cborigen;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtnombre;
-        private System.Windows.Forms.TextBox txtfiltro;
-        private System.Windows.Forms.ComboBox cbfiltro;
+        private System.Windows.Forms.TextBox txtnombreB;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MaskedTextBox maskedTxtDemora;
         private System.Windows.Forms.ComboBox cbDestino;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox txtorigenB;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDestinoB;
     }
 }

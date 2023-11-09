@@ -90,7 +90,7 @@ namespace Objetos
             }
         }
 
-        public void EditarRuta(int rutaID, int idOrigen, int idDestino, string nombreRuta, TimeSpan demora)
+        public void EditarRuta(Rutas r)
         {
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
@@ -98,18 +98,26 @@ namespace Objetos
                 using (SqlCommand command = new SqlCommand("EditarRuta", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("@RutaID", rutaID));
-                    command.Parameters.Add(new SqlParameter("@IDOrigen", idOrigen));
-                    command.Parameters.Add(new SqlParameter("@IDDestino", idDestino));
-                    command.Parameters.Add(new SqlParameter("@NombreRuta", nombreRuta));
-                    command.Parameters.Add(new SqlParameter("@Demora", demora));
+                    command.Parameters.Add(new SqlParameter("@RutaID", r.ID));
+                    command.Parameters.Add(new SqlParameter("@IDOrigen", r.IDOrigen));
+                    command.Parameters.Add(new SqlParameter("@IDDestino", r.IDDestino));
+                    command.Parameters.Add(new SqlParameter("@NombreRuta", r.Nombre));
+                    command.Parameters.Add(new SqlParameter("@Demora", r.Demora));
 
                     command.ExecuteNonQuery();
                 }
             }
         }
-
-        public void AgregarRuta(int idOrigen, int idDestino, string nombreRuta, TimeSpan demora)
+        public DataTable listarlugar()
+        {
+            Conexion con = new Conexion();
+            DataTable dt = new DataTable();
+            SqlDataAdapter cmd = new SqlDataAdapter("select ID,Departamento,Distrito,Terminal from Lugar where Estado = 'Activo'", con.Open());
+            cmd.Fill(dt);
+            con.Close();
+            return dt;
+        }
+        public void AgregarRuta(Rutas r)
         {
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
@@ -117,14 +125,22 @@ namespace Objetos
                 using (SqlCommand command = new SqlCommand("AgregarRuta", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("@IDOrigen", idOrigen));
-                    command.Parameters.Add(new SqlParameter("@IDDestino", idDestino));
-                    command.Parameters.Add(new SqlParameter("@NombreRuta", nombreRuta));
-                    command.Parameters.Add(new SqlParameter("@Demora", demora));
+                    command.Parameters.Add(new SqlParameter("@IDOrigen", r.IDOrigen));
+                    command.Parameters.Add(new SqlParameter("@IDDestino", r.IDDestino));
+                    command.Parameters.Add(new SqlParameter("@NombreRuta", r.Nombre));
+                    command.Parameters.Add(new SqlParameter("@Demora", r.Demora));
 
                     command.ExecuteNonQuery();
                 }
             }
+        }
+        public SqlDataReader listarRutaID(int id)
+        {
+            Conexion conexion = new Conexion();
+            SqlCommand cmd = new SqlCommand("select * from Ruta where ID = @id", conexion.Open());
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
         }
     }
 }
