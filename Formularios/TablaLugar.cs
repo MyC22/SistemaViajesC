@@ -22,6 +22,32 @@ namespace Formularios
 
             DesactivarCampos();
         }
+        private void ActivarCampos()
+        {
+            txtDepartamento.Enabled = true;
+            txtDistrito.Enabled = true;
+            txtTerminal.Enabled = true;
+            txtDireccion.Enabled = true;
+            cbEstado.Enabled = true;
+        }
+
+        private void DesactivarCampos()
+        {
+            txtDepartamento.Enabled = false;
+            txtDistrito.Enabled = false;
+            txtTerminal.Enabled = false;
+            txtDireccion.Enabled = false;
+            cbEstado.Enabled = false;
+        }
+
+        private void LimpiarCampos()
+        {
+            txtDepartamento.Text = "";
+            txtDistrito.Text = "";
+            txtTerminal.Text = "";
+            txtDireccion.Text = "";
+            cbEstado.SelectedIndex = 0;
+        }
 
         private void MostrarTodosLosLugares()
         {
@@ -61,7 +87,6 @@ namespace Formularios
 
         private void btnañadir_Click_1(object sender, EventArgs e)
         {
-            // Configurar para añadir un nuevo lugar
             estado = "G";
             ActivarCampos();
             LimpiarCampos();
@@ -118,13 +143,11 @@ namespace Formularios
                 {
                     if (estado == "G")
                     {
-                        // Añadir nuevo lugar
                         modeloLugar.AgregarLugar(distrito, direccion, terminal, departamento, estadoLugar);
                         MessageBox.Show("Se añadió el lugar correctamente.");
                     }
                     else if (estado == "E")
                     {
-                        // Editar lugar existente
                         if (dataGridView2.SelectedRows.Count > 0)
                         {
                             int id = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["ID"].Value);
@@ -202,33 +225,6 @@ namespace Formularios
                     cbEstado.SelectedItem = lugar.Estado;
                 }
             }
-        }
-
-        private void ActivarCampos()
-        {
-            txtDepartamento.Enabled = true;
-            txtDistrito.Enabled = true;
-            txtTerminal.Enabled = true;
-            txtDireccion.Enabled = true;
-            cbEstado.Enabled = true;
-        }
-
-        private void DesactivarCampos()
-        {
-            txtDepartamento.Enabled = false;
-            txtDistrito.Enabled = false;
-            txtTerminal.Enabled = false;
-            txtDireccion.Enabled = false;
-            cbEstado.Enabled = false;
-        }
-
-        private void LimpiarCampos()
-        {
-            txtDepartamento.Text = "";
-            txtDistrito.Text = "";
-            txtTerminal.Text = "";
-            txtDireccion.Text = "";
-            cbEstado.SelectedIndex = 0;
         }
     }
 }
