@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablaLugar));
             this.btncancelar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.btneditar = new System.Windows.Forms.Button();
             this.btnañadir = new System.Windows.Forms.Button();
             this.btnguardar = new System.Windows.Forms.Button();
@@ -49,9 +48,13 @@
             this.txtTerminal = new System.Windows.Forms.TextBox();
             this.txtDepartamento = new System.Windows.Forms.TextBox();
             this.txtDistrito = new System.Windows.Forms.TextBox();
-            this.txtfiltro = new System.Windows.Forms.TextBox();
-            this.cbfiltro = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtterminalB = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtdistritoB = new System.Windows.Forms.TextBox();
+            this.txtdepartamentB = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -75,16 +78,6 @@
             this.btneliminar.TabIndex = 137;
             this.btneliminar.UseVisualStyleBackColor = true;
             this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click_1);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.label2.Location = new System.Drawing.Point(356, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 25);
-            this.label2.TabIndex = 136;
-            this.label2.Text = "Buscar";
             // 
             // btneditar
             // 
@@ -119,7 +112,7 @@
             // btBuscar
             // 
             this.btBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btBuscar.Image")));
-            this.btBuscar.Location = new System.Drawing.Point(755, 9);
+            this.btBuscar.Location = new System.Drawing.Point(1116, 7);
             this.btBuscar.Name = "btBuscar";
             this.btBuscar.Size = new System.Drawing.Size(40, 28);
             this.btBuscar.TabIndex = 132;
@@ -251,47 +244,86 @@
             this.txtDistrito.Size = new System.Drawing.Size(216, 20);
             this.txtDistrito.TabIndex = 15;
             // 
-            // txtfiltro
-            // 
-            this.txtfiltro.Location = new System.Drawing.Point(603, 14);
-            this.txtfiltro.Name = "txtfiltro";
-            this.txtfiltro.Size = new System.Drawing.Size(146, 20);
-            this.txtfiltro.TabIndex = 130;
-            // 
-            // cbfiltro
-            // 
-            this.cbfiltro.FormattingEnabled = true;
-            this.cbfiltro.Location = new System.Drawing.Point(451, 13);
-            this.cbfiltro.Name = "cbfiltro";
-            this.cbfiltro.Size = new System.Drawing.Size(146, 21);
-            this.cbfiltro.TabIndex = 129;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(330, 44);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(644, 335);
+            this.dataGridView2.Size = new System.Drawing.Size(826, 335);
             this.dataGridView2.TabIndex = 139;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(830, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 159;
+            this.label2.Text = "Terminal:";
+            // 
+            // txtterminalB
+            // 
+            this.txtterminalB.Location = new System.Drawing.Point(904, 13);
+            this.txtterminalB.Name = "txtterminalB";
+            this.txtterminalB.Size = new System.Drawing.Size(126, 20);
+            this.txtterminalB.TabIndex = 158;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(620, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 20);
+            this.label6.TabIndex = 157;
+            this.label6.Text = "Distrito:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(330, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 20);
+            this.label4.TabIndex = 154;
+            this.label4.Text = "Departamento:";
+            // 
+            // txtdistritoB
+            // 
+            this.txtdistritoB.Location = new System.Drawing.Point(686, 14);
+            this.txtdistritoB.Name = "txtdistritoB";
+            this.txtdistritoB.Size = new System.Drawing.Size(126, 20);
+            this.txtdistritoB.TabIndex = 156;
+            // 
+            // txtdepartamentB
+            // 
+            this.txtdepartamentB.Location = new System.Drawing.Point(452, 14);
+            this.txtdepartamentB.Name = "txtdepartamentB";
+            this.txtdepartamentB.Size = new System.Drawing.Size(146, 20);
+            this.txtdepartamentB.TabIndex = 155;
             // 
             // TablaLugar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 437);
+            this.ClientSize = new System.Drawing.Size(1168, 437);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtterminalB);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtdistritoB);
+            this.Controls.Add(this.txtdepartamentB);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btneliminar);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btneditar);
             this.Controls.Add(this.btnañadir);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.btBuscar);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtfiltro);
-            this.Controls.Add(this.cbfiltro);
             this.Name = "TablaLugar";
             this.Text = "TablaLugar";
             this.panel1.ResumeLayout(false);
@@ -306,7 +338,6 @@
 
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.Button btneliminar;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btneditar;
         private System.Windows.Forms.Button btnañadir;
         private System.Windows.Forms.Button btnguardar;
@@ -324,8 +355,12 @@
         private System.Windows.Forms.TextBox txtTerminal;
         private System.Windows.Forms.TextBox txtDepartamento;
         private System.Windows.Forms.TextBox txtDistrito;
-        private System.Windows.Forms.TextBox txtfiltro;
-        private System.Windows.Forms.ComboBox cbfiltro;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtterminalB;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtdistritoB;
+        private System.Windows.Forms.TextBox txtdepartamentB;
     }
 }

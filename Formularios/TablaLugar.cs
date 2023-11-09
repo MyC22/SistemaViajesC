@@ -22,9 +22,6 @@ namespace Formularios
             modeloLugar = new ModeloLugar();
             MostrarTodosLosLugares();
 
-            cbfiltro.Items.AddRange(new string[] { "Seleccionar", "ID", "Distrito", "Departamento" });
-            cbfiltro.SelectedIndex = 0;
-
             txtDepartamento.Enabled = false;
             txtDistrito.Enabled = false;
             txtTerminal.Enabled = false;
@@ -47,50 +44,14 @@ namespace Formularios
 
         private void btBuscar_Click(object sender, EventArgs e)
         {
-            string filtroSeleccionado = cbfiltro.SelectedItem.ToString();
-            string valorFiltro = txtfiltro.Text;
 
-            if (filtroSeleccionado == "Seleccionar")
-            {
-                MessageBox.Show("Por favor, seleccione un filtro válido antes de buscar.");
-                return;
-            }
-
-            try
-            {
-                if (txtfiltro.Enabled)
-                {
-                    List<Lugarr> lugaresEncontrados = todosLosLugares
-                        .Where(lugar =>
-                        (filtroSeleccionado == "ID" && valorFiltro != "" && lugar.ID.ToString().Equals(valorFiltro, StringComparison.OrdinalIgnoreCase)) ||
-                        (filtroSeleccionado == "Distrito" && valorFiltro != "" && lugar.Distrito.IndexOf(valorFiltro, StringComparison.OrdinalIgnoreCase) >= 0) ||
-                        (filtroSeleccionado == "Departamento" && valorFiltro != "" && lugar.Departamento.IndexOf(valorFiltro, StringComparison.OrdinalIgnoreCase) >= 0))
-                        .ToList();
-
-                    dataGridView2.DataSource = lugaresEncontrados;
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, seleccione un filtro válido antes de buscar.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al buscar lugares: " + ex.Message);
-            }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
 
-        private void cbfiltro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string filtroSeleccionado = cbfiltro.SelectedItem.ToString();
 
-            txtfiltro.Enabled = (filtroSeleccionado != "Seleccionar");
-            btBuscar.Enabled = txtfiltro.Enabled;
-        }
 
         private void btnañadir_Click_1(object sender, EventArgs e)
         {
