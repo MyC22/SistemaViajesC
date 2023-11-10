@@ -17,6 +17,16 @@ namespace sistema_de_viajes
         public TablaBuses()
         {
             InitializeComponent();
+            comboFiltrar.Items.AddRange(new string[] { "Seleccionar", "ID", "Placa", "Modelo", "Lugar" });
+            comboModelo.Items.AddRange(new string[] { "Seleccionar", "modelo1", "modelo2", "modelo3", "modelo4", "modelo15" });
+            comboFiltrar.SelectedIndex = 0;
+            comboModelo.SelectedIndex = 0;
+
+            textPlaca.Enabled= false;
+            comboModelo.Enabled= false;
+            textLugar.Enabled= false;
+            dateDisponible.Enabled= false;
+            textAsientos.Enabled= false;
         }
 
         //Variables de instancia
@@ -131,8 +141,11 @@ namespace sistema_de_viajes
 
         private void btnanadir_Click(object sender, EventArgs e)
         {
-            btnguardar.Enabled = true;
-            btnanadir.Enabled = false;
+            textPlaca.Enabled = true;
+            comboModelo.Enabled = true;
+            textLugar.Enabled = true;
+            dateDisponible.Enabled = true;
+            textAsientos.Enabled = true;
         }
 
         private void btneditar_Click(object sender, EventArgs e)
@@ -152,6 +165,25 @@ namespace sistema_de_viajes
             }
             
             
+        }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+            textPlaca.Text = "";
+            comboModelo.SelectedIndex=0;
+            textLugar.Text = "";
+            textAsientos.Text = "";
+
+            textPlaca.Enabled = false;
+            comboModelo.Enabled = false;
+            textLugar.Enabled = false;
+            dateDisponible.Enabled = false;
+            textAsientos.Enabled = false;
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
