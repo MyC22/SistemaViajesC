@@ -12,5 +12,6 @@ namespace Objetos.Modelo
         public string Nombre { get; set; }
         public string Tamanio { get; set; }
         public int Asientos { get; set; }
+        public int pisos { get; set; }
     }
 }

@@ -299,3 +299,71 @@ INSERT INTO Cronograma_viajes(IDRuta, Placa, Fecha_salida)
     VALUES (@Idcronograma,@nombre, @precio1, @precio2);
 
 end
+
+
+----------------------ModeloBus--------------------------------------
+*/Buscar Modelo*/
+CREATE PROCEDURE BuscarModelo
+    @ID INT = NULL,
+    @Nombre VARCHAR(50) = NULL,
+    @Tamanio VARCHAR(50) = NULL,
+    @Asientos INT = NULL
+AS
+BEGIN
+    SELECT *
+    FROM ModeloBus
+    WHERE
+        (@ID IS NULL OR ID = @ID) AND
+        (@Nombre IS NULL OR Modelo = @Nombre) AND
+        (@Tamanio IS NULL OR Tamaño = @Tamanio) AND
+        (@Asientos IS NULL OR Asientos = @Asientos);
+END;
+
+/*Mostrar Modelo*/
+CREATE PROCEDURE MostrarTodosLosModelos
+AS
+BEGIN
+    SELECT *
+    FROM ModeloBus;
+END;
+
+/*Agregar Modelo*/
+CREATE PROCEDURE AgregarModelo
+    @Nombre VARCHAR(50),
+    @Tamanio VARCHAR(100),
+    @Asientos INT,
+	@pisos INT
+AS
+BEGIN
+    INSERT INTO ModeloBus (Modelo, Tamaño, Asientos, pisos)
+    VALUES (@Nombre, @Tamanio, @Asientos, @pisos);
+END;
+
+/*Editar Modelo*/
+CREATE PROCEDURE EditarModelo
+    @ID INT,
+    @Nombre VARCHAR(50),
+    @Tamanio VARCHAR(100),
+    @Asientos INT,
+	@pisos INT
+AS
+BEGIN
+    UPDATE ModeloBus
+    SET
+        Modelo = @Nombre,
+        Tamaño = @Tamanio,
+        Asientos = @Asientos,
+		pisos = @pisos
+    WHERE ID = @ID;
+END;
+
+/*Eliminar Modelo*/
+CREATE PROCEDURE EliminarModelo
+    @ID INT
+AS
+BEGIN
+    DELETE FROM ModeloBus
+    WHERE ID = @ID;
+END;
+
+

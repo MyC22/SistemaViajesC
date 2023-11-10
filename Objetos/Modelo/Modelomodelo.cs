@@ -10,7 +10,7 @@ namespace Objetos.Modelo
 {
     public class Modelomodelo
     {
-        public List<Modelo> BuscarModelos(int? id, string nombre,string tamanio, int asientos)
+        public List<Modelo> BuscarModelos(int? id, string nombre, string tamanio, int asientos)
         {
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
@@ -24,7 +24,6 @@ namespace Objetos.Modelo
                     cmd.Parameters.Add("@Tamanio", SqlDbType.VarChar, 50).Value = string.IsNullOrEmpty(tamanio) ? (object)DBNull.Value : tamanio;
                     cmd.Parameters.Add("@Asientos", SqlDbType.Int).Value = asientos != null ? asientos : (object)DBNull.Value;
 
-
                     List<Modelo> Modelos = new List<Modelo>();
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -34,10 +33,10 @@ namespace Objetos.Modelo
                             Modelo modelo = new Modelo();
                             {
                                 modelo.ID = Convert.ToInt32(reader["ID"]);
-                                modelo.Nombre = reader["Nombre"].ToString();
+                                modelo.Nombre = reader["Modelo"].ToString();
                                 modelo.Tamanio = reader["Tamanio"].ToString();
                                 modelo.Asientos = Convert.ToInt32(reader["Asientos"]);
-
+                                modelo.pisos = Convert.ToInt32(reader["pisos"]);
                             };
                             Modelos.Add(modelo);
                         }
@@ -65,9 +64,10 @@ namespace Objetos.Modelo
                             Modelo modelo = new Modelo();
                             {
                                 modelo.ID = Convert.ToInt32(reader["ID"]);
-                                modelo.Nombre = reader["Nombre"].ToString();
-                                modelo.Tamanio = reader["Tamanio"].ToString();
+                                modelo.Nombre = reader["Modelo"].ToString(); 
+                                modelo.Tamanio = reader["Tamaño"].ToString();
                                 modelo.Asientos = Convert.ToInt32(reader["Asientos"]);
+                                modelo.pisos = Convert.ToInt32(reader["pisos"]);
                             };
                             modelos.Add(modelo);
                         }
@@ -78,7 +78,7 @@ namespace Objetos.Modelo
             }
         }
 
-        public void AgregarModelo(string nombre, string tamanio, int asientos)
+        public void AgregarModelo(string nombre, string tamanio, int asientos, int pisos)
         {
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
@@ -90,13 +90,14 @@ namespace Objetos.Modelo
                     cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 50).Value = nombre;
                     cmd.Parameters.Add("@Tamanio", SqlDbType.VarChar, 100).Value = tamanio;
                     cmd.Parameters.Add("@Asientos", SqlDbType.Int, 20).Value = asientos;
+                    cmd.Parameters.Add("@pisos", SqlDbType.Int).Value = pisos;
 
                     cmd.ExecuteNonQuery();
                 }
             }
         }
 
-        public void EditaModelo(int id, string nombre, string tamanio, int asientos)
+        public void EditaModelo(int id, string nombre, string tamanio, int asientos, int pisos)
         {
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
@@ -109,6 +110,7 @@ namespace Objetos.Modelo
                     cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 50).Value = nombre;
                     cmd.Parameters.Add("@Tamanio", SqlDbType.VarChar, 100).Value = tamanio;
                     cmd.Parameters.Add("@Asientos", SqlDbType.Int, 50).Value = asientos;
+                    cmd.Parameters.Add("@pisos", SqlDbType.Int).Value = pisos;
 
                     cmd.ExecuteNonQuery();
                 }

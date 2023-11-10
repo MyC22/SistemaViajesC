@@ -16,20 +16,20 @@ namespace sistema_modelo
     {
         private Modelomodelo modelomodelos;
         private List<Modelo> TodosLosModelos;
+        private char estado;
 
         public TablaModelo()
         {
             InitializeComponent();
             modelomodelos = new Modelomodelo();
-
-            cbofiltrar.Items.AddRange(new string[] { "Seleccionar", "ID", "Nombre", "Tamaño", "Asientos" });
-            cbofiltrar.SelectedIndex = 0;
+            MostrarTodosLosModelos();
 
             txtnombre.Enabled = false;
             nasiento.Enabled = false;
             txttamanio.Enabled = false;
-
+            npisos.Enabled = false;
         }
+
 
         private void MostrarTodosLosModelos()
         {
@@ -46,57 +46,40 @@ namespace sistema_modelo
 
         private void btnbuscarmodelo_Click(object sender, EventArgs e)
         {
-            string filtroSeleccionado = cbofiltrar.SelectedItem.ToString();
-            string valorFiltro = txtfiltrar.Text;
-
-            if (filtroSeleccionado == "Seleccionar")
+            if (int.TryParse(txtIDB.Text, out int id) || !string.IsNullOrEmpty(txtModeloB.Text))
             {
-                MessageBox.Show("Por favor, seleccione un filtro válido antes de buscar.");
-                return;
+                string modelo = txtModeloB.Text;
+
+                List<Modelo> resultadosBusqueda = TodosLosModelos
+                    .Where(l =>
+                        (id == 0 || l.ID == id) &&
+                        (string.IsNullOrEmpty(modelo) || l.Nombre.IndexOf(modelo, StringComparison.OrdinalIgnoreCase) >= 0))
+                    .ToList();
+
+                dataGridView1.DataSource = resultadosBusqueda;
+            }
+            else
+            {
+                MostrarTodosLosModelos();
             }
 
-            try
-            {
-                if (txtfiltrar.Enabled)
-                {
-                    List<Modelo> ModelosEncontrados = TodosLosModelos
-                        .Where(Modelo =>
-                        (filtroSeleccionado == "ID" && valorFiltro != "" && Modelo.ID.ToString().Equals(valorFiltro, StringComparison.OrdinalIgnoreCase)) ||
-                        (filtroSeleccionado == "Nombre" && valorFiltro != "" && Modelo.Nombre.Equals(valorFiltro, StringComparison.OrdinalIgnoreCase)) ||
-                        (filtroSeleccionado == "Tamaño" && valorFiltro != "" && Modelo.Tamanio.Equals(valorFiltro, StringComparison.OrdinalIgnoreCase)))
-                        .ToList();
-
-                    dataGridView1.DataSource = ModelosEncontrados;
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, seleccione un filtro válido antes de buscar.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al buscar lugares: " + ex.Message);
-            }
-        }
-
-        private void cbofiltrar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string filtroSeleccionado = cbofiltrar.SelectedItem.ToString();
-            txtfiltrar.Enabled = (filtroSeleccionado != "Seleccionar");
-            btnbuscarmodelo.Enabled = txtfiltrar.Enabled;
         }
 
         private void btnañadir_Click(object sender, EventArgs e)
         {
+            estado = 'G';
 
             txtnombre.Enabled = true;
             nasiento.Enabled = true;
             txttamanio.Enabled = true;
+            npisos.Enabled = true;
 
             txtnombre.Text = "";
             nasiento.Value = 0;
             txttamanio.Text = "";
+            npisos.Value = 0;
         }
+
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
@@ -133,6 +116,7 @@ namespace sistema_modelo
             string nombre = txtnombre.Text;
             string tamanio = txttamanio.Text;
             int asientos = (int)nasiento.Value;
+            int pisos = (int)npisos.Value;
 
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tamanio))
             {
@@ -144,21 +128,32 @@ namespace sistema_modelo
             {
                 try
                 {
-                    modelomodelos.AgregarModelo(nombre, tamanio, asientos);
+                    if (estado == 'G')
+                    {
+                        modelomodelos.AgregarModelo(nombre, tamanio, asientos, pisos);
+                    }
+                    else if (estado == 'E')
+                    {
+                        int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+
+                        modelomodelos.EditaModelo(id, nombre, tamanio, asientos, pisos);
+                    }
 
                     txtnombre.Text = "";
                     txttamanio.Text = "";
                     nasiento.Value = 0;
+                    npisos.Value = 0;
 
                     txtnombre.Enabled = false;
                     txttamanio.Enabled = false;
                     nasiento.Enabled = false;
+                    npisos.Enabled = false;
 
                     MostrarTodosLosModelos();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al guardar el lugar: " + ex.Message);
+                    MessageBox.Show("Error al guardar o editar el modelo: " + ex.Message);
                 }
             }
             else
@@ -169,6 +164,8 @@ namespace sistema_modelo
 
         private void btneditar_Click(object sender, EventArgs e)
         {
+            estado = 'E';
+
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
@@ -180,15 +177,17 @@ namespace sistema_modelo
                     txtnombre.Text = modelo.Nombre;
                     txttamanio.Text = modelo.Tamanio;
                     nasiento.Value = modelo.Asientos;
+                    npisos.Value = modelo.pisos;
 
                     txtnombre.Enabled = true;
                     txttamanio.Enabled = true;
                     nasiento.Enabled = true;
+                    npisos.Enabled = true;
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un lugar para editar.");
+                MessageBox.Show("Por favor, seleccione un modelo para editar.");
             }
         }
 
@@ -197,10 +196,12 @@ namespace sistema_modelo
             txtnombre.Text = "";
             txttamanio.Text = "";
             nasiento.Value = 0;
+            npisos.Value = 0;
 
             txtnombre.Enabled = false;
             txttamanio.Enabled = false;
             nasiento.Enabled = false;
+            npisos.Enabled = false;
         }
 
         private void TablaModelo_Load(object sender, EventArgs e)

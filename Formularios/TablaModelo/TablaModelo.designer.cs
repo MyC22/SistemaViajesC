@@ -35,17 +35,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtfiltrar = new System.Windows.Forms.TextBox();
-            this.cbofiltrar = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tamaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asientos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txttamanio = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nasiento = new System.Windows.Forms.NumericUpDown();
             this.btnbuscarmodelo = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.btncancelar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
@@ -56,10 +50,16 @@
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
-            this.nasiento = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtIDB = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtModeloB = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.npisos = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nasiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npisos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtnombre
@@ -106,57 +106,14 @@
             this.label2.TabIndex = 84;
             this.label2.Text = "Editar";
             // 
-            // txtfiltrar
-            // 
-            this.txtfiltrar.Location = new System.Drawing.Point(606, 20);
-            this.txtfiltrar.Name = "txtfiltrar";
-            this.txtfiltrar.Size = new System.Drawing.Size(146, 20);
-            this.txtfiltrar.TabIndex = 83;
-            // 
-            // cbofiltrar
-            // 
-            this.cbofiltrar.FormattingEnabled = true;
-            this.cbofiltrar.Location = new System.Drawing.Point(444, 18);
-            this.cbofiltrar.Name = "cbofiltrar";
-            this.cbofiltrar.Size = new System.Drawing.Size(156, 21);
-            this.cbofiltrar.TabIndex = 82;
-            this.cbofiltrar.SelectedIndexChanged += new System.EventHandler(this.cbofiltrar_SelectedIndexChanged);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Nombre,
-            this.Tamaño,
-            this.Asientos});
             this.dataGridView1.Location = new System.Drawing.Point(341, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(722, 182);
             this.dataGridView1.TabIndex = 81;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "⁯ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Tamaño
-            // 
-            this.Tamaño.HeaderText = "Tamaño";
-            this.Tamaño.Name = "Tamaño";
-            // 
-            // Asientos
-            // 
-            this.Asientos.HeaderText = "Asientos";
-            this.Asientos.Name = "Asientos";
             // 
             // txttamanio
             // 
@@ -168,6 +125,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.npisos);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.nasiento);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txttamanio);
@@ -180,25 +139,22 @@
             this.panel1.Size = new System.Drawing.Size(312, 184);
             this.panel1.TabIndex = 96;
             // 
+            // nasiento
+            // 
+            this.nasiento.Location = new System.Drawing.Point(74, 124);
+            this.nasiento.Name = "nasiento";
+            this.nasiento.Size = new System.Drawing.Size(204, 20);
+            this.nasiento.TabIndex = 96;
+            // 
             // btnbuscarmodelo
             // 
             this.btnbuscarmodelo.Image = ((System.Drawing.Image)(resources.GetObject("btnbuscarmodelo.Image")));
-            this.btnbuscarmodelo.Location = new System.Drawing.Point(758, 14);
+            this.btnbuscarmodelo.Location = new System.Drawing.Point(795, 14);
             this.btnbuscarmodelo.Name = "btnbuscarmodelo";
             this.btnbuscarmodelo.Size = new System.Drawing.Size(40, 28);
             this.btnbuscarmodelo.TabIndex = 120;
             this.btnbuscarmodelo.UseVisualStyleBackColor = true;
             this.btnbuscarmodelo.Click += new System.EventHandler(this.btnbuscarmodelo_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.label1.Location = new System.Drawing.Point(348, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 25);
-            this.label1.TabIndex = 129;
-            this.label1.Text = "Buscar";
             // 
             // btncancelar
             // 
@@ -250,28 +206,72 @@
             this.btnguardar.UseVisualStyleBackColor = true;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
-            // nasiento
+            // label6
             // 
-            this.nasiento.Location = new System.Drawing.Point(74, 124);
-            this.nasiento.Name = "nasiento";
-            this.nasiento.Size = new System.Drawing.Size(204, 20);
-            this.nasiento.TabIndex = 96;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(350, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 20);
+            this.label6.TabIndex = 155;
+            this.label6.Text = "ID";
+            // 
+            // txtIDB
+            // 
+            this.txtIDB.Location = new System.Drawing.Point(382, 19);
+            this.txtIDB.Name = "txtIDB";
+            this.txtIDB.Size = new System.Drawing.Size(146, 20);
+            this.txtIDB.TabIndex = 156;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(554, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.TabIndex = 158;
+            this.label1.Text = "Modelo";
+            // 
+            // txtModeloB
+            // 
+            this.txtModeloB.Location = new System.Drawing.Point(623, 19);
+            this.txtModeloB.Name = "txtModeloB";
+            this.txtModeloB.Size = new System.Drawing.Size(126, 20);
+            this.txtModeloB.TabIndex = 159;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(33, 156);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 97;
+            this.label7.Text = "Pisos:";
+            // 
+            // npisos
+            // 
+            this.npisos.Location = new System.Drawing.Point(74, 154);
+            this.npisos.Name = "npisos";
+            this.npisos.Size = new System.Drawing.Size(204, 20);
+            this.npisos.TabIndex = 98;
             // 
             // TablaModelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 257);
+            this.Controls.Add(this.txtModeloB);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtIDB);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btneditar);
             this.Controls.Add(this.btnañadir);
             this.Controls.Add(this.btnguardar);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnbuscarmodelo);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtfiltrar);
-            this.Controls.Add(this.cbofiltrar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TablaModelo";
             this.Text = "Tabla Modelo";
@@ -281,6 +281,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nasiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npisos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,17 +293,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtfiltrar;
-        private System.Windows.Forms.ComboBox cbofiltrar;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tamaño;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asientos;
         private System.Windows.Forms.TextBox txttamanio;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnbuscarmodelo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btneditar;
@@ -314,5 +308,11 @@
         private System.Windows.Forms.ToolTip toolTip4;
         private System.Windows.Forms.ToolTip toolTip5;
         private System.Windows.Forms.NumericUpDown nasiento;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtIDB;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtModeloB;
+        private System.Windows.Forms.NumericUpDown npisos;
+        private System.Windows.Forms.Label label7;
     }
 }
