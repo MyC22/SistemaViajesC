@@ -8,7 +8,7 @@ namespace Objetos.Cargo
 {
     public class Cargo
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         public string nombre { get; set; }
 
