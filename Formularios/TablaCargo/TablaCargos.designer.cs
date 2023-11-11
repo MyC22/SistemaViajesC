@@ -85,12 +85,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(346, 60);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(511, 321);
+            this.dataGridView1.Size = new System.Drawing.Size(511, 333);
             this.dataGridView1.TabIndex = 98;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(28, 121);
+            this.txtDescripcion.Location = new System.Drawing.Point(28, 143);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(202, 173);
@@ -99,7 +99,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 93);
+            this.label4.Location = new System.Drawing.Point(25, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 113;
@@ -115,7 +115,7 @@
             this.panel1.Controls.Add(this.txtnombre);
             this.panel1.Location = new System.Drawing.Point(22, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(295, 321);
+            this.panel1.Size = new System.Drawing.Size(295, 333);
             this.panel1.TabIndex = 114;
             // 
             // label8

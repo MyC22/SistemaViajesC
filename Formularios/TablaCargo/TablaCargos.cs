@@ -19,6 +19,7 @@ namespace sistema_de_viajes
     {
         private ModeloCargo modelocargo;
         private List<Cargo> TodosLosCargos;
+        private string estado;
 
 
         public TablaCargos()
@@ -75,6 +76,8 @@ namespace sistema_de_viajes
 
         private void btnañadir_Click(object sender, EventArgs e)
         {
+            estado = "G";
+
             btnguardar.Enabled = true;
             dataGridView1.Enabled = false;
             btneditar.Enabled = false;
@@ -133,11 +136,11 @@ namespace sistema_de_viajes
             {
                 try
                 {
-                    if (estado == 'G')
+                    if (estado == "G")
                     {
                         modelocargo.AgregarCargo(nombre, descripcion);
                     }
-                    else if (estado == 'E')
+                    else if (estado == "E")
                     {
                         int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
@@ -165,6 +168,7 @@ namespace sistema_de_viajes
 
         private void btneditar_Click(object sender, EventArgs e)
         {
+            estado = "E";
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
