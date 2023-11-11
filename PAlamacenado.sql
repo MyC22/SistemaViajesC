@@ -280,18 +280,19 @@ inner join Buses as b on c.Placa = b.Placa
 inner join Servicio as s on s.IDCronograma = c.ID where c.Fecha_salida >= GETDATE()
 end
 go
-create procedure crearcronograma
+create procedure Agregarcronograma
 @idruta int,
+@usuario varchar(50),
 @placa char(6),
 @fecha datetime,
-@Idcronograma int,
 @nombre varchar(50),
 @precio1 real,
 @precio2 real
 
 as begin
-INSERT INTO Cronograma_viajes(IDRuta, Placa, Fecha_salida) 
-    VALUES (@idruta, @placa, @fecha);
+declare @Idcronograma int;
+INSERT INTO Cronograma_viajes(IDRuta, Placa, Fecha_salida,IDusuario) 
+    VALUES (@idruta, @placa, @fecha,@usuario);
 
     SET @Idcronograma = SCOPE_IDENTITY();
 
@@ -302,7 +303,7 @@ end
 
 
 ----------------------ModeloBus--------------------------------------
-*/Buscar Modelo*/
+/*Buscar Modelo*/
 CREATE PROCEDURE BuscarModelo
     @ID INT = NULL,
     @Nombre VARCHAR(50) = NULL,
@@ -326,11 +327,11 @@ BEGIN
     SELECT *
     FROM ModeloBus;
 END;
-
+go
 /*Agregar Modelo*/
 CREATE PROCEDURE AgregarModelo
-    @Nombre VARCHAR(50),
-    @Tamanio VARCHAR(100),
+    @Nombre char(10),
+    @Tamanio VARCHAR(50),
     @Asientos INT,
 	@pisos INT
 AS
@@ -338,12 +339,12 @@ BEGIN
     INSERT INTO ModeloBus (Modelo, Tamaño, Asientos, pisos)
     VALUES (@Nombre, @Tamanio, @Asientos, @pisos);
 END;
-
+go
 /*Editar Modelo*/
 CREATE PROCEDURE EditarModelo
     @ID INT,
-    @Nombre VARCHAR(50),
-    @Tamanio VARCHAR(100),
+    @Nombre char(10),
+    @Tamanio VARCHAR(50),
     @Asientos INT,
 	@pisos INT
 AS
@@ -356,7 +357,7 @@ BEGIN
 		pisos = @pisos
     WHERE ID = @ID;
 END;
-
+go
 /*Eliminar Modelo*/
 CREATE PROCEDURE EliminarModelo
     @ID INT
@@ -366,10 +367,10 @@ BEGIN
     WHERE ID = @ID;
 END;
 
-
+go
 ---Procedimientos Buses
 DROP Procedure if exists MostrarBuses
-
+go
 create procedure MostrarBuses
 AS
 BEGIN
@@ -377,11 +378,11 @@ BEGIN
 END
 
 
-
+go
 
 
 DROP Procedure if exists AgregarBuss;
-
+go
 
 CREATE PROCEDURE AgregarBuss
 	@Placa char(6),
