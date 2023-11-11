@@ -9,17 +9,17 @@ namespace Objetos.Buses
     public class Buses //Atributos
     {
       
-        private int Placa;
+        private String Placa1;
 
-        private int idModelo;
+        private int iDModelo;
 
-        private string Lugar;
+        private string Lugar1;
 
-        private DateTime Disponibilidad;
+        private DateTime Disponibilidad1;
 
-        public int Placa1 { get => Placa; set => Placa = value; }
-        public int IdModelo { get => idModelo; set => idModelo = value; }
-        public string Lugar1 { get => Lugar; set => Lugar = value; }
-        public DateTime Disponibilidad1 { get => Disponibilidad; set => Disponibilidad = value; }
+        public String Placa { get => Placa1; set => Placa1 = value; }
+        public int IdModelo { get => iDModelo; set => iDModelo = value; }
+        public string Lugar { get => Lugar1; set => Lugar1 = value; }
+        public DateTime Disponibilidad { get => Disponibilidad1; set => Disponibilidad1 = value; }
     }
 }

@@ -367,3 +367,35 @@ BEGIN
 END;
 
 
+---Procedimientos Buses
+DROP Procedure if exists MostrarBuses
+
+create procedure MostrarBuses
+AS
+BEGIN
+	select * from Buses
+END
+
+
+
+
+
+DROP Procedure if exists AgregarBuss;
+
+
+CREATE PROCEDURE AgregarBuss
+	@Placa char(6),
+	@IdModelo int,
+	@Lugar varchar(50),
+	@Disponible datetime
+AS
+BEGIN
+	INSERT INTO Buses(Placa, IDModelo, Lugar, Disponible)
+	VALUES (@Placa,@IdModelo,@Lugar,@Disponible)
+END
+
+select * from Buses
+--Se debe insertar antes un modelo para poner el foranea
+INSERT INTO ModeloBus(Modelo, Asientos, Tamaño, pisos)
+	VALUES('Lambo',15,'Grande',2);
+-------------------------------------------------------------

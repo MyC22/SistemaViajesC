@@ -34,25 +34,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.textLugar = new System.Windows.Forms.TextBox();
-            this.textPlaca = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textFiltrar = new System.Windows.Forms.TextBox();
             this.comboFiltrar = new System.Windows.Forms.ComboBox();
             this.DvgDatos = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asientos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboModelo = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textPlaca = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textAsientos = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btncancelar = new System.Windows.Forms.Button();
@@ -108,17 +100,6 @@
             this.textLugar.Enter += new System.EventHandler(this.textLugar_Enter);
             this.textLugar.Leave += new System.EventHandler(this.textLugar_Leave);
             // 
-            // textPlaca
-            // 
-            this.textPlaca.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.textPlaca.Location = new System.Drawing.Point(75, 62);
-            this.textPlaca.Name = "textPlaca";
-            this.textPlaca.Size = new System.Drawing.Size(193, 20);
-            this.textPlaca.TabIndex = 65;
-            this.textPlaca.Text = "Nro Placa";
-            this.textPlaca.Enter += new System.EventHandler(this.textPlaca_Enter);
-            this.textPlaca.Leave += new System.EventHandler(this.textPlaca_Leave);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -168,51 +149,10 @@
             // 
             this.DvgDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DvgDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DvgDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Placa,
-            this.Modelo,
-            this.Lugar,
-            this.Disponible,
-            this.Asientos});
             this.DvgDatos.Location = new System.Drawing.Point(324, 48);
             this.DvgDatos.Name = "DvgDatos";
             this.DvgDatos.Size = new System.Drawing.Size(644, 335);
             this.DvgDatos.TabIndex = 57;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "⁯ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Placa
-            // 
-            this.Placa.HeaderText = "Placa";
-            this.Placa.Name = "Placa";
-            this.Placa.ReadOnly = true;
-            // 
-            // Modelo
-            // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            this.Modelo.ReadOnly = true;
-            // 
-            // Lugar
-            // 
-            this.Lugar.HeaderText = "Lugar";
-            this.Lugar.Name = "Lugar";
-            this.Lugar.ReadOnly = true;
-            // 
-            // Disponible
-            // 
-            this.Disponible.HeaderText = "Disponible";
-            this.Disponible.Name = "Disponible";
-            // 
-            // Asientos
-            // 
-            this.Asientos.HeaderText = "Asientos";
-            this.Asientos.Name = "Asientos";
             // 
             // comboModelo
             // 
@@ -235,9 +175,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.textPlaca);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textAsientos);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textLugar);
             this.panel1.Controls.Add(this.comboModelo);
             this.panel1.Controls.Add(this.label3);
@@ -245,13 +184,21 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textPlaca);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Location = new System.Drawing.Point(12, 48);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(306, 335);
             this.panel1.TabIndex = 80;
+            // 
+            // textPlaca
+            // 
+            this.textPlaca.Location = new System.Drawing.Point(74, 65);
+            this.textPlaca.Mask = "999999";
+            this.textPlaca.Name = "textPlaca";
+            this.textPlaca.Size = new System.Drawing.Size(194, 20);
+            this.textPlaca.TabIndex = 82;
+            this.textPlaca.ValidatingType = typeof(int);
             // 
             // label2
             // 
@@ -262,26 +209,6 @@
             this.label2.Size = new System.Drawing.Size(72, 25);
             this.label2.TabIndex = 81;
             this.label2.Text = "Buses";
-            // 
-            // textAsientos
-            // 
-            this.textAsientos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.textAsientos.Location = new System.Drawing.Point(75, 216);
-            this.textAsientos.Name = "textAsientos";
-            this.textAsientos.Size = new System.Drawing.Size(193, 20);
-            this.textAsientos.TabIndex = 80;
-            this.textAsientos.Text = "Nro Asientos";
-            this.textAsientos.Enter += new System.EventHandler(this.textAsientos_Enter);
-            this.textAsientos.Leave += new System.EventHandler(this.textAsientos_Leave);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 219);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 79;
-            this.label1.Text = "Asientos:";
             // 
             // button5
             // 
@@ -391,24 +318,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textLugar;
-        private System.Windows.Forms.TextBox textPlaca;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textFiltrar;
         private System.Windows.Forms.ComboBox comboFiltrar;
         private System.Windows.Forms.DataGridView DvgDatos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Placa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Disponible;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asientos;
         private System.Windows.Forms.ComboBox comboModelo;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textAsientos;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
@@ -422,5 +340,6 @@
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip4;
         private System.Windows.Forms.ToolTip toolTip5;
+        private System.Windows.Forms.MaskedTextBox textPlaca;
     }
 }

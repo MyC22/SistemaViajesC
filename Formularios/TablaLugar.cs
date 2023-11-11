@@ -226,5 +226,10 @@ namespace Formularios
                 }
             }
         }
+
+        private void TablaLugar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
