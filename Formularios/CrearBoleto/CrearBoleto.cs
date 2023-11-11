@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Objetos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,9 +16,18 @@ namespace sistema_de_viajes
     public partial class CrearBoleto : Form
     {
         string estado;
+        int idservicio;
+        int idcliente;
+        comprobante c = new comprobante();
+        Servicios s = new Servicios();
+        boletos b = new boletos();
+        ModeloBoleto mb = new ModeloBoleto();
         public CrearBoleto(int idservicio, int idcliente)
         {
             InitializeComponent();
+            this.idcliente = idcliente;
+            this.idservicio = idservicio;
+
         }
 
         private void CrearBoleto_Load(object sender, EventArgs e)
@@ -26,6 +37,13 @@ namespace sistema_de_viajes
             toolTip1.SetToolTip(btncancelar, "Cancelar");
             toolTip1.SetToolTip(btnguardar, "Guardar");
             toolTip1.SetToolTip(btneditar, "Editar");
+            SqlDataReader dr = mb.listarservicio(idservicio);
+            if (dr.Read())
+            {
+                s.preciop1 = (float)dr["Precio_piso1"];
+                s.preciop2 = (float)dr["Precio_piso2"];
+            }
+            cbpiso.SelectedIndex = -1;
             btneditar.Enabled = false;
             btnguardar.Enabled = false;
             btneliminar.Enabled = false;
@@ -47,7 +65,8 @@ namespace sistema_de_viajes
         {
             txtapellido.Clear();
             txtnombre.Clear();
-            cbpiso.SelectedIndex = 0;
+            cbpiso.SelectedIndex = -1;
+            lprecio.Text = "Precio";
         }
         private void cancelar()
         {
@@ -79,6 +98,24 @@ namespace sistema_de_viajes
             dataGridView1.Enabled = false;
             btneditar.Enabled = false;
             btneliminar.Enabled = false;
+        }
+
+        private void cbpiso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbpiso.Text == "Piso 1")
+            {
+                lprecio.Text = s.preciop1.ToString();
+            }
+            if (cbpiso.Text == "Piso 2")
+            {
+                lprecio.Text = s.preciop2.ToString();
+            }
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add(txtnombre.Text, txtapellido.Text , lprecio.Text);
+            limpiar();
         }
     }
 }

@@ -175,7 +175,7 @@ namespace sistema_modelo
                 if (modelo != null)
                 {
                     txtnombre.Text = modelo.Nombre;
-                    txttamanio.Text = modelo.Tamanio;
+                    txttamanio.Text = modelo.Tamaño;
                     nasiento.Value = modelo.Asientos;
                     npisos.Value = modelo.pisos;
 

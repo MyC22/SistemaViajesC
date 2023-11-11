@@ -1,4 +1,6 @@
-﻿namespace sistema_de_viajes
+﻿using System;
+
+namespace sistema_de_viajes
 {
     partial class TablaBuses
     {
@@ -65,11 +67,11 @@
             // 
             this.dateDisponible.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateDisponible.Location = new System.Drawing.Point(75, 177);
-            this.dateDisponible.MaxDate = new System.DateTime(2023, 10, 18, 11, 14, 24, 0);
+            this.dateDisponible.MinDate = new System.DateTime(2023, 11, 11, 11, 39, 37, 706);
             this.dateDisponible.Name = "dateDisponible";
             this.dateDisponible.Size = new System.Drawing.Size(193, 20);
             this.dateDisponible.TabIndex = 77;
-            this.dateDisponible.Value = new System.DateTime(2023, 10, 18, 0, 0, 0, 0);
+            this.dateDisponible.Value = new System.DateTime(2023, 11, 11, 11, 39, 37, 707);
             // 
             // label6
             // 
@@ -194,11 +196,10 @@
             // textPlaca
             // 
             this.textPlaca.Location = new System.Drawing.Point(74, 65);
-            this.textPlaca.Mask = "999999";
+            this.textPlaca.Mask = "aaaaaa";
             this.textPlaca.Name = "textPlaca";
             this.textPlaca.Size = new System.Drawing.Size(194, 20);
             this.textPlaca.TabIndex = 82;
-            this.textPlaca.ValidatingType = typeof(int);
             // 
             // label2
             // 
@@ -301,8 +302,8 @@
             this.Controls.Add(this.comboFiltrar);
             this.Controls.Add(this.DvgDatos);
             this.Name = "TablaBuses";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buses";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TablaBuses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DvgDatos)).EndInit();
             this.panel1.ResumeLayout(false);

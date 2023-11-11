@@ -345,6 +345,7 @@
             this.btnguardar.Size = new System.Drawing.Size(31, 33);
             this.btnguardar.TabIndex = 133;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // panel2
             // 
@@ -389,6 +390,7 @@
             this.button5.Size = new System.Drawing.Size(40, 28);
             this.button5.TabIndex = 16;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // txtdestinoB
             // 

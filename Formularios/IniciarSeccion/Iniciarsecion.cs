@@ -37,7 +37,7 @@ namespace sistema_de_viajes
             leer();
             if (me.ValidarUser(u))
             {
-                if (me.Validar(u) != 0)
+                if (me.Validar(u) != "")
                 {
                     Menuprincipal menu = new Menuprincipal(me.Validar(u));
                     menu.Show();

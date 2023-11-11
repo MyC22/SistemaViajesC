@@ -1,6 +1,8 @@
 ﻿using Formularios;
 using Objetos;
+using Objetos.Buses;
 using Objetos.Cronograma;
+using Objetos.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,12 +22,14 @@ namespace sistema_de_viajes
         Servicios s = new Servicios();
         ModeloRuta mr = new ModeloRuta();
         ModeloCronograma mc = new ModeloCronograma();
+        ModelBus mb = new ModelBus();
         SeleccionarRuta sr;
+        List<cronogramalista> cl = new List<cronogramalista>();
         string estado;
-        public TablaPrograma(int idusuario)
+        public TablaPrograma(string usuario)
         {
             InitializeComponent();
-            c.idusuario = idusuario;
+            c.usuario = usuario;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -54,10 +58,28 @@ namespace sistema_de_viajes
             toolTip1.SetToolTip(btncancelar, "Cancelar");
             toolTip1.SetToolTip(btnguardar, "Guardar");
             toolTip1.SetToolTip(btneditar, "Editar");
-            dataGridView1.DataSource = mc.Mostrarcronograma();
+            cl = mc.Mostrarcronograma();
+            dataGridView1.DataSource = cl;
+            cbbuses.DataSource = mb.MostrarTodosBuses();
+            cbbuses.ValueMember = "";
+            cbbuses.DisplayMember = "Placa";
             btneditar.Enabled = false;
             btnguardar.Enabled = false;
             btneliminar.Enabled = false;
+        }
+        private Boolean validardatos()
+        {
+            if (txtpiso1.Text != "" &&
+                txtpiso2.Text != "" &&
+                txtruta.Text != "" &&
+                mtxtturno.Text != "" &&
+                txtservicio.Text != "" &&
+                cbbuses.SelectedIndex != -1 &&
+                c.idruta != 0)
+            {
+                return true;
+            }
+            else return false;
         }
         private void limpiar()
         {
@@ -91,7 +113,7 @@ namespace sistema_de_viajes
         private void datos()
         {
             c.placabus = cbbuses.Text;
-            c.fechasalida = (DateTime)dtfecha.Value + TimeSpan.Parse(mtxtturno.Text);
+            c.fechasalida = (DateTime)dtfecha.Value.Date + TimeSpan.Parse(mtxtturno.Text);
             s.preciop1 = Convert.ToDouble(txtpiso1.Text);
             s.preciop2 = Convert.ToDouble(txtpiso2.Text);
             s.nombre = txtservicio.Text;
@@ -117,6 +139,42 @@ namespace sistema_de_viajes
             limpiar();
             desactivartxt();
             dataGridView1.Enabled = true;
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            if (validardatos())
+            {
+                if(estado == "g")
+                {
+                    datos();
+                    mc.Agregarcronograma(s, c);
+                    limpiar();
+                    desactivartxt();
+                    dataGridView1.DataSource = mc.Mostrarcronograma();
+                    btneditar.Enabled = false;
+                    btnguardar.Enabled = false;
+                    btnañadir.Enabled = true;
+                    btneliminar.Enabled = false;
+                    dataGridView1.Enabled = true;
+                    MessageBox.Show("se guardo");
+                }
+            }
+            else { MessageBox.Show("Falta datos"); }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string origen = txtorigenB.Text;
+            string destino = txtdestinoB.Text;
+            DateTime fecha = DateTime.MinValue;
+            if (DateTime.TryParse(mtxtfechaB.Text, out DateTime demora)) { fecha = DateTime.Parse(mtxtfechaB.Text); }
+            List<cronogramalista> result = cl.Where(c =>
+            (string.IsNullOrEmpty(origen) || c.origen.IndexOf(origen, StringComparison.OrdinalIgnoreCase) >= 0)&&
+            (string.IsNullOrEmpty(destino) || c.origen.IndexOf(destino, StringComparison.OrdinalIgnoreCase) >= 0)&&
+            fecha.Equals(DateTime.MinValue) || c.fecha.Date.CompareTo(fecha)==0)
+                .ToList();
+            dataGridView1.DataSource = result;
         }
     }
 }

@@ -38,6 +38,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txttamanio = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.npisos = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.nasiento = new System.Windows.Forms.NumericUpDown();
             this.btnbuscarmodelo = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
@@ -54,12 +56,10 @@
             this.txtIDB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtModeloB = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.npisos = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nasiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npisos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nasiento)).BeginInit();
             this.SuspendLayout();
             // 
             // txtnombre
@@ -138,6 +138,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(312, 184);
             this.panel1.TabIndex = 96;
+            // 
+            // npisos
+            // 
+            this.npisos.Location = new System.Drawing.Point(74, 154);
+            this.npisos.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.npisos.Name = "npisos";
+            this.npisos.Size = new System.Drawing.Size(204, 20);
+            this.npisos.TabIndex = 98;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(33, 156);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 97;
+            this.label7.Text = "Pisos:";
             // 
             // nasiento
             // 
@@ -240,22 +261,6 @@
             this.txtModeloB.Size = new System.Drawing.Size(126, 20);
             this.txtModeloB.TabIndex = 159;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(33, 156);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 97;
-            this.label7.Text = "Pisos:";
-            // 
-            // npisos
-            // 
-            this.npisos.Location = new System.Drawing.Point(74, 154);
-            this.npisos.Name = "npisos";
-            this.npisos.Size = new System.Drawing.Size(204, 20);
-            this.npisos.TabIndex = 98;
-            // 
             // TablaModelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,8 +285,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nasiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.npisos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nasiento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

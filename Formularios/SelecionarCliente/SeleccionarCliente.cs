@@ -124,6 +124,7 @@ namespace Formularios.SelecionarCliente
             {
                 CrearBoleto cb = new CrearBoleto(idservicio, c.ID);
                 cb.Show();
+                this.Close();
             }else { MessageBox.Show("Primero debe seleccionar a un cliente"); }
         }
     }

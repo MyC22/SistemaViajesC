@@ -39,19 +39,19 @@ namespace Objetos
             if (dr.HasRows == true) { con.Close(); return true; }
             else { con.Close(); return false; }
         }
-        public int  Validar(Usuario u)
+        public string  Validar(Usuario u)
         {
             Conexion con = new Conexion();
-            SqlCommand cmd = new SqlCommand("Select IDEmpleado from Usuario where (Usuario = @Usuario and Contrasena = @Contrasena)", con.Open());
+            SqlCommand cmd = new SqlCommand("Select Usuario from Usuario where (Usuario = @Usuario and Contrasena = @Contrasena)", con.Open());
             cmd.Parameters.AddWithValue("@Usuario", u.usuario);
             cmd.Parameters.AddWithValue("@Contrasena", u.contraseña);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
                 if(dr.FieldCount < 2)
-                { return (int)dr["IDEmpleado"];}
-                else { return 0; }
-            }else { return 0; }
+                { return dr["Usuario"].ToString();}
+                else { return ""; }
+            }else { return ""; }
             
         }
         public DataTable listarEmpleado()

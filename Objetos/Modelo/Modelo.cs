@@ -10,7 +10,7 @@ namespace Objetos.Modelo
     {
         public int ID { get; set; }
         public string Nombre { get; set; }
-        public string Tamanio { get; set; }
+        public string Tamaño { get; set; }
         public int Asientos { get; set; }
         public int pisos { get; set; }
     }

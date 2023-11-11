@@ -10,19 +10,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Objetos;
 using Objetos.Buses;
+using Objetos.Modelo;
 
 namespace sistema_de_viajes
 {
     public partial class TablaBuses : Form
     {
         private ModelBus modelobus;
+        Modelomodelo mm = new Modelomodelo();
         private List<Buses> todosLosBuses;
         private string estado;
         public TablaBuses()
         {
             InitializeComponent();
             comboFiltrar.Items.AddRange(new string[] { "Seleccionar", "ID", "Placa", "Modelo", "Lugar" });
-            comboModelo.Items.AddRange(new string[] { "0", "1", "2", "3", "4", "15" });
+            comboModelo.DataSource = mm.MostrarTodosLosModelos();
+            comboModelo.ValueMember = "ID";
+            comboModelo.DisplayMember = "Nombre";
             comboFiltrar.SelectedIndex = 0;
             comboModelo.SelectedIndex = 0;
             modelobus = new ModelBus();
@@ -96,7 +100,7 @@ namespace sistema_de_viajes
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string placa = textPlaca.Text;
-            int modelo = Convert.ToInt32(comboModelo.Text);
+            int modelo = (int)comboModelo.SelectedValue;
             string lugar = textLugar.Text;
             DateTime disponibilidad = (DateTime)dateDisponible.Value;
             if (string.IsNullOrEmpty(placa) || string.IsNullOrEmpty(lugar))

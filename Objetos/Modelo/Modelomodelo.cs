@@ -34,7 +34,7 @@ namespace Objetos.Modelo
                             {
                                 modelo.ID = Convert.ToInt32(reader["ID"]);
                                 modelo.Nombre = reader["Modelo"].ToString();
-                                modelo.Tamanio = reader["Tamanio"].ToString();
+                                modelo.Tamaño = reader["Tamaño"].ToString();
                                 modelo.Asientos = Convert.ToInt32(reader["Asientos"]);
                                 modelo.pisos = Convert.ToInt32(reader["pisos"]);
                             };
@@ -65,7 +65,7 @@ namespace Objetos.Modelo
                             {
                                 modelo.ID = Convert.ToInt32(reader["ID"]);
                                 modelo.Nombre = reader["Modelo"].ToString(); 
-                                modelo.Tamanio = reader["Tamaño"].ToString();
+                                modelo.Tamaño = reader["Tamaño"].ToString();
                                 modelo.Asientos = Convert.ToInt32(reader["Asientos"]);
                                 modelo.pisos = Convert.ToInt32(reader["pisos"]);
                             };
@@ -107,9 +107,9 @@ namespace Objetos.Modelo
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
-                    cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 50).Value = nombre;
-                    cmd.Parameters.Add("@Tamanio", SqlDbType.VarChar, 100).Value = tamanio;
-                    cmd.Parameters.Add("@Asientos", SqlDbType.Int, 50).Value = asientos;
+                    cmd.Parameters.Add("@Nombre", SqlDbType.Char, 10).Value = nombre;
+                    cmd.Parameters.Add("@Tamanio", SqlDbType.VarChar, 50).Value = tamanio;
+                    cmd.Parameters.Add("@Asientos", SqlDbType.Int).Value = asientos;
                     cmd.Parameters.Add("@pisos", SqlDbType.Int).Value = pisos;
 
                     cmd.ExecuteNonQuery();

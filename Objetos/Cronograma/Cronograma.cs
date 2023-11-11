@@ -9,7 +9,7 @@ namespace Objetos
         public string placabus { get; set; }
         public int idruta { get; set; }
         public DateTime fechasalida { get; set; }
-        public int idusuario { get; set; }
+        public string usuario { get; set; }
     }
     public class Servicios
     {

@@ -35,7 +35,6 @@
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.lprecio = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.lapellido = new System.Windows.Forms.Label();
             this.txtapellido = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btncancelar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
@@ -105,15 +105,6 @@
             this.panel1.Size = new System.Drawing.Size(1003, 59);
             this.panel1.TabIndex = 28;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(856, 526);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 13);
-            this.label5.TabIndex = 151;
-            this.label5.Text = "S/";
-            // 
             // lprecio
             // 
             this.lprecio.AutoSize = true;
@@ -151,6 +142,7 @@
             this.cbpiso.Name = "cbpiso";
             this.cbpiso.Size = new System.Drawing.Size(186, 21);
             this.cbpiso.TabIndex = 147;
+            this.cbpiso.SelectedIndexChanged += new System.EventHandler(this.cbpiso_SelectedIndexChanged);
             // 
             // lnombre
             // 
@@ -183,6 +175,15 @@
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(157, 20);
             this.txtnombre.TabIndex = 143;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(856, 526);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 13);
+            this.label5.TabIndex = 151;
+            this.label5.Text = "S/";
             // 
             // btncancelar
             // 
@@ -230,6 +231,7 @@
             this.btnguardar.Size = new System.Drawing.Size(31, 33);
             this.btnguardar.TabIndex = 138;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // txttotal
             // 
