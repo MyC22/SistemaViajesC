@@ -399,4 +399,58 @@ select * from Buses
 --Se debe insertar antes un modelo para poner el foranea
 INSERT INTO ModeloBus(Modelo, Asientos, Tamaño, pisos)
 	VALUES('Lambo',15,'Grande',2);
--------------------------------------------------------------
+
+----------------------Cargo--------------------------------------
+/*Buscar Cargo*/
+CREATE PROCEDURE BuscarCargo
+    @ID INT = NULL,
+    @Cargo VARCHAR(50) = NULL,
+    @descripcion VARCHAR(50) = NULL
+AS
+BEGIN
+    SELECT ID, Cargo, Descripcion
+    FROM Cargo
+    WHERE (@ID IS NULL OR ID = @ID)
+        AND (@Cargo IS NULL OR Cargo LIKE '%' + @Cargo + '%')
+        AND (@descripcion IS NULL OR Descripcion LIKE '%' + @descripcion + '%');
+END
+
+/*Mostrar Cargo*/
+CREATE PROCEDURE MostrarTodosLosCargos
+AS
+BEGIN
+    SELECT ID, Cargo, Descripcion
+    FROM Cargo;
+END
+
+/*Agregar Cargo*/
+CREATE PROCEDURE AgregarCargo
+    @Cargo VARCHAR(50),
+    @descripcion VARCHAR(100)
+AS
+BEGIN
+    INSERT INTO Cargo (Cargo, Descripcion)
+    VALUES (@Cargo, @descripcion);
+END
+
+/*Editar Cargo*/
+CREATE PROCEDURE EditaCargo
+    @ID INT,
+    @Cargo VARCHAR(50),
+    @Descripcion VARCHAR(100)
+AS
+BEGIN
+    UPDATE Cargo
+    SET Cargo = @Cargo,
+        Descripcion = @Descripcion
+    WHERE ID = @ID;
+END
+
+/*Eliminar Cargo*/
+CREATE PROCEDURE EliminarCargo
+    @ID INT
+AS
+BEGIN
+    DELETE FROM Cargo
+    WHERE ID = @ID;
+END

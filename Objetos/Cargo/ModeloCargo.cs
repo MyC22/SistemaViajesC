@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Objetos.Cargo
+namespace Objetos
 {
     public class ModeloCargo
     {
-        public List<Cargo> BuscarCargo(int? id, string nombre, string descripcion)
+        public List<Cargo> BuscarCargo(int? id, string cargo, string descripcion)
         {
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
@@ -20,7 +20,7 @@ namespace Objetos.Cargo
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@ID", SqlDbType.Int).Value = (object)id ?? DBNull.Value;
-                    cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 50).Value = string.IsNullOrEmpty(nombre) ? (object)DBNull.Value : nombre;
+                    cmd.Parameters.Add("@Cargo", SqlDbType.VarChar, 50).Value = string.IsNullOrEmpty(cargo) ? (object)DBNull.Value : cargo;
                     cmd.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = string.IsNullOrEmpty(descripcion) ? (object)DBNull.Value : descripcion;
                     
                     List<Cargo> Cargos = new List<Cargo>();
@@ -29,13 +29,13 @@ namespace Objetos.Cargo
                     {
                         while (reader.Read())
                         {
-                            Cargo cargo = new Cargo();
+                            Cargo cargos = new Cargo();
                             {
-                                cargo.ID = Convert.ToInt32(reader["ID"]);
-                                cargo.nombre = reader["Modelo"].ToString();
-                                cargo.descripcion = reader["Tamanio"].ToString();
+                                cargos.ID = Convert.ToInt32(reader["ID"]);
+                                cargos.cargo = reader["Modelo"].ToString();
+                                cargos.descripcion = reader["Tamanio"].ToString();
                             };
-                            Cargos.Add(cargo);
+                            Cargos.Add(cargos);
                         }
                     }
                     return Cargos;
@@ -48,7 +48,7 @@ namespace Objetos.Cargo
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
             {
-                using (SqlCommand cmd = new SqlCommand("MostrarTodosLosModelos", connection))
+                using (SqlCommand cmd = new SqlCommand("MostrarTodosLosCargos", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -61,7 +61,7 @@ namespace Objetos.Cargo
                             Cargo cargo = new Cargo();
                             {
                                 cargo.ID = Convert.ToInt32(reader["ID"]);
-                                cargo.nombre = reader["Nombre"].ToString();
+                                cargo.cargo = reader["Cargo"].ToString();
                                 cargo.descripcion = reader["Descripcion"].ToString();
                             };
                             Cargos.Add(cargo);
@@ -72,7 +72,7 @@ namespace Objetos.Cargo
             }
         }
 
-        public void AgregarCargo(string nombre, string descripcion)
+        public void AgregarCargo(string cargo, string descripcion)
         {
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
@@ -81,25 +81,25 @@ namespace Objetos.Cargo
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 50).Value = nombre;
-                    cmd.Parameters.Add("@descripcion", SqlDbType.VarChar, 100).Value = descripcion;
+                    cmd.Parameters.Add("@Cargo", SqlDbType.VarChar, 50).Value = cargo;
+                    cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 100).Value = descripcion;
 
                     cmd.ExecuteNonQuery();
                 }
             }
         }
 
-        public void EditaCargo(int id, string nombre, string descripcion)
+        public void EditaCargo(int id, string cargo, string descripcion)
         {
             Conexion conexion = new Conexion();
             using (SqlConnection connection = conexion.Open())
             {
-                using (SqlCommand cmd = new SqlCommand("EditarModelo", connection))
+                using (SqlCommand cmd = new SqlCommand("EditaCargo", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
-                    cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 50).Value = nombre;
+                    cmd.Parameters.Add("@Cargo", SqlDbType.VarChar, 50).Value = cargo;
                     cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 100).Value = descripcion;
 
                     cmd.ExecuteNonQuery();
@@ -121,18 +121,6 @@ namespace Objetos.Cargo
                     cmd.ExecuteNonQuery();
                 }
             }
-        }
-
-
-        public void guardarCargo(Cargo c) 
-        {
-            Conexion con = new Conexion();
-            SqlCommand cmd = new SqlCommand("guardarCargo", con.Open());
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Cargo", c.nombre);
-            cmd.Parameters.AddWithValue("@Descripcion", c.descripcion);
-            cmd.ExecuteNonQuery();
-            cmd.Parameters.Clear();
         }
     }
 }

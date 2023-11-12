@@ -202,6 +202,7 @@ namespace sistema_modelo
             txttamanio.Enabled = false;
             nasiento.Enabled = false;
             npisos.Enabled = false;
+            MostrarTodosLosModelos();
         }
 
         private void TablaModelo_Load(object sender, EventArgs e)

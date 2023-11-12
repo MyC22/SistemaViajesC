@@ -1,5 +1,4 @@
-﻿using Objetos.Cargo;
-using Objetos.Modelo;
+﻿using Objetos.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Objetos.Cargo;
+using Objetos;
 using static Objetos.Empleado;
 
 
@@ -28,7 +27,7 @@ namespace sistema_de_viajes
             modelocargo = new ModeloCargo();
             MostrarTodosLosCargos();
 
-            txtfiltronombre.Enabled = false;
+            txtnombre.Enabled = false;
             txtDescripcion.Enabled = false;
         }
 
@@ -62,7 +61,7 @@ namespace sistema_de_viajes
                 List<Cargo> resultadosBusqueda = TodosLosCargos
                     .Where(l =>
                         (id == 0 || l.ID == id) &&
-                        (string.IsNullOrEmpty(cargo) || l.nombre.IndexOf(cargo, StringComparison.OrdinalIgnoreCase) >= 0))
+                        (string.IsNullOrEmpty(cargo) || l.cargo.IndexOf(cargo, StringComparison.OrdinalIgnoreCase) >= 0))
                     .ToList();
 
                 dataGridView1.DataSource = resultadosBusqueda;
@@ -79,14 +78,13 @@ namespace sistema_de_viajes
             estado = "G";
 
             btnguardar.Enabled = true;
-            dataGridView1.Enabled = false;
             btneditar.Enabled = false;
             btneliminar.Enabled = false;
 
-            txtfiltronombre.Enabled = true;
+            txtnombre.Enabled = true;
             txtDescripcion.Enabled = true;
 
-            txtfiltronombre.Text = "";
+            txtnombre.Text = "";
             txtDescripcion.Text = "";
         }
 
@@ -123,10 +121,10 @@ namespace sistema_de_viajes
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            string nombre = txtnombre.Text;
+            string cargo = txtnombre.Text;
             string descripcion = txtDescripcion.Text;
 
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(descripcion))
+            if (string.IsNullOrEmpty(cargo) || string.IsNullOrEmpty(descripcion))
             {
                 MessageBox.Show("Por favor, complete todos los campos antes de guardar.");
                 return;
@@ -138,13 +136,13 @@ namespace sistema_de_viajes
                 {
                     if (estado == "G")
                     {
-                        modelocargo.AgregarCargo(nombre, descripcion);
+                        modelocargo.AgregarCargo(cargo, descripcion);
                     }
                     else if (estado == "E")
                     {
                         int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
-                        modelocargo.EditaCargo(id, nombre, descripcion);
+                        modelocargo.EditaCargo(id, cargo, descripcion);
                     }
 
                     txtnombre.Text = "";
@@ -178,7 +176,7 @@ namespace sistema_de_viajes
 
                 if (cargo != null)
                 {
-                    txtnombre.Text = cargo.nombre;
+                    txtnombre.Text = cargo.cargo;
                     txtDescripcion.Text = cargo.descripcion;
 
                     txtnombre.Enabled = true;
@@ -196,12 +194,16 @@ namespace sistema_de_viajes
             txtnombre.Text = "";
             txtDescripcion.Text = "";
 
+            btneditar.Enabled = true;
+            btneliminar.Enabled = true;
+
             txtnombre.Enabled = false;
             txtDescripcion.Enabled = false;
+            MostrarTodosLosCargos();
         }
 
 
-       /* private void desactivartxt()
+       private void desactivartxt()
         {
             txtnombre.Enabled = false;
             txtDescripcion.Enabled = false;
@@ -221,9 +223,9 @@ namespace sistema_de_viajes
 
         private void datos()
         {
-            c.nombre = txtnombre.Text;
+            c.cargo = txtnombre.Text;
             c.descripcion = txtDescripcion.Text;
-        }*/
+        }
 
         
     }

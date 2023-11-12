@@ -220,6 +220,7 @@ namespace Formularios
             limpiar();
             desactivartxt();
             dataGridView1.Enabled = true;
+            MostrarTodasLasRutas();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
