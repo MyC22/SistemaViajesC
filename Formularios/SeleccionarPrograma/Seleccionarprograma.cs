@@ -47,7 +47,7 @@ namespace sistema_de_viajes
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(s.id != null)
+            if(s.id != 0)
             {
                 SeleccionarCliente sc = new SeleccionarCliente(s.id);
                 sc.Show();

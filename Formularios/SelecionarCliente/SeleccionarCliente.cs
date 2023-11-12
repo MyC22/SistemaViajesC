@@ -33,11 +33,6 @@ namespace Formularios.SelecionarCliente
             radioButton2.Checked = false;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            c.ID = id;
-        }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -120,12 +115,18 @@ namespace Formularios.SelecionarCliente
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(c.ID != null)
+            if(c.ID != 0)
             {
                 CrearBoleto cb = new CrearBoleto(idservicio, c.ID);
                 cb.Show();
                 this.Close();
             }else { MessageBox.Show("Primero debe seleccionar a un cliente"); }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            c.ID = id;
         }
     }
 }

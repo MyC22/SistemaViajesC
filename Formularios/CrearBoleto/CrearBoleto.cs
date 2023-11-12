@@ -18,15 +18,18 @@ namespace sistema_de_viajes
         string estado;
         int idservicio;
         int idcliente;
+        double precio = 0;
         comprobante c = new comprobante();
         Servicios s = new Servicios();
         boletos b = new boletos();
         ModeloBoleto mb = new ModeloBoleto();
+        modelocomprobante mc = new modelocomprobante();
+        pasajero p = new pasajero();
         public CrearBoleto(int idservicio, int idcliente)
         {
             InitializeComponent();
-            this.idcliente = idcliente;
-            this.idservicio = idservicio;
+            c.idcliente = idcliente;
+            b.idservicio = idservicio;
 
         }
 
@@ -37,7 +40,7 @@ namespace sistema_de_viajes
             toolTip1.SetToolTip(btncancelar, "Cancelar");
             toolTip1.SetToolTip(btnguardar, "Guardar");
             toolTip1.SetToolTip(btneditar, "Editar");
-            SqlDataReader dr = mb.listarservicio(idservicio);
+            SqlDataReader dr = mb.listarservicio(b.idservicio);
             if (dr.Read())
             {
                 s.preciop1 = (float)dr["Precio_piso1"];
@@ -48,6 +51,7 @@ namespace sistema_de_viajes
             btnguardar.Enabled = false;
             btneliminar.Enabled = false;
             desactivartxt();
+            txttotal.Text = precio.ToString();
         }
         private void desactivartxt()
         {
@@ -115,7 +119,34 @@ namespace sistema_de_viajes
         private void btnguardar_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add(txtnombre.Text, txtapellido.Text , lprecio.Text);
+            precio = precio + double.Parse(lprecio.Text);
+            txttotal.Text = precio.ToString();
             limpiar();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int filas = dataGridView1.Rows.Count;
+            double preciot = double.Parse(txttotal.Text);
+            double precio = (preciot * 100) / 118;
+            double igv = preciot - precio;
+            c.igv = igv;
+            c.precio = precio;
+            c.precioT = preciot;
+            c.tipocomporbante = "Factura";
+            c.fecha = DateTime.Now;
+            b.idfactura = mc.agregarfactura(c);
+            for (int i = 0; i < filas-1; i++)
+            {
+                p.nombre = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                p.apellidos = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                b.precio = int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                b.idpasajero = mb.agregarpasajero(p);
+                mb.agregarboleto(b);
+            }
+            MessageBox.Show("Se a creado correctamente");
+            this.Close();
+        }
+
     }
 }

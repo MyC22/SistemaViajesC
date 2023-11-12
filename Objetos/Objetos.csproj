@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Boletos\Boletos.cs" />
     <Compile Include="Boletos\ModeloBoleto.cs" />
-    <Compile Include="Boletos\NegocioBoletos.cs" />
     <Compile Include="Buses\Buses.cs" />
     <Compile Include="Buses\ModelBus.cs" />
     <Compile Include="Cargo\Cargo.cs" />
@@ -55,7 +54,8 @@
     <Compile Include="Cronograma\ModeloCronograma.cs" />
     <Compile Include="Empleado\Empleado.cs" />
     <Compile Include="Empleado\ModeloEmpleado.cs" />
-    <Compile Include="Factura\Factura.cs" />
+    <Compile Include="Factura\comprobante.cs" />
+    <Compile Include="Factura\modelocomprobante.cs" />
     <Compile Include="Lugar\Lugar.cs" />
     <Compile Include="Lugar\ModeloLugar.cs" />
     <Compile Include="Modelo\Modelo.cs" />
