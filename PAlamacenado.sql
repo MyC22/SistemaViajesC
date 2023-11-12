@@ -301,7 +301,7 @@ INSERT INTO Cronograma_viajes(IDRuta, Placa, Fecha_salida,IDusuario)
 
 end
 
-
+go
 ----------------------ModeloBus--------------------------------------
 /*Buscar Modelo*/
 CREATE PROCEDURE BuscarModelo
@@ -399,7 +399,7 @@ select * from Buses
 --Se debe insertar antes un modelo para poner el foranea
 INSERT INTO ModeloBus(Modelo, Asientos, Tamaño, pisos)
 	VALUES('Lambo',15,'Grande',2);
-
+go
 ----------------------Cargo--------------------------------------
 /*Buscar Cargo*/
 CREATE PROCEDURE BuscarCargo
@@ -414,7 +414,7 @@ BEGIN
         AND (@Cargo IS NULL OR Cargo LIKE '%' + @Cargo + '%')
         AND (@descripcion IS NULL OR Descripcion LIKE '%' + @descripcion + '%');
 END
-
+go
 /*Mostrar Cargo*/
 CREATE PROCEDURE MostrarTodosLosCargos
 AS
@@ -422,7 +422,7 @@ BEGIN
     SELECT ID, Cargo, Descripcion
     FROM Cargo;
 END
-
+go
 /*Agregar Cargo*/
 CREATE PROCEDURE AgregarCargo
     @Cargo VARCHAR(50),
@@ -432,7 +432,7 @@ BEGIN
     INSERT INTO Cargo (Cargo, Descripcion)
     VALUES (@Cargo, @descripcion);
 END
-
+go
 /*Editar Cargo*/
 CREATE PROCEDURE EditaCargo
     @ID INT,
@@ -445,7 +445,7 @@ BEGIN
         Descripcion = @Descripcion
     WHERE ID = @ID;
 END
-
+go
 /*Eliminar Cargo*/
 CREATE PROCEDURE EliminarCargo
     @ID INT
@@ -454,3 +454,43 @@ BEGIN
     DELETE FROM Cargo
     WHERE ID = @ID;
 END
+-------------------------comprobante------------------------------
+go
+create procedure agregarcomprovante
+@idcliente  int,
+@fecha datetime,
+@precio real,
+@preciot real,
+@igv real,
+@tipo varchar(50)
+as begin
+DECLARE @IDsInsertadas TABLE (ID INT);
+INSERT INTO Comprobante(IDCliente,Fecha,Precio,Precio_total,Costo_igv,TipoComprobante )
+OUTPUT INSERTED.ID INTO @IDsInsertadas
+VALUES (@idcliente, @fecha,@precio,@preciot,@igv,@tipo);
+SELECT ID FROM @IDsInsertadas;
+end
+go
+---------------pasajero-----------------------------
+create procedure agregarpasajero
+@nombre varchar(50),
+@apellido varchar(50)
+as begin
+DECLARE @IDsInsertadas TABLE (ID INT);
+INSERT INTO pasajero(Nombres,Apellidos)
+OUTPUT INSERTED.ID INTO @IDsInsertadas
+VALUES (@nombre, @apellido);
+SELECT ID FROM @IDsInsertadas;
+end
+go
+------------------boleto-------------------------
+create procedure agregarboleto
+@idcomprobante  int,
+@idpasajero int,
+@idservicio int,
+@precio real
+as begin
+INSERT INTO Boletos(IDComprobante,IDPasajero,IDServicio,Precio )
+VALUES (@idcomprobante, @idpasajero,@idservicio,@precio);
+end
+go
