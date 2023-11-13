@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Objetos.Buses
 {
-    public class Buses //Atributos
+    public class Buses //Atributos que necesita la tabla buses (estos estan encapsulados)
     {
       
         private String Placa1;

@@ -36,6 +36,9 @@ namespace sistema_de_viajes
 
         
         //Eventos para las cajas de texto
+
+
+        
         private void textPlaca_Enter(object sender, EventArgs e)
         {
             if (textPlaca.Text == "------") textPlaca.Text = "";
@@ -44,10 +47,16 @@ namespace sistema_de_viajes
         {
             if (textPlaca.Text == "") textPlaca.Text = "------";
         }
+        //El evento Enter nos dice si al momento de hacer click en el cuadro textLugar
+        //tiene de contenido "Lugar" esta al hacer click se eliminara
+        //y sera reemplazado por el nuevo valor que es el contenido vacio
         private void textLugar_Enter(object sender, EventArgs e)
         {
             if (textLugar.Text == "Lugar") textLugar.Text = "";
         }
+        //El evento Leave nos dice que al dejar de hacer click en el cuadro textLugar
+        //este se comparara si esta vacio, si esta vacio se le agregar Lugar
+        // *En el caso de agregar valores este se mantendra sin molestar al usuario dejandolo vacio *
         private void textLugar_Leave(object sender, EventArgs e)
         {
             if (textLugar.Text == "") textLugar.Text = "Lugar";
@@ -70,6 +79,9 @@ namespace sistema_de_viajes
             textLugar.Text = "Lugar";
 
         }
+
+        //Esta funcion nos ayuda a mostrar buses, tiene un try y catch
+        //por si sucede un error este no moleste al usuario
         private void Mostrarbuses()
         {
             try
@@ -82,6 +94,8 @@ namespace sistema_de_viajes
                 MessageBox.Show("Error al mostrar lugares: " + ex.Message);
             }
         }
+        //Funcion desaccampos
+        //Esta funcion al ser llamada desactiva ciertos campos
         private void Desacampos()
         {
             textPlaca.Enabled=false;
@@ -89,6 +103,8 @@ namespace sistema_de_viajes
             textLugar.Enabled=false;
             dateDisponible.Enabled=false;
         }
+        //Funcion ActivarCampos
+        //Esta funcion al ser llamada activa ciertos campos
         private void ActivarCampos()
         {
             textPlaca.Enabled = true;
@@ -97,6 +113,12 @@ namespace sistema_de_viajes
             dateDisponible.Enabled = true;
             
         }
+
+
+        //Boton guardar, este al hacer click toma como valor de las cajas de texto y
+        //Las almacena en diferentes variables
+        //este nos indica si uno o otro esta vacio para realizar la accion de editar o añadir
+        // si el estado es igual a "G" este se guardara, si es igual a "E" este se editara
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string placa = textPlaca.Text;
@@ -150,7 +172,8 @@ namespace sistema_de_viajes
             }
         }
     
-
+        //Boton añadir, este boton nos ayuda a activar los cuadros de texto y botones para realizar la accion de añadir
+        //da como valor a estado la "G" para que haga su funcion al momento de guardar
         private void btnanadir_Click(object sender, EventArgs e)
         {
             textPlaca.Enabled = true;
