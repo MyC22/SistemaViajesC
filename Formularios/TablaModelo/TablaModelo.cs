@@ -24,6 +24,7 @@ namespace sistema_modelo
             modelomodelos = new Modelomodelo();
             MostrarTodosLosModelos();
 
+            // Deshabilita la edición de campos al inicio.
             txtnombre.Enabled = false;
             nasiento.Enabled = false;
             txttamanio.Enabled = false;
@@ -62,13 +63,13 @@ namespace sistema_modelo
             {
                 MostrarTodosLosModelos();
             }
-
         }
 
         private void btnañadir_Click(object sender, EventArgs e)
         {
             estado = 'G';
 
+            // Habilita la edición de campos y establece valores predeterminados.
             txtnombre.Enabled = true;
             nasiento.Enabled = true;
             txttamanio.Enabled = true;
@@ -91,6 +92,7 @@ namespace sistema_modelo
 
                     try
                     {
+                        // Elimina el modelo seleccionado.
                         modelomodelos.EliminarModelo(id);
 
                         MostrarTodosLosModelos();
@@ -130,15 +132,18 @@ namespace sistema_modelo
                 {
                     if (estado == 'G')
                     {
+                        // Agrega un nuevo modelo.
                         modelomodelos.AgregarModelo(nombre, tamanio, asientos, pisos);
                     }
                     else if (estado == 'E')
                     {
                         int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
+                        // Edita el modelo existente.
                         modelomodelos.EditaModelo(id, nombre, tamanio, asientos, pisos);
                     }
 
+                    // Restablece los campos y deshabilita la edición.
                     txtnombre.Text = "";
                     txttamanio.Text = "";
                     nasiento.Value = 0;
@@ -170,10 +175,12 @@ namespace sistema_modelo
             {
                 int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
+                // Obtiene el modelo seleccionado para edición.
                 Modelo modelo = TodosLosModelos.FirstOrDefault(l => l.ID == id);
 
                 if (modelo != null)
                 {
+                    // Muestra los detalles del modelo seleccionado y habilita la edición.
                     txtnombre.Text = modelo.Nombre;
                     txttamanio.Text = modelo.Tamaño;
                     nasiento.Value = modelo.Asientos;
@@ -193,6 +200,7 @@ namespace sistema_modelo
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
+            // Restablece los campos y deshabilita la edición.
             txtnombre.Text = "";
             txttamanio.Text = "";
             nasiento.Value = 0;
@@ -202,6 +210,8 @@ namespace sistema_modelo
             txttamanio.Enabled = false;
             nasiento.Enabled = false;
             npisos.Enabled = false;
+
+            // Muestra todos los modelos.
             MostrarTodosLosModelos();
         }
 

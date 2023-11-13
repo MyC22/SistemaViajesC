@@ -27,8 +27,8 @@ namespace sistema_de_viajes
             modelocargo = new ModeloCargo();
             MostrarTodosLosCargos();
 
-            txtnombre.Enabled = false;
-            txtDescripcion.Enabled = false;
+            // Se desactivan los campos de texto al inicio del formulario.
+            desactivartxt();
         }
 
         private void MostrarTodosLosCargos()
@@ -44,6 +44,7 @@ namespace sistema_de_viajes
             }
         }
 
+        // Instancias de ModeloCargo y Cargo para operaciones internas.
         ModeloCargo mc = new ModeloCargo();
         Cargo c = new Cargo();
 
@@ -52,43 +53,48 @@ namespace sistema_de_viajes
        
         }
 
+        // Botón para realizar la búsqueda de Cargos.
         private void btnbuscarcargo_Click(object sender, EventArgs e)
         {
             if (int.TryParse(txtID.Text, out int id) || !string.IsNullOrEmpty(txtfiltronombre.Text))
             {
                 string cargo = txtfiltronombre.Text;
 
+                // Filtra la lista de Cargos según los criterios de búsqueda.
                 List<Cargo> resultadosBusqueda = TodosLosCargos
                     .Where(l =>
                         (id == 0 || l.ID == id) &&
                         (string.IsNullOrEmpty(cargo) || l.cargo.IndexOf(cargo, StringComparison.OrdinalIgnoreCase) >= 0))
                     .ToList();
 
+                // Actualiza el DataGridView con los resultados de la búsqueda.
                 dataGridView1.DataSource = resultadosBusqueda;
             }
             else
             {
+                // Muestra todos los Cargos si no se proporcionan criterios de búsqueda.
                 MostrarTodosLosCargos();
             }
-
         }
 
+        // Botón para añadir un nuevo Cargo.
         private void btnañadir_Click(object sender, EventArgs e)
         {
             estado = "G";
 
+            // Habilita el botón de guardar y deshabilita los de editar y eliminar.
             btnguardar.Enabled = true;
             btneditar.Enabled = false;
             btneliminar.Enabled = false;
 
-            txtnombre.Enabled = true;
-            txtDescripcion.Enabled = true;
+            // Habilita los campos de texto para la entrada de nuevos datos.
+            activartxt();
 
-            txtnombre.Text = "";
-            txtDescripcion.Text = "";
+            // Limpia los campos de texto.
+            limpiar();
         }
 
-
+        // Botón para eliminar un Cargo.
         private void btneliminar_Click(object sender, EventArgs e)
         {
             if (modelocargo != null)
@@ -99,8 +105,10 @@ namespace sistema_de_viajes
 
                     try
                     {
+                        // Elimina el Cargo seleccionado.
                         modelocargo.EliminarCargo(id);
 
+                        // Actualiza la lista de Cargos en el DataGridView.
                         MostrarTodosLosCargos();
                     }
                     catch (Exception ex)
@@ -119,6 +127,7 @@ namespace sistema_de_viajes
             }
         }
 
+        // Botón para guardar o editar un Cargo.
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string cargo = txtnombre.Text;
@@ -136,21 +145,24 @@ namespace sistema_de_viajes
                 {
                     if (estado == "G")
                     {
+                        // Agrega un nuevo Cargo.
                         modelocargo.AgregarCargo(cargo, descripcion);
                     }
                     else if (estado == "E")
                     {
                         int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
+                        // Edita un Cargo existente.
                         modelocargo.EditaCargo(id, cargo, descripcion);
                     }
 
-                    txtnombre.Text = "";
-                    txtDescripcion.Text = "";
+                    // Limpia los campos de texto.
+                    limpiar();
 
-                    txtnombre.Enabled = false;
-                    txtDescripcion.Enabled = false;
+                    // Desactiva los campos de texto.
+                    desactivartxt();
 
+                    // Actualiza la lista de Cargos en el DataGridView.
                     MostrarTodosLosCargos();
                 }
                 catch (Exception ex)
@@ -164,6 +176,7 @@ namespace sistema_de_viajes
             }
         }
 
+        // Botón para editar un Cargo.
         private void btneditar_Click(object sender, EventArgs e)
         {
             estado = "E";
@@ -176,57 +189,66 @@ namespace sistema_de_viajes
 
                 if (cargo != null)
                 {
+                    // Rellena los campos de texto con la información del Cargo seleccionado.
                     txtnombre.Text = cargo.cargo;
                     txtDescripcion.Text = cargo.descripcion;
 
-                    txtnombre.Enabled = true;
-                    txtDescripcion.Enabled = true;
+                    // Habilita los campos de texto para la edición.
+                    activartxt();
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un modelo para editar.");
+                MessageBox.Show("Por favor, seleccione un Cargo para editar.");
             }
         }
 
+        // Botón para cancelar la operación actual y volver al estado inicial.
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            txtnombre.Text = "";
-            txtDescripcion.Text = "";
+            // Limpia los campos de texto.
+            limpiar();
 
+            // Habilita los botones de editar y eliminar.
             btneditar.Enabled = true;
             btneliminar.Enabled = true;
 
-            txtnombre.Enabled = false;
-            txtDescripcion.Enabled = false;
+            // Desactiva los campos de texto.
+            desactivartxt();
+
+            // Actualiza la lista de Cargos en el DataGridView.
             MostrarTodosLosCargos();
         }
 
 
-       private void desactivartxt()
+        // Método para desactivar los campos de texto.
+        private void desactivartxt()
         {
             txtnombre.Enabled = false;
             txtDescripcion.Enabled = false;
         }
 
+        // Método para activar los campos de texto.
         private void activartxt()
         {
             txtnombre.Enabled = true;
             txtDescripcion.Enabled = true;
         }
 
-        private void limpiar() 
+        // Método para limpiar los campos de texto.
+        private void limpiar()
         {
             txtnombre.Clear();
             txtDescripcion.Clear();
         }
 
+        // Método para obtener datos de los campos de texto y asignarlos a la instancia de Cargo.
         private void datos()
         {
             c.cargo = txtnombre.Text;
             c.descripcion = txtDescripcion.Text;
         }
 
-        
+
     }
 }
