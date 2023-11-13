@@ -1,4 +1,5 @@
 ﻿using Objetos;
+using Objetos.Cronograma;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,14 +17,15 @@ namespace sistema_de_viajes
     public partial class CrearBoleto : Form
     {
         string estado;
-        int idservicio;
-        int idcliente;
+        int index;
+        int asientos;
         double precio = 0;
         comprobante c = new comprobante();
         Servicios s = new Servicios();
         boletos b = new boletos();
         ModeloBoleto mb = new ModeloBoleto();
         modelocomprobante mc = new modelocomprobante();
+        ModeloCronograma mcr = new ModeloCronograma();
         pasajero p = new pasajero();
         public CrearBoleto(int idservicio, int idcliente)
         {
@@ -52,6 +54,18 @@ namespace sistema_de_viajes
             btneliminar.Enabled = false;
             desactivartxt();
             txttotal.Text = precio.ToString();
+            int id = mcr.mostraridcronograma(b.idservicio);
+            asientos = mcr.mostrarasientosdiponibles(id);
+            txtasientos.Text = asientos.ToString();
+        }
+        private Boolean validar()
+        {
+            if(txtapellido.Text != "" &&
+               txtnombre.Text != "" &&
+               cbpiso.SelectedIndex != -1)
+            {
+                return true;
+            }else return false;
         }
         private void desactivartxt()
         {
@@ -83,13 +97,10 @@ namespace sistema_de_viajes
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            btneditar.Enabled = false;
-            btnguardar.Enabled = false;
-            btnañadir.Enabled = true;
-            btneliminar.Enabled = false;
+            cancelar();
             limpiar();
             desactivartxt();
-            dataGridView1.Enabled = true;
+            index = -1;
         }
 
         private void btnañadir_Click(object sender, EventArgs e)
@@ -118,35 +129,103 @@ namespace sistema_de_viajes
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add(txtnombre.Text, txtapellido.Text , lprecio.Text);
-            precio = precio + double.Parse(lprecio.Text);
-            txttotal.Text = precio.ToString();
-            limpiar();
+            if(validar())
+            {
+                if(estado=="g")
+                { 
+                    if(asientos != 0)
+                    {
+                        dataGridView1.Rows.Add(txtnombre.Text, txtapellido.Text , lprecio.Text);
+                        precio = precio + double.Parse(lprecio.Text);
+                        txttotal.Text = precio.ToString();
+                        asientos = asientos - 1;
+                        txtasientos.Text = asientos.ToString();
+                    }else { MessageBox.Show("ya no se puede tener mas boleto, verifica la cantidad de asientos disponibles"); }
+                }
+                if(estado=="e")
+                {
+                    if (index != -1)
+                    {
+                        dataGridView1.Rows[index].Cells[0].Value = txtnombre.Text;
+                        dataGridView1.Rows[index].Cells[1].Value = txtapellido.Text;
+                        precio = precio - double.Parse(dataGridView1.Rows[index].Cells[2].Value.ToString());
+                        precio = precio + double.Parse(lprecio.Text);
+                        txttotal.Text = precio.ToString();
+                        dataGridView1.Rows[index].Cells[2].Value = lprecio.Text;
+                    }
+                }
+                limpiar();
+                desactivartxt();
+                cancelar();
+            }
+            else { MessageBox.Show("Falta rellenar datos"); }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             int filas = dataGridView1.Rows.Count;
-            double preciot = double.Parse(txttotal.Text);
-            double precio = (preciot * 100) / 118;
-            double igv = preciot - precio;
-            c.igv = igv;
-            c.precio = precio;
-            c.precioT = preciot;
-            c.tipocomporbante = "Factura";
-            c.fecha = DateTime.Now;
-            b.idfactura = mc.agregarfactura(c);
-            for (int i = 0; i < filas-1; i++)
+            if(filas !=0)
             {
-                p.nombre = dataGridView1.Rows[i].Cells[0].Value.ToString();
-                p.apellidos = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                b.precio = int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
-                b.idpasajero = mb.agregarpasajero(p);
-                mb.agregarboleto(b);
+                double preciot = double.Parse(txttotal.Text);
+                double precio = (preciot * 100) / 118;
+                double igv = preciot - precio;
+                c.igv = igv;
+                c.precio = precio;
+                c.precioT = preciot;
+                c.tipocomporbante = "Factura";
+                c.fecha = DateTime.Now;
+                b.idfactura = mc.agregarfactura(c);
+                for (int i = 0; i < filas-1; i++)
+                {
+                    p.nombre = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                    p.apellidos = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                    b.precio = int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                    b.idpasajero = mb.agregarpasajero(p);
+                    mb.agregarboleto(b);
+                }
+                MessageBox.Show("Se a creado correctamente");
+                    this.Close();
             }
-            MessageBox.Show("Se a creado correctamente");
-            this.Close();
+            else { MessageBox.Show("primero deves crear boletos"); }
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = dataGridView1.CurrentRow.Index;
+            txtapellido.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
+            txtnombre.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+            lprecio.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
+            if (lprecio.Text == s.preciop1.ToString() )
+            {
+                cbpiso.SelectedIndex = 1;
+            }
+            else if (lprecio.Text == s.preciop2.ToString())
+            {
+                cbpiso.SelectedIndex = 0;
+            }
+            btneditar.Enabled = true;
+            btneliminar.Enabled = true;
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Enabled = false;
+            estado = "e";
+            btnguardar.Enabled = true;
+            activartxt();
+            btnañadir.Enabled = false;
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            if(index != -1)
+            {
+                precio = precio - double.Parse(dataGridView1.Rows[index].Cells[2].Value.ToString());
+                txttotal.Text = precio.ToString();
+                dataGridView1.Rows.RemoveAt(index);
+                asientos = asientos + 1;
+                txtasientos.Text = asientos.ToString();
+            }
+        }
     }
 }

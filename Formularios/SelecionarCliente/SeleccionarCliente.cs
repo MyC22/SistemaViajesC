@@ -47,6 +47,7 @@ namespace Formularios.SelecionarCliente
                 txtrucB.Text = "";
                 clp = mc.MostrarClientePersona();
                 dataGridView1.DataSource = clp;
+                c.ID = 0;
             }
         }
 
@@ -63,6 +64,7 @@ namespace Formularios.SelecionarCliente
                 txtrucB.Text = "";
                 cle = mc.MostrarClienteEmpresa();
                 dataGridView1.DataSource = cle;
+                c.ID = 0;
             }
         }
 
@@ -98,6 +100,7 @@ namespace Formularios.SelecionarCliente
                         .ToList();
                     dataGridView1.DataSource = resultadosBusqueda;
                 }
+                c.ID = 0;
             }
             else
             {

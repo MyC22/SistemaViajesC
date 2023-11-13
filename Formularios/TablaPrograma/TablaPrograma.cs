@@ -59,8 +59,7 @@ namespace sistema_de_viajes
             toolTip1.SetToolTip(btnguardar, "Guardar");
             toolTip1.SetToolTip(btneditar, "Editar");
             cl = mc.Mostrarcronograma();
-            dataGridView1.DataSource = cl;
-            cbbuses.DataSource = mb.MostrarTodosBuses();
+            mostrartabla();
             cbbuses.ValueMember = "";
             cbbuses.DisplayMember = "Placa";
             btneditar.Enabled = false;
@@ -80,6 +79,19 @@ namespace sistema_de_viajes
                 return true;
             }
             else return false;
+        }
+        private void mostrartabla()
+        {
+            cl = mc.Mostrarcronograma();
+            dataGridView1.DataSource = cl;
+            int filas = dataGridView1.Rows.Count;
+            for (int i = 0; i < filas; i++)
+            {
+                int id = int.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString());
+                dataGridView1.Rows[i].Cells["Asientos"].Value = mc.mostrarasientosdiponibles(id);
+            }
+            List<cronogramalista> result = cl.Where(c => (c.Asientos != 0)).ToList();
+            dataGridView1.DataSource = result;
         }
         private void limpiar()
         {
@@ -151,7 +163,7 @@ namespace sistema_de_viajes
                     mc.Agregarcronograma(s, c);
                     limpiar();
                     desactivartxt();
-                    dataGridView1.DataSource = mc.Mostrarcronograma();
+                    mostrartabla();
                     btneditar.Enabled = false;
                     btnguardar.Enabled = false;
                     btnañadir.Enabled = true;
@@ -165,16 +177,25 @@ namespace sistema_de_viajes
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string origen = txtorigenB.Text;
-            string destino = txtdestinoB.Text;
-            DateTime fecha = DateTime.MinValue;
-            if (DateTime.TryParse(mtxtfechaB.Text, out DateTime demora)) { fecha = DateTime.Parse(mtxtfechaB.Text); }
-            List<cronogramalista> result = cl.Where(c =>
-            (string.IsNullOrEmpty(origen) || c.origen.IndexOf(origen, StringComparison.OrdinalIgnoreCase) >= 0)&&
-            (string.IsNullOrEmpty(destino) || c.origen.IndexOf(destino, StringComparison.OrdinalIgnoreCase) >= 0)&&
-            fecha.Equals(DateTime.MinValue) || c.fecha.Date.CompareTo(fecha)==0)
-                .ToList();
-            dataGridView1.DataSource = result;
+            if (txtdestinoB.Text != "" || txtorigenB.Text != "" || (DateTime.TryParse(mtxtfechaB.Text, out DateTime fechar)))
+            {
+                string origen = txtorigenB.Text;
+                string destino = txtdestinoB.Text;
+                DateTime fecha = DateTime.MinValue;
+                if (DateTime.TryParse(mtxtfechaB.Text, out DateTime result1)) { fecha = DateTime.Parse(mtxtfechaB.Text); }
+                List<cronogramalista> result = cl.Where(c =>
+                (string.IsNullOrEmpty(origen) || c.origen.IndexOf(origen, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                (string.IsNullOrEmpty(destino) || c.destino.IndexOf(destino, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                (fecha.Equals(DateTime.MinValue) || c.fecha.Date.CompareTo(fecha) == 0) && c.Asientos != 0)
+                    .ToList();
+                dataGridView1.DataSource = result;
+                s.id = 0;
+                txtorigenB.Focus();
+            }
+            else
+            {
+                mostrartabla();
+            }
         }
     }
 }
