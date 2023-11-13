@@ -17,21 +17,23 @@ namespace sistema_de_viajes
     public partial class TablaBuses : Form
     {
         private ModelBus modelobus;
-        Modelomodelo mm = new Modelomodelo();
+       // Modelomodelo mm = new Modelomodelo();
         private List<Buses> todosLosBuses;
         private string estado;
         public TablaBuses()
         {
             InitializeComponent();
-            comboFiltrar.Items.AddRange(new string[] { "Seleccionar", "ID", "Placa", "Modelo", "Lugar" });
-            comboModelo.DataSource = mm.MostrarTodosLosModelos();
-            comboModelo.ValueMember = "ID";
-            comboModelo.DisplayMember = "Nombre";
+            comboFiltrar.Items.AddRange(new string[] { "Seleccionar", "Placa", "IdModelo", "Lugar", "Disponibilidad" });
+            comboModelo.Items.AddRange(new String[] {"1", "2"});
+            //comboModelo.DataSource = mm.MostrarTodosLosModelos();
+            //comboModelo.ValueMember = "ID";
+            //comboModelo.DisplayMember = "Nombre";
             comboFiltrar.SelectedIndex = 0;
             comboModelo.SelectedIndex = 0;
             modelobus = new ModelBus();
             Mostrarbuses();
             Desacampos();
+            btncancelar.Enabled = false;
         }
 
         
@@ -74,7 +76,7 @@ namespace sistema_de_viajes
         }
         private void ClearTextBoxs()
         {
-            textPlaca.Text = "Nro Placa";
+           
             comboModelo.Text = "";
             textLugar.Text = "Lugar";
 
@@ -102,6 +104,7 @@ namespace sistema_de_viajes
             comboModelo.Enabled=false;
             textLugar.Enabled=false;
             dateDisponible.Enabled=false;
+            
         }
         //Funcion ActivarCampos
         //Esta funcion al ser llamada activa ciertos campos
@@ -122,7 +125,8 @@ namespace sistema_de_viajes
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string placa = textPlaca.Text;
-            int modelo = (int)comboModelo.SelectedValue;
+            int modelo = Convert.ToInt32(comboModelo.Text);
+            //int modelo = (int)comboModelo.SelectedValue;
             string lugar = textLugar.Text;
             DateTime disponibilidad = (DateTime)dateDisponible.Value;
             if (string.IsNullOrEmpty(placa) || string.IsNullOrEmpty(lugar))
@@ -140,7 +144,8 @@ namespace sistema_de_viajes
                         modelobus.AgregarBuss(placa, modelo, lugar, disponibilidad);
                         MessageBox.Show("Se añadió el lugar correctamente.");
                         btnanadir.Enabled = true;
-                        btnguardar.Enabled = false;;
+                        btnguardar.Enabled = false;
+                        btncancelar.Enabled= false;
                     }
                     else if (estado == "E")
                     {
@@ -176,12 +181,12 @@ namespace sistema_de_viajes
         //da como valor a estado la "G" para que haga su funcion al momento de guardar
         private void btnanadir_Click(object sender, EventArgs e)
         {
-            textPlaca.Enabled = true;
-            comboModelo.Enabled = true;
-            textLugar.Enabled = true;
-            dateDisponible.Enabled = true;
+            ActivarCampos();
+
             btnanadir.Enabled= false;
             btnguardar.Enabled = true;
+            btncancelar.Enabled = true;
+            btneliminar.Enabled = false;
             estado = "G";
 
         }
@@ -204,6 +209,10 @@ namespace sistema_de_viajes
             comboModelo.Enabled = false;
             textLugar.Enabled = false;
             dateDisponible.Enabled = false;
+
+            btnguardar.Enabled= false;
+            btnanadir.Enabled = true;
+            btncancelar.Enabled = false;
            
         }
 
