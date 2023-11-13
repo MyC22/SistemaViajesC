@@ -60,6 +60,7 @@ namespace Objetos.Buses
             Conexion conexion = new Conexion();
 
             // Utilizar la instrucción 'using' para asegurar la liberación adecuada de los recursos
+
             using (SqlConnection connection = conexion.Open())
             {
                 // Crear un nuevo comando SQL utilizando el nombre del procedimiento almacenado
