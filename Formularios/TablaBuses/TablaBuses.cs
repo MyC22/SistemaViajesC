@@ -194,6 +194,7 @@ namespace sistema_de_viajes
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
+
             textPlaca.Text = "";
             comboModelo.SelectedIndex=0;
             textLugar.Text = "";
