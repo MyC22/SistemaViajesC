@@ -368,7 +368,7 @@ BEGIN
 END;
 
 go
----Procedimientos Buses
+-----------------------Procedimientos Buses
 DROP Procedure if exists MostrarBuses
 go
 create procedure MostrarBuses
@@ -376,7 +376,6 @@ AS
 BEGIN
 	select * from Buses
 END
-
 
 go
 
@@ -394,6 +393,23 @@ BEGIN
 	INSERT INTO Buses(Placa, IDModelo, Lugar, Disponible)
 	VALUES (@Placa,@IdModelo,@Lugar,@Disponible)
 END
+
+CREATE PROCEDURE EditarBuss
+	@Placa char(6),
+	@IdModelo int,
+	@Lugar varchar(50),
+	@Disponible datetime
+AS
+Begin 
+	UPDATE Buses
+    SET IDModelo = @IdModelo,
+        Lugar = @Lugar,
+		Disponible=@Disponible
+    WHERE Placa = @Placa;
+END
+
+
+
 
 select * from Buses
 --Se debe insertar antes un modelo para poner el foranea
