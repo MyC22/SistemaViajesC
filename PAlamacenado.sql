@@ -411,10 +411,10 @@ END
 
 
 
-select * from Buses
+select * from ModeloBus
 --Se debe insertar antes un modelo para poner el foranea
 INSERT INTO ModeloBus(Modelo, Asientos, Tamaño, pisos)
-	VALUES('Lambo',15,'Grande',2);
+	VALUES('Lambo2',15,'Grande',2);
 go
 ----------------------Cargo--------------------------------------
 /*Buscar Cargo*/
