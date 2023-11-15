@@ -300,6 +300,17 @@ INSERT INTO Cronograma_viajes(IDRuta, Placa, Fecha_salida,IDusuario)
     VALUES (@Idcronograma,@nombre, @precio1, @precio2);
 
 end
+go
+create procedure mostrarasientosdiponibles @id int as
+begin
+	DECLARE @disponibles TABLE (asientos INT);
+	declare @asientosb int;
+	declare @asientos int;
+	select @asientosb=count(b.ID) from Boletos as b inner join Servicio as s on b.IDServicio = s.ID inner join Cronograma_viajes as c on c.ID = s.IDCronograma where c.ID = @id;
+	select @asientos = mb.Asientos from ModeloBus as mb inner join Buses as b on mb.ID = b.IDModelo inner join Cronograma_viajes as c on c.Placa = b.Placa where c.ID = @id;
+	insert into @disponibles (asientos) values (@asientos-@asientosb);
+	select asientos from @disponibles
+end
 
 go
 ----------------------ModeloBus--------------------------------------

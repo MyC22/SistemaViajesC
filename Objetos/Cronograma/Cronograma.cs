@@ -31,6 +31,8 @@ namespace Objetos
         public string servicio { get; set; }
         public DateTime fecha { get; set; }
 
+        public int Asientos { get; set; }
+
 
     }
 

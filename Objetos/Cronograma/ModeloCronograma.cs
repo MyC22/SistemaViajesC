@@ -58,5 +58,29 @@ namespace Objetos.Cronograma
             SqlDataReader dr = cmd.ExecuteReader();
             return dr;
         }
+        public int mostrarasientosdiponibles(int id)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("mostrarasientosdiponibles", con.Open());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if(dr.Read())
+            {
+                return (int)dr["asientos"];
+            }else { return 0; }
+        }
+        public int mostraridcronograma(int id)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("select c.ID from Cronograma_viajes as c inner join Servicio as s on c.ID = s.IDCronograma where s.ID=@id", con.Open());
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                return (int)dr["ID"];
+            }
+            else { return 0; }
+        }
     }
 }

@@ -61,16 +61,22 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre,
             this.apellido,
             this.Precio});
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(12, 114);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1003, 399);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // nombre
             // 
@@ -135,6 +141,7 @@
             // 
             // cbpiso
             // 
+            this.cbpiso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbpiso.FormattingEnabled = true;
             this.cbpiso.Items.AddRange(new object[] {
             "Piso 2",
@@ -204,6 +211,7 @@
             this.btneliminar.Size = new System.Drawing.Size(30, 33);
             this.btneliminar.TabIndex = 141;
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // btneditar
             // 
@@ -213,6 +221,7 @@
             this.btneditar.Size = new System.Drawing.Size(31, 33);
             this.btneditar.TabIndex = 140;
             this.btneditar.UseVisualStyleBackColor = true;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // btnañadir
             // 
@@ -326,7 +335,6 @@
         private System.Windows.Forms.Label lprecio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbpiso;
         private System.Windows.Forms.Label lnombre;
         private System.Windows.Forms.Label lapellido;
         private System.Windows.Forms.TextBox txttotal;
@@ -336,5 +344,6 @@
         private System.Windows.Forms.TextBox txtasientos;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cbpiso;
     }
 }
