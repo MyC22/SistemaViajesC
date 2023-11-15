@@ -296,10 +296,11 @@ INSERT INTO Cronograma_viajes(IDRuta, Placa, Fecha_salida,IDusuario)
     VALUES (@idruta, @placa, @fecha,@usuario);
 
     SET @Idcronograma = SCOPE_IDENTITY();
-
+	declare @demora datetime; set @demora = (select Demora from Ruta where ID = @idruta);
+	set @disponible = @disponible + @demora;
     INSERT INTO Servicio(IDCronograma, nombre, Precio_piso1, Precio_piso2) 
     VALUES (@Idcronograma,@nombre, @precio1, @precio2);
-	update Buses set Lugar = (select l.Distrito from Lugar as l inner join Ruta as r on r.IDOrigen = l.ID where r.ID = @idruta), Disponible=@disponible where Placa = @placa;
+	update Buses set Lugar = (select l.Distrito from Lugar as l inner join Ruta as r on r.IDDestino = l.ID where r.ID = @idruta), Disponible=@disponible  where Placa = @placa;
 
 end
 go
