@@ -131,6 +131,7 @@
             this.mtxtturno.Size = new System.Drawing.Size(92, 20);
             this.mtxtturno.TabIndex = 51;
             this.mtxtturno.ValidatingType = typeof(System.DateTime);
+            this.mtxtturno.MaskChanged += new System.EventHandler(this.mtxtturno_MaskChanged);
             // 
             // label2
             // 
@@ -143,6 +144,7 @@
             // 
             // cbbuses
             // 
+            this.cbbuses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbuses.FormattingEnabled = true;
             this.cbbuses.Location = new System.Drawing.Point(106, 85);
             this.cbbuses.Name = "cbbuses";
@@ -208,6 +210,7 @@
             this.dtfecha.Name = "dtfecha";
             this.dtfecha.Size = new System.Drawing.Size(187, 20);
             this.dtfecha.TabIndex = 67;
+            this.dtfecha.ValueChanged += new System.EventHandler(this.dtfecha_ValueChanged);
             // 
             // panel1
             // 
@@ -253,6 +256,7 @@
             this.txtruta.Name = "txtruta";
             this.txtruta.Size = new System.Drawing.Size(159, 20);
             this.txtruta.TabIndex = 72;
+            this.txtruta.TextChanged += new System.EventHandler(this.txtruta_TextChanged);
             // 
             // label13
             // 

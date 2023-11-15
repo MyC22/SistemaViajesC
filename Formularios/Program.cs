@@ -17,7 +17,7 @@ namespace Formularios
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TablaBuses());
+            Application.Run(new Iniciarsecion());
         }
     }
 }

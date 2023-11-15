@@ -287,7 +287,8 @@ create procedure Agregarcronograma
 @fecha datetime,
 @nombre varchar(50),
 @precio1 real,
-@precio2 real
+@precio2 real,
+@disponible datetime
 
 as begin
 declare @Idcronograma int;
@@ -298,9 +299,25 @@ INSERT INTO Cronograma_viajes(IDRuta, Placa, Fecha_salida,IDusuario)
 
     INSERT INTO Servicio(IDCronograma, nombre, Precio_piso1, Precio_piso2) 
     VALUES (@Idcronograma,@nombre, @precio1, @precio2);
+	update Buses set Lugar = (select l.Distrito from Lugar as l inner join Ruta as r on r.IDOrigen = l.ID where r.ID = @idruta), Disponible=@disponible where Placa = @placa;
 
 end
-
+go
+create procedure mostrarasientosdiponibles @id int as
+begin
+	DECLARE @disponibles TABLE (asientos INT);
+	declare @asientosb int;
+	declare @asientos int;
+	select @asientosb=count(b.ID) from Boletos as b inner join Servicio as s on b.IDServicio = s.ID inner join Cronograma_viajes as c on c.ID = s.IDCronograma where c.ID = @id;
+	select @asientos = mb.Asientos from ModeloBus as mb inner join Buses as b on mb.ID = b.IDModelo inner join Cronograma_viajes as c on c.Placa = b.Placa where c.ID = @id;
+	insert into @disponibles (asientos) values (@asientos-@asientosb);
+	select asientos from @disponibles
+end
+go
+create procedure mostrarbusesdisponible @idruta int, @fecha datetime as
+begin
+select Placa from Buses where Disponible <= @fecha and lugar = (select l.Distrito from Lugar as l inner join Ruta as r on r.IDOrigen = l.ID where r.ID = @idruta) order by Disponible asc;
+end
 go
 ----------------------ModeloBus--------------------------------------
 /*Buscar Modelo*/
