@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -11,29 +12,39 @@ using System.Windows.Forms;
 using Objetos;
 using Objetos.Buses;
 using Objetos.Modelo;
+using static Objetos.Empleado;
 
 namespace sistema_de_viajes
 {
     public partial class TablaBuses : Form
     {
-        private ModelBus modelobus;
-        // Modelomodelo mm = new Modelomodelo();
-        private List<Buses> todosLosBuses;
+        ModelBus modelobus = new ModelBus();
+        Modelomodelo mm = new Modelomodelo();
+        Buses b = new Buses();
+        private List<listabuses> todosLosBuses;
         private string estado;
         public TablaBuses()
         {
             InitializeComponent();
-            comboFiltrar.Items.AddRange(new string[] { "Seleccionar", "Placa", "IdModelo", "Lugar", "Disponibilidad" });
-            comboModelo.Items.AddRange(new String[] { "1", "2" });
-            //comboModelo.DataSource = mm.MostrarTodosLosModelos();
-            //comboModelo.ValueMember = "ID";
-            //comboModelo.DisplayMember = "Nombre";
-            comboFiltrar.SelectedIndex = 0;
-            comboModelo.SelectedIndex = 0;
-            modelobus = new ModelBus();
+        }
+        private void TablaBuses_Load(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(btnañadir, "Añadir");
+            toolTip1.SetToolTip(btneliminar, "Eliminar");
+            toolTip1.SetToolTip(btncancelar, "Cancelar");
+            toolTip1.SetToolTip(btnguardar, "Guardar");
+            toolTip1.SetToolTip(btneditar, "Editar");
+            btneditar.Enabled = false;
+            btnguardar.Enabled = false;
+            btneliminar.Enabled = false;
             Mostrarbuses();
             Desacampos();
-            btncancelar.Enabled = false;
+            comboFiltrar.Items.AddRange(new string[] { "Seleccionar", "Placa", "Modelo", "Lugar" });
+            comboModelo.DataSource = mm.MostrarTodosLosModelos();
+            comboModelo.ValueMember = "ID";
+            comboModelo.DisplayMember = "Nombre";
+            comboFiltrar.SelectedIndex = 0;
+            comboModelo.SelectedIndex = -1;
         }
 
 
@@ -63,16 +74,12 @@ namespace sistema_de_viajes
             if (textFiltrar.Text == "Buscar por filtro") textFiltrar.Text = "";
         }//termino de eventos 
 
-        private void TablaBuses_Load(object sender, EventArgs e)
-        {
-            btnguardar.Enabled = false;
-        }
         private void ClearTextBoxs()
         {
-
             textPlaca.Text = "Placa";
             textLugar.Text = "Lugar";
-
+            comboModelo.SelectedIndex = -1;
+            dateDisponible.Value = DateTime.Now.Date;
         }
 
         //Esta funcion nos ayuda a mostrar buses, tiene un try y catch
@@ -99,23 +106,40 @@ namespace sistema_de_viajes
             dateDisponible.Enabled = false;
 
         }
+        private Boolean validar()
+        {
+            if (textPlaca.TextLength == 6 && 
+                textLugar.Text != "" &&
+                comboModelo.SelectedIndex != -1)
+            {
+                return true;
+            }else { return false; }
+        }
+        private void datos()
+        {
+            b.IdModelo = (int)comboModelo.SelectedValue;
+            b.Placa = textPlaca.Text;
+            b.Lugar = textLugar.Text;
+            b.Disponibilidad = (DateTime)dateDisponible.Value.Date;
+        }
         //Funcion ActivarCampos
         //Esta funcion al ser llamada activa ciertos campos
         private void ActivarCampos()
         {
-
+            textPlaca.Enabled = true;
             comboModelo.Enabled = true;
             textLugar.Enabled = true;
             dateDisponible.Enabled = true;
 
         }
-        private void iniciboton() 
+        private void cancelar() 
         {
-            btnanadir.Enabled = true;
-            btneditar.Enabled = true;
-            btneliminar.Enabled = true;
+            btnañadir.Enabled = true;
+            btneditar.Enabled = false;
+            btneliminar.Enabled = false;
             btnguardar.Enabled = false;
-            btncancelar.Enabled = false;
+            btncancelar.Enabled = true;
+            DvgDatos.Enabled = true;
         }
 
 
@@ -125,42 +149,23 @@ namespace sistema_de_viajes
         // si el estado es igual a "G" este se guardara, si es igual a "E" este se editara
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            string placa = textPlaca.Text;
-            int modelo = Convert.ToInt32(comboModelo.Text);
-            //int modelo = (int)comboModelo.SelectedValue;
-            string lugar = textLugar.Text;
-            DateTime disponibilidad = (DateTime)dateDisponible.Value;
-            if (string.IsNullOrEmpty(placa) || string.IsNullOrEmpty(lugar))
-            {
-                MessageBox.Show("Por favor, complete todos los campos antes de guardar.");
-                return;
-            }
-
-            if (modelobus != null)
+            if (validar())
             {
                 try
                 {
                     if (estado == "G")
                     {
-                        modelobus.AgregarBuss(placa, modelo, lugar, disponibilidad);
+                        datos();
+                        modelobus.AgregarBuss(b);
                         MessageBox.Show("Se añadió el lugar correctamente.");
                     }
                     else if (estado == "E")
                     {
-                        if (DvgDatos.SelectedRows.Count > 0)
-                        {
-                            //String placas = (DvgDatos.SelectedRows[0].Cells["Placa"].Value).ToString();
-                            modelobus.EditarBuss(placa, modelo, lugar, disponibilidad);
-                            MessageBox.Show("Se guardó la edición.");
-                            
-                        }
-                        else
-                        {
-                            MessageBox.Show("Seleccione un lugar para editar.");
-                            return;
-                        }
+                        datos();
+                        modelobus.EditarBuss(b);
+                        MessageBox.Show("Se guardó la edición.");      
                     }
-                    iniciboton();
+                    cancelar();
                     Mostrarbuses();
                     ClearTextBoxs();
                     Desacampos();
@@ -172,7 +177,7 @@ namespace sistema_de_viajes
             }
             else
             {
-                MessageBox.Show("No se ha inicializado la propiedad ConnectionString. Verifica la cadena de conexión.");
+                MessageBox.Show("Falta rellenar datos");
             }
         }
 
@@ -181,12 +186,13 @@ namespace sistema_de_viajes
         private void btnanadir_Click(object sender, EventArgs e)
         {
             ActivarCampos();
-            textPlaca.Enabled = true;
-            btnanadir.Enabled = false;
+            ClearTextBoxs() ;
+            btnañadir.Enabled = false;
             btnguardar.Enabled = true;
             btneditar.Enabled = false;
             btncancelar.Enabled = true;
             btneliminar.Enabled = false;
+            DvgDatos.Enabled = false;
             estado = "G";
 
         }
@@ -197,25 +203,23 @@ namespace sistema_de_viajes
             {
                 string placa = (DvgDatos.SelectedRows[0].Cells["Placa"].Value).ToString();
 
-                Buses bus = todosLosBuses.FirstOrDefault(b => b.Placa == placa);
+                listabuses bus = todosLosBuses.FirstOrDefault(b => b.Placa == placa);
 
                 if (bus != null)
                 {
                     estado = "E";
                     ActivarCampos();
-
                     textPlaca.Text = bus.Placa.ToString();
-                    comboModelo.Text = bus.IdModelo.ToString();
+                    comboModelo.Text = bus.modelo.ToString();
                     textLugar.Text = bus.Lugar;
                     dateDisponible.Value = Convert.ToDateTime(bus.Disponibilidad);
-
                     textPlaca.Enabled = false;
-                    btnanadir.Enabled = false;
-                    btnBuscar.Enabled = false;
+                    btnañadir.Enabled = false;
                     btneditar.Enabled = false;
                     btnguardar.Enabled = true;
                     btneliminar.Enabled = false;
                     btncancelar.Enabled = true;
+                    DvgDatos.Enabled = false;
                 }
             }
             else
@@ -228,20 +232,10 @@ namespace sistema_de_viajes
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-
             ClearTextBoxs();
-            comboModelo.SelectedIndex = 0;
-
-
-
+            comboModelo.SelectedIndex = -1;
             Desacampos();
-
-            btnguardar.Enabled = false;
-            btnanadir.Enabled = true;
-            btncancelar.Enabled = false;
-            btneditar.Enabled = true;
-            btneliminar.Enabled = true;
-
+            cancelar();
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
@@ -255,9 +249,11 @@ namespace sistema_de_viajes
                     try
                     {
                         modelobus.EliminarBuss(id);
-
                         Mostrarbuses();
                         ClearTextBoxs();
+                        Desacampos();
+                        cancelar();
+                        MessageBox.Show("Se elimino con exito");
                     }
                     catch (Exception ex)
                     {
@@ -277,7 +273,7 @@ namespace sistema_de_viajes
 
         private void textPlaca_TextChanged(object sender, EventArgs e)
         {
-            int limiteCaracteres = 7;
+            int limiteCaracteres = 6;
 
             if (textPlaca.Text.Length > limiteCaracteres)
             {
@@ -305,6 +301,55 @@ namespace sistema_de_viajes
         private void textPlaca_Leave_1(object sender, EventArgs e)
         {
             if (textPlaca.Text == "") textPlaca.Text = "Placa";
+        }
+
+        private void DvgDatos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string placa = DvgDatos.CurrentRow.Cells[0].Value.ToString();
+            b.Placa = placa;
+            SqlDataReader dr = modelobus.listarbusid(placa);
+            if (dr.Read())
+            {
+                textPlaca.Text = dr["Placa"].ToString();
+                textLugar.Text = dr["Lugar"].ToString();
+                comboModelo.SelectedValue = (int)dr["IDModelo"];
+                dateDisponible.Value = (DateTime)dr["Disponible"];
+                btneditar.Enabled = true;
+                btneliminar.Enabled = true;
+            }
+            datos();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if(textFiltrar.Text != "")
+            {
+                if(comboFiltrar.SelectedIndex == 1)
+                { Mostrarbuses(); }
+                    string filtro = textFiltrar.Text;
+                if (comboFiltrar.SelectedIndex == 1) 
+                {
+                    List<listabuses> resultadosBusqueda = todosLosBuses
+                        .Where(c => (c.Placa.IndexOf(filtro, StringComparison.OrdinalIgnoreCase) >= 0))
+                        .ToList();
+                    DvgDatos.DataSource = resultadosBusqueda;
+                }
+                if (comboFiltrar.SelectedIndex == 2)
+                {
+                    List<listabuses> resultadosBusqueda = todosLosBuses
+                        .Where(c => (c.modelo.IndexOf(filtro, StringComparison.OrdinalIgnoreCase) >= 0))
+                        .ToList();
+                    DvgDatos.DataSource = resultadosBusqueda;
+                }
+                if (comboFiltrar.SelectedIndex == 3)
+                {
+                    List<listabuses> resultadosBusqueda = todosLosBuses
+                        .Where(c => (c.Lugar.IndexOf(filtro, StringComparison.OrdinalIgnoreCase) >= 0))
+                        .ToList();
+                    DvgDatos.DataSource = resultadosBusqueda;
+                }
+               
+            }else { Mostrarbuses(); }
         }
     }
 }

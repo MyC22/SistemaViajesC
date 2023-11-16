@@ -45,20 +45,16 @@ namespace sistema_de_viajes
             this.comboModelo = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textPlaca = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btncancelar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
-            this.btnanadir = new System.Windows.Forms.Button();
+            this.btnañadir = new System.Windows.Forms.Button();
             this.btnguardar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
-            this.textPlaca = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DvgDatos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -151,10 +147,13 @@ namespace sistema_de_viajes
             // 
             this.DvgDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DvgDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DvgDatos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DvgDatos.Location = new System.Drawing.Point(324, 48);
             this.DvgDatos.Name = "DvgDatos";
+            this.DvgDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DvgDatos.Size = new System.Drawing.Size(644, 335);
             this.DvgDatos.TabIndex = 57;
+            this.DvgDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DvgDatos_CellClick);
             // 
             // comboModelo
             // 
@@ -173,6 +172,7 @@ namespace sistema_de_viajes
             this.btnBuscar.Size = new System.Drawing.Size(40, 28);
             this.btnBuscar.TabIndex = 79;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel1
             // 
@@ -192,6 +192,18 @@ namespace sistema_de_viajes
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(306, 335);
             this.panel1.TabIndex = 80;
+            // 
+            // textPlaca
+            // 
+            this.textPlaca.Location = new System.Drawing.Point(75, 65);
+            this.textPlaca.Name = "textPlaca";
+            this.textPlaca.Size = new System.Drawing.Size(193, 20);
+            this.textPlaca.TabIndex = 82;
+            this.textPlaca.Text = "Placa";
+            this.textPlaca.TextChanged += new System.EventHandler(this.textPlaca_TextChanged);
+            this.textPlaca.Enter += new System.EventHandler(this.textPlaca_Enter_1);
+            this.textPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPlaca_KeyPress);
+            this.textPlaca.Leave += new System.EventHandler(this.textPlaca_Leave_1);
             // 
             // label2
             // 
@@ -255,16 +267,16 @@ namespace sistema_de_viajes
             this.btneditar.UseVisualStyleBackColor = true;
             this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
-            // btnanadir
+            // btnañadir
             // 
-            this.btnanadir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnanadir.Image = ((System.Drawing.Image)(resources.GetObject("btnanadir.Image")));
-            this.btnanadir.Location = new System.Drawing.Point(12, 6);
-            this.btnanadir.Name = "btnanadir";
-            this.btnanadir.Size = new System.Drawing.Size(32, 33);
-            this.btnanadir.TabIndex = 139;
-            this.btnanadir.UseVisualStyleBackColor = true;
-            this.btnanadir.Click += new System.EventHandler(this.btnanadir_Click);
+            this.btnañadir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnañadir.Image = ((System.Drawing.Image)(resources.GetObject("btnañadir.Image")));
+            this.btnañadir.Location = new System.Drawing.Point(12, 6);
+            this.btnañadir.Name = "btnañadir";
+            this.btnañadir.Size = new System.Drawing.Size(32, 33);
+            this.btnañadir.TabIndex = 139;
+            this.btnañadir.UseVisualStyleBackColor = true;
+            this.btnañadir.Click += new System.EventHandler(this.btnanadir_Click);
             // 
             // btnguardar
             // 
@@ -277,18 +289,6 @@ namespace sistema_de_viajes
             this.btnguardar.UseVisualStyleBackColor = true;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
-            // textPlaca
-            // 
-            this.textPlaca.Location = new System.Drawing.Point(75, 65);
-            this.textPlaca.Name = "textPlaca";
-            this.textPlaca.Size = new System.Drawing.Size(193, 20);
-            this.textPlaca.TabIndex = 82;
-            this.textPlaca.Text = "Placa";
-            this.textPlaca.TextChanged += new System.EventHandler(this.textPlaca_TextChanged);
-            this.textPlaca.Enter += new System.EventHandler(this.textPlaca_Enter_1);
-            this.textPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPlaca_KeyPress);
-            this.textPlaca.Leave += new System.EventHandler(this.textPlaca_Leave_1);
-            // 
             // TablaBuses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,7 +297,7 @@ namespace sistema_de_viajes
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btneditar);
-            this.Controls.Add(this.btnanadir);
+            this.Controls.Add(this.btnañadir);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
@@ -338,13 +338,9 @@ namespace sistema_de_viajes
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btneditar;
-        private System.Windows.Forms.Button btnanadir;
+        private System.Windows.Forms.Button btnañadir;
         private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolTip toolTip2;
-        private System.Windows.Forms.ToolTip toolTip3;
-        private System.Windows.Forms.ToolTip toolTip4;
-        private System.Windows.Forms.ToolTip toolTip5;
         private System.Windows.Forms.TextBox textPlaca;
     }
 }

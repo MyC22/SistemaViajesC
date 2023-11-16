@@ -11,7 +11,7 @@ namespace Objetos.Buses
     public class ModelBus
     {
         //Agregar Buss tiene como parametro las variables y el tipo 
-        public void AgregarBuss(string Placa, int Modelo, string lugar, DateTime disponibilidad)
+        public void AgregarBuss(Buses b)
         {   //Se realiza la conexion para pasar los parametros y hacer uso del procedure
             Conexion conexio = new Conexion();
             using (SqlConnection connection = conexio.Open())
@@ -19,31 +19,34 @@ namespace Objetos.Buses
                 using (SqlCommand cmd = new SqlCommand("AgregarBuss", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.Add("@Placa", SqlDbType.Char, 6).Value = Placa;
-                    cmd.Parameters.Add("@IdModelo", SqlDbType.Int).Value = Modelo;
-                    cmd.Parameters.Add("@Lugar", SqlDbType.VarChar, 50).Value = lugar;
-                    cmd.Parameters.Add("@Disponible", SqlDbType.DateTime).Value = disponibilidad;
-
-
+                    cmd.Parameters.Add("@Placa", SqlDbType.Char, 6).Value = b.Placa;
+                    cmd.Parameters.Add("@IdModelo", SqlDbType.Int).Value = b.IdModelo;
+                    cmd.Parameters.Add("@Lugar", SqlDbType.VarChar, 50).Value = b.Lugar;
+                    cmd.Parameters.AddWithValue("@Disponible", b.Disponibilidad);
                     cmd.ExecuteNonQuery();
                 }
             }
         }
-        public void EditarBuss(string Placa, int Modelo, string lugar, DateTime disponibilidad)
+        public SqlDataReader listarbusid(string placa)
+        {
+            Conexion conexio = new Conexion();
+            SqlCommand cmd = new SqlCommand("select * from Buses where Placa = @placa;", conexio.Open());
+            cmd.Parameters.AddWithValue("@placa", placa);
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
+        public void EditarBuss(Buses b)
         {
             Conexion conexio = new Conexion();
             using (SqlConnection connection = conexio.Open())
             {
-                using (SqlCommand cmd = new SqlCommand("EditarBuss", connection))
+                using (SqlCommand cmd = new SqlCommand("editarBus", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.Add("@Placa", SqlDbType.Char, 6).Value = Placa;
-                    cmd.Parameters.Add("@IdModelo", SqlDbType.Int).Value = Modelo;
-                    cmd.Parameters.Add("@Lugar", SqlDbType.VarChar, 50).Value = lugar;
-                    cmd.Parameters.Add("@Disponible", SqlDbType.DateTime).Value = disponibilidad;
-
+                    cmd.Parameters.Add("@Placa", SqlDbType.Char, 6).Value = b.Placa;
+                    cmd.Parameters.Add("@IdModelo", SqlDbType.Int).Value = b.IdModelo;
+                    cmd.Parameters.Add("@Lugar", SqlDbType.VarChar, 50).Value = b.Lugar;
+                    cmd.Parameters.AddWithValue("@Disponible", b.Disponibilidad);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -54,7 +57,7 @@ namespace Objetos.Buses
         //Hace uso de una lista para mostrar todos los buses
         //tambien tiene un bucle para realizar el listado dependiendo cuantas filas tenga
         // Método para obtener y retornar una lista de todos los buses desde la base de datos
-        public List<Buses> MostrarTodosBuses()
+        public List<listabuses> MostrarTodosBuses()
         {
             // Crear una instancia de la clase de conexión a la base de datos
             Conexion conexion = new Conexion();
@@ -64,13 +67,10 @@ namespace Objetos.Buses
             using (SqlConnection connection = conexion.Open())
             {
                 // Crear un nuevo comando SQL utilizando el nombre del procedimiento almacenado
-                using (SqlCommand cmd = new SqlCommand("MostrarBuses", connection))
+                using (SqlCommand cmd = new SqlCommand("select b.Placa,m.Modelo,b.Lugar,b.Disponible from Buses as b inner join ModeloBus as m on b.IdModelo = m.ID", connection))
                 {
-                    // Especificar que el comando es de tipo procedimiento almacenado
-                    cmd.CommandType = CommandType.StoredProcedure;
-
                     // Crear una lista para almacenar los objetos de tipo Buses
-                    List<Buses> buses = new List<Buses>();
+                    List<listabuses> buses = new List<listabuses>();
 
                     // Utilizar un lector de datos para obtener los resultados del procedimiento almacenado
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -79,11 +79,11 @@ namespace Objetos.Buses
                         while (reader.Read())
                         {
                             // Crear una nueva instancia de la clase Buses
-                            Buses bu = new Buses();
+                            listabuses bu = new listabuses();
                             {
                                 // Asignar valores a las propiedades del objeto Buses desde los resultados de la base de datos
                                 bu.Placa = reader["Placa"].ToString();
-                                bu.IdModelo = Convert.ToInt32(reader["IdModelo"]);
+                                bu.modelo = reader["Modelo"].ToString();
                                 bu.Lugar = reader["Lugar"].ToString();
                                 bu.Disponibilidad = Convert.ToDateTime(reader["Disponible"]);
                             };

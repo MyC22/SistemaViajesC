@@ -8,18 +8,19 @@ namespace Objetos.Buses
 {
     public class Buses //Atributos que necesita la tabla buses (estos estan encapsulados)
     {
-      
-        private String Placa1;
+        public string Placa { get; set; }
+        public int IdModelo { get; set; }
+        public string Lugar { get; set; }
+        public DateTime Disponibilidad { get; set; }
+    }
+    public class listabuses
+    {
+        public string Placa { get; set; }
 
-        private int iDModelo;
+        public string modelo { get; set; }
 
-        private string Lugar1;
+        public string Lugar { get; set; }
 
-        private DateTime Disponibilidad1;
-
-        public String Placa { get => Placa1; set => Placa1 = value; }
-        public int IdModelo { get => iDModelo; set => iDModelo = value; }
-        public string Lugar { get => Lugar1; set => Lugar1 = value; }
-        public DateTime Disponibilidad { get => Disponibilidad1; set => Disponibilidad1 = value; }
+        public DateTime Disponibilidad { get; set; }
     }
 }
