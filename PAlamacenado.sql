@@ -412,27 +412,16 @@ BEGIN
 	VALUES (@Placa,@IdModelo,@Lugar,@Disponible)
 END
 
-CREATE PROCEDURE EditarBuss
+GO
+create procedure editarBus 
 	@Placa char(6),
 	@IdModelo int,
 	@Lugar varchar(50),
 	@Disponible datetime
 AS
-Begin 
-	UPDATE Buses
-    SET IDModelo = @IdModelo,
-        Lugar = @Lugar,
-		Disponible=@Disponible
-    WHERE Placa = @Placa;
+BEGIN
+	update Buses set IDModelo = @IdModelo, Lugar = @Lugar, Disponible = @Disponible where Placa = @Placa;
 END
-
-
-
-
-select * from ModeloBus
---Se debe insertar antes un modelo para poner el foranea
-INSERT INTO ModeloBus(Modelo, Asientos, Tamaño, pisos)
-	VALUES('Lambo2',15,'Grande',2);
 go
 ----------------------Cargo--------------------------------------
 /*Buscar Cargo*/
