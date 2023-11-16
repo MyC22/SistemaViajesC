@@ -45,7 +45,6 @@ namespace sistema_de_viajes
             this.comboModelo = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textPlaca = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@ namespace sistema_de_viajes
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+            this.textPlaca = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DvgDatos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -193,14 +193,6 @@ namespace sistema_de_viajes
             this.panel1.Size = new System.Drawing.Size(306, 335);
             this.panel1.TabIndex = 80;
             // 
-            // textPlaca
-            // 
-            this.textPlaca.Location = new System.Drawing.Point(74, 65);
-            this.textPlaca.Mask = "aaaaaa";
-            this.textPlaca.Name = "textPlaca";
-            this.textPlaca.Size = new System.Drawing.Size(194, 20);
-            this.textPlaca.TabIndex = 82;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -285,6 +277,18 @@ namespace sistema_de_viajes
             this.btnguardar.UseVisualStyleBackColor = true;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
+            // textPlaca
+            // 
+            this.textPlaca.Location = new System.Drawing.Point(75, 65);
+            this.textPlaca.Name = "textPlaca";
+            this.textPlaca.Size = new System.Drawing.Size(193, 20);
+            this.textPlaca.TabIndex = 82;
+            this.textPlaca.Text = "Placa";
+            this.textPlaca.TextChanged += new System.EventHandler(this.textPlaca_TextChanged);
+            this.textPlaca.Enter += new System.EventHandler(this.textPlaca_Enter_1);
+            this.textPlaca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPlaca_KeyPress);
+            this.textPlaca.Leave += new System.EventHandler(this.textPlaca_Leave_1);
+            // 
             // TablaBuses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,6 +345,6 @@ namespace sistema_de_viajes
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip4;
         private System.Windows.Forms.ToolTip toolTip5;
-        private System.Windows.Forms.MaskedTextBox textPlaca;
+        private System.Windows.Forms.TextBox textPlaca;
     }
 }

@@ -17,14 +17,14 @@ namespace sistema_de_viajes
     public partial class TablaBuses : Form
     {
         private ModelBus modelobus;
-       // Modelomodelo mm = new Modelomodelo();
+        // Modelomodelo mm = new Modelomodelo();
         private List<Buses> todosLosBuses;
         private string estado;
         public TablaBuses()
         {
             InitializeComponent();
             comboFiltrar.Items.AddRange(new string[] { "Seleccionar", "Placa", "IdModelo", "Lugar", "Disponibilidad" });
-            comboModelo.Items.AddRange(new String[] {"1", "2"});
+            comboModelo.Items.AddRange(new String[] { "1", "2" });
             //comboModelo.DataSource = mm.MostrarTodosLosModelos();
             //comboModelo.ValueMember = "ID";
             //comboModelo.DisplayMember = "Nombre";
@@ -36,19 +36,12 @@ namespace sistema_de_viajes
             btncancelar.Enabled = false;
         }
 
-        
+
         //Eventos para las cajas de texto
 
 
-        
-        private void textPlaca_Enter(object sender, EventArgs e)
-        {
-            if (textPlaca.Text == "------") textPlaca.Text = "";
-        }
-        private void textPlaca_Leave(object sender, EventArgs e)
-        {
-            if (textPlaca.Text == "") textPlaca.Text = "------";
-        }
+
+
         //El evento Enter nos dice si al momento de hacer click en el cuadro textLugar
         //tiene de contenido "Lugar" esta al hacer click se eliminara
         //y sera reemplazado por el nuevo valor que es el contenido vacio
@@ -63,8 +56,8 @@ namespace sistema_de_viajes
         {
             if (textLugar.Text == "") textLugar.Text = "Lugar";
         }
-       
-       
+
+
         private void textFiltrar_Enter(object sender, EventArgs e)
         {
             if (textFiltrar.Text == "Buscar por filtro") textFiltrar.Text = "";
@@ -76,8 +69,8 @@ namespace sistema_de_viajes
         }
         private void ClearTextBoxs()
         {
-           
-            comboModelo.Text = "";
+
+            textPlaca.Text = "Placa";
             textLugar.Text = "Lugar";
 
         }
@@ -100,21 +93,29 @@ namespace sistema_de_viajes
         //Esta funcion al ser llamada desactiva ciertos campos
         private void Desacampos()
         {
-            textPlaca.Enabled=false;
-            comboModelo.Enabled=false;
-            textLugar.Enabled=false;
-            dateDisponible.Enabled=false;
-            
+            textPlaca.Enabled = false;
+            comboModelo.Enabled = false;
+            textLugar.Enabled = false;
+            dateDisponible.Enabled = false;
+
         }
         //Funcion ActivarCampos
         //Esta funcion al ser llamada activa ciertos campos
         private void ActivarCampos()
         {
-            textPlaca.Enabled = true;
+
             comboModelo.Enabled = true;
             textLugar.Enabled = true;
             dateDisponible.Enabled = true;
-            
+
+        }
+        private void iniciboton() 
+        {
+            btnanadir.Enabled = true;
+            btneditar.Enabled = true;
+            btneliminar.Enabled = true;
+            btnguardar.Enabled = false;
+            btncancelar.Enabled = false;
         }
 
 
@@ -143,17 +144,15 @@ namespace sistema_de_viajes
                     {
                         modelobus.AgregarBuss(placa, modelo, lugar, disponibilidad);
                         MessageBox.Show("Se añadió el lugar correctamente.");
-                        btnanadir.Enabled = true;
-                        btnguardar.Enabled = false;
-                        btncancelar.Enabled= false;
                     }
                     else if (estado == "E")
                     {
                         if (DvgDatos.SelectedRows.Count > 0)
                         {
-                            int id = Convert.ToInt32(DvgDatos.SelectedRows[0].Cells["ID"].Value);
+                            //String placas = (DvgDatos.SelectedRows[0].Cells["Placa"].Value).ToString();
                             modelobus.EditarBuss(placa, modelo, lugar, disponibilidad);
                             MessageBox.Show("Se guardó la edición.");
+                            
                         }
                         else
                         {
@@ -161,7 +160,7 @@ namespace sistema_de_viajes
                             return;
                         }
                     }
-
+                    iniciboton();
                     Mostrarbuses();
                     ClearTextBoxs();
                     Desacampos();
@@ -176,15 +175,16 @@ namespace sistema_de_viajes
                 MessageBox.Show("No se ha inicializado la propiedad ConnectionString. Verifica la cadena de conexión.");
             }
         }
-    
+
         //Boton añadir, este boton nos ayuda a activar los cuadros de texto y botones para realizar la accion de añadir
         //da como valor a estado la "G" para que haga su funcion al momento de guardar
         private void btnanadir_Click(object sender, EventArgs e)
         {
             ActivarCampos();
-
-            btnanadir.Enabled= false;
+            textPlaca.Enabled = true;
+            btnanadir.Enabled = false;
             btnguardar.Enabled = true;
+            btneditar.Enabled = false;
             btncancelar.Enabled = true;
             btneliminar.Enabled = false;
             estado = "G";
@@ -193,32 +193,118 @@ namespace sistema_de_viajes
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-           
+            if (DvgDatos.SelectedRows.Count > 0)
+            {
+                string placa = (DvgDatos.SelectedRows[0].Cells["Placa"].Value).ToString();
+
+                Buses bus = todosLosBuses.FirstOrDefault(b => b.Placa == placa);
+
+                if (bus != null)
+                {
+                    estado = "E";
+                    ActivarCampos();
+
+                    textPlaca.Text = bus.Placa.ToString();
+                    comboModelo.Text = bus.IdModelo.ToString();
+                    textLugar.Text = bus.Lugar;
+                    dateDisponible.Value = Convert.ToDateTime(bus.Disponibilidad);
+
+                    textPlaca.Enabled = false;
+                    btnanadir.Enabled = false;
+                    btnBuscar.Enabled = false;
+                    btneditar.Enabled = false;
+                    btnguardar.Enabled = true;
+                    btneliminar.Enabled = false;
+                    btncancelar.Enabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un lugar para editar.");
+            }
+
         }
 
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
 
-            textPlaca.Text = "";
-            comboModelo.SelectedIndex=0;
-            textLugar.Text = "";
-            
+            ClearTextBoxs();
+            comboModelo.SelectedIndex = 0;
 
-            textPlaca.Enabled = false;
-            comboModelo.Enabled = false;
-            textLugar.Enabled = false;
-            dateDisponible.Enabled = false;
 
-            btnguardar.Enabled= false;
+
+            Desacampos();
+
+            btnguardar.Enabled = false;
             btnanadir.Enabled = true;
             btncancelar.Enabled = false;
-           
+            btneditar.Enabled = true;
+            btneliminar.Enabled = true;
+
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
+            if (modelobus != null)
+            {
+                if (DvgDatos.SelectedRows.Count > 0)
+                {
+                    string id = (DvgDatos.SelectedRows[0].Cells["Placa"].Value).ToString();
 
+                    try
+                    {
+                        modelobus.EliminarBuss(id);
+
+                        Mostrarbuses();
+                        ClearTextBoxs();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al eliminar el Buss: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un Buss para eliminar.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha inicializado la propiedad ConnectionString. Verifica la cadena de conexión.");
+            }
+        }
+
+        private void textPlaca_TextChanged(object sender, EventArgs e)
+        {
+            int limiteCaracteres = 7;
+
+            if (textPlaca.Text.Length > limiteCaracteres)
+            {
+                // Si la longitud excede el límite, truncar el texto o mostrar un mensaje al usuario.
+                textPlaca.Text = textPlaca.Text.Substring(0, limiteCaracteres);
+                MessageBox.Show("Usted supero el limite de caracteres.");
+            }
+        }
+
+        private void textPlaca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 44) || (e.KeyChar >= 46 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 255)) //|| (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("No se permite ese tipo de caracteres", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void textPlaca_Enter_1(object sender, EventArgs e)
+        {
+            if (textPlaca.Text == "Placa") textPlaca.Text = "";
+        }
+
+        private void textPlaca_Leave_1(object sender, EventArgs e)
+        {
+            if (textPlaca.Text == "") textPlaca.Text = "Placa";
         }
     }
 }

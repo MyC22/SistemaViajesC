@@ -35,7 +35,7 @@ namespace Objetos.Buses
             Conexion conexio = new Conexion();
             using (SqlConnection connection = conexio.Open())
             {
-                using (SqlCommand cmd = new SqlCommand("EditarLugar", connection))
+                using (SqlCommand cmd = new SqlCommand("EditarBuss", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -95,6 +95,21 @@ namespace Objetos.Buses
 
                     // Retornar la lista de buses
                     return buses;
+                }
+            }
+        }
+        public void EliminarBuss(string placa)
+        {
+            Conexion conexion = new Conexion();
+            using (SqlConnection connection = conexion.Open())
+            {
+                using (SqlCommand cmd = new SqlCommand("EliminarBuss", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@Placa", SqlDbType.Char,6).Value = placa;
+
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

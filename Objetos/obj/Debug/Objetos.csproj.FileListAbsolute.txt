@@ -34,3 +34,9 @@ C:\Users\campo\Documents\SENATI\EmpresaGM\SistemaViajesC\Objetos\obj\Debug\Objet
 C:\Users\campo\Documents\SENATI\EmpresaGM\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.CoreCompileInputs.cache
 C:\Users\campo\Documents\SENATI\EmpresaGM\SistemaViajesC\Objetos\obj\Debug\Objetos.dll
 C:\Users\campo\Documents\SENATI\EmpresaGM\SistemaViajesC\Objetos\obj\Debug\Objetos.pdb
+C:\Users\campo\Documents\SENATI\ProyectoGM\SistemaViajesC\Objetos\bin\Debug\Objetos.dll
+C:\Users\campo\Documents\SENATI\ProyectoGM\SistemaViajesC\Objetos\bin\Debug\Objetos.pdb
+C:\Users\campo\Documents\SENATI\ProyectoGM\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.AssemblyReference.cache
+C:\Users\campo\Documents\SENATI\ProyectoGM\SistemaViajesC\Objetos\obj\Debug\Objetos.csproj.CoreCompileInputs.cache
+C:\Users\campo\Documents\SENATI\ProyectoGM\SistemaViajesC\Objetos\obj\Debug\Objetos.dll
+C:\Users\campo\Documents\SENATI\ProyectoGM\SistemaViajesC\Objetos\obj\Debug\Objetos.pdb
