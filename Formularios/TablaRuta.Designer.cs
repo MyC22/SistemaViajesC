@@ -145,6 +145,8 @@
             this.maskedTxtDemora.Size = new System.Drawing.Size(216, 20);
             this.maskedTxtDemora.TabIndex = 33;
             this.maskedTxtDemora.ValidatingType = typeof(System.DateTime);
+            this.maskedTxtDemora.TextChanged += new System.EventHandler(this.txtdemora_TextChanged);
+            this.maskedTxtDemora.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdemora_KeyPress);
             // 
             // cbDestino
             // 
@@ -226,6 +228,8 @@
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(217, 20);
             this.txtnombre.TabIndex = 14;
+            this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
+            this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // txtnombreB
             // 
@@ -233,6 +237,7 @@
             this.txtnombreB.Name = "txtnombreB";
             this.txtnombreB.Size = new System.Drawing.Size(146, 20);
             this.txtnombreB.TabIndex = 141;
+            this.txtnombreB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // dataGridView1
             // 
@@ -254,6 +259,7 @@
             this.txtorigenB.Name = "txtorigenB";
             this.txtorigenB.Size = new System.Drawing.Size(126, 20);
             this.txtorigenB.TabIndex = 150;
+            this.txtorigenB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // label4
             // 
@@ -291,6 +297,7 @@
             this.txtDestinoB.Name = "txtDestinoB";
             this.txtDestinoB.Size = new System.Drawing.Size(126, 20);
             this.txtDestinoB.TabIndex = 152;
+            this.txtDestinoB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // TablaRuta
             // 

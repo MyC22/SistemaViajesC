@@ -240,5 +240,48 @@ namespace Formularios
             datos();
         }
 
+        private void txtnombre_TextChanged(object sender, EventArgs e)
+        {
+            int limiteCaracteres = 6;
+
+            if (txtnombre.Text.Length > limiteCaracteres)
+            {
+                // Si la longitud excede el límite, truncar el texto o mostrar un mensaje al usuario.
+                txtnombre.Text = txtnombre.Text.Substring(0, limiteCaracteres);
+                MessageBox.Show("Usted supero el limite de caracteres.");
+            }
+        }
+
+        private void txtdemora_TextChanged(object sender, EventArgs e)
+        {
+            int limiteCaracteres = 6;
+
+            if (maskedTxtDemora.Text.Length > limiteCaracteres)
+            {
+                // Si la longitud excede el límite, truncar el texto o mostrar un mensaje al usuario.
+                maskedTxtDemora.Text = maskedTxtDemora.Text.Substring(0, limiteCaracteres);
+                MessageBox.Show("Usted supero el limite de caracteres.");
+            }
+        }
+
+        private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 44) || (e.KeyChar >= 46 && e.KeyChar <= 57) || (e.KeyChar >= 58 && e.KeyChar <= 64) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("No se permite ese tipo de caracteres", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtdemora_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("No se permite ese tipo de caracteres", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

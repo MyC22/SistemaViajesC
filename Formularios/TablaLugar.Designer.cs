@@ -164,6 +164,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(217, 20);
             this.txtDireccion.TabIndex = 23;
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // label1
             // 
@@ -229,6 +230,7 @@
             this.txtTerminal.Name = "txtTerminal";
             this.txtTerminal.Size = new System.Drawing.Size(217, 20);
             this.txtTerminal.TabIndex = 17;
+            this.txtTerminal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // txtDepartamento
             // 
@@ -236,6 +238,7 @@
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(217, 20);
             this.txtDepartamento.TabIndex = 14;
+            this.txtDepartamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtlugar_KeyPress);
             // 
             // txtDistrito
             // 
@@ -243,6 +246,7 @@
             this.txtDistrito.Name = "txtDistrito";
             this.txtDistrito.Size = new System.Drawing.Size(216, 20);
             this.txtDistrito.TabIndex = 15;
+            this.txtDistrito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // dataGridView2
             // 
@@ -269,6 +273,7 @@
             this.txtterminalB.Name = "txtterminalB";
             this.txtterminalB.Size = new System.Drawing.Size(126, 20);
             this.txtterminalB.TabIndex = 158;
+            this.txtterminalB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // label6
             // 
@@ -296,6 +301,7 @@
             this.txtdistritoB.Name = "txtdistritoB";
             this.txtdistritoB.Size = new System.Drawing.Size(126, 20);
             this.txtdistritoB.TabIndex = 156;
+            this.txtdistritoB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // txtdepartamentB
             // 
@@ -303,6 +309,7 @@
             this.txtdepartamentB.Name = "txtdepartamentB";
             this.txtdepartamentB.Size = new System.Drawing.Size(146, 20);
             this.txtdepartamentB.TabIndex = 155;
+            this.txtdepartamentB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtlugar_KeyPress);
             // 
             // TablaLugar
             // 
