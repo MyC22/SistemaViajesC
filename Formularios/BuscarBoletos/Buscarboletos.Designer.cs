@@ -257,6 +257,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Buscarboletos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Boletos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Buscarboletos_Load);

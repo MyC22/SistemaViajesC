@@ -178,6 +178,7 @@ namespace Formularios
             this.Controls.Add(this.txtnombreB);
             this.Controls.Add(this.dataGridView1);
             this.Name = "SeleccionarRuta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SeleccionarRuta";
             this.Load += new System.EventHandler(this.SeleccionarRuta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

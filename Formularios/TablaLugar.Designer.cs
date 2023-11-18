@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablaLugar));
             this.btncancelar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtdistritoB = new System.Windows.Forms.TextBox();
             this.txtdepartamentB = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -164,6 +166,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(217, 20);
             this.txtDireccion.TabIndex = 23;
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // label1
             // 
@@ -229,6 +232,7 @@
             this.txtTerminal.Name = "txtTerminal";
             this.txtTerminal.Size = new System.Drawing.Size(217, 20);
             this.txtTerminal.TabIndex = 17;
+            this.txtTerminal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // txtDepartamento
             // 
@@ -236,6 +240,7 @@
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(217, 20);
             this.txtDepartamento.TabIndex = 14;
+            this.txtDepartamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtlugar_KeyPress);
             // 
             // txtDistrito
             // 
@@ -243,6 +248,7 @@
             this.txtDistrito.Name = "txtDistrito";
             this.txtDistrito.Size = new System.Drawing.Size(216, 20);
             this.txtDistrito.TabIndex = 15;
+            this.txtDistrito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // dataGridView2
             // 
@@ -250,8 +256,10 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(330, 44);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(826, 335);
             this.dataGridView2.TabIndex = 139;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // label2
             // 
@@ -269,6 +277,7 @@
             this.txtterminalB.Name = "txtterminalB";
             this.txtterminalB.Size = new System.Drawing.Size(126, 20);
             this.txtterminalB.TabIndex = 158;
+            this.txtterminalB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // label6
             // 
@@ -296,6 +305,7 @@
             this.txtdistritoB.Name = "txtdistritoB";
             this.txtdistritoB.Size = new System.Drawing.Size(126, 20);
             this.txtdistritoB.TabIndex = 156;
+            this.txtdistritoB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdistrito_KeyPress);
             // 
             // txtdepartamentB
             // 
@@ -303,6 +313,7 @@
             this.txtdepartamentB.Name = "txtdepartamentB";
             this.txtdepartamentB.Size = new System.Drawing.Size(146, 20);
             this.txtdepartamentB.TabIndex = 155;
+            this.txtdepartamentB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtlugar_KeyPress);
             // 
             // TablaLugar
             // 
@@ -324,6 +335,7 @@
             this.Controls.Add(this.btBuscar);
             this.Controls.Add(this.panel1);
             this.Name = "TablaLugar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TablaLugar";
             this.Load += new System.EventHandler(this.TablaLugar_Load);
             this.panel1.ResumeLayout(false);
@@ -362,5 +374,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtdistritoB;
         private System.Windows.Forms.TextBox txtdepartamentB;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

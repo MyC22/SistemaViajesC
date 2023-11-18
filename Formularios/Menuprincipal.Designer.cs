@@ -104,56 +104,56 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // empleadosToolStripMenuItem
             // 
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.empleadosToolStripMenuItem.Text = "Empleados";
             this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
             // busesToolStripMenuItem
             // 
             this.busesToolStripMenuItem.Name = "busesToolStripMenuItem";
-            this.busesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.busesToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.busesToolStripMenuItem.Text = "Buses";
             this.busesToolStripMenuItem.Click += new System.EventHandler(this.busesToolStripMenuItem_Click);
             // 
             // programacionesToolStripMenuItem
             // 
             this.programacionesToolStripMenuItem.Name = "programacionesToolStripMenuItem";
-            this.programacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.programacionesToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.programacionesToolStripMenuItem.Text = "Programaciones";
             this.programacionesToolStripMenuItem.Click += new System.EventHandler(this.programacionesToolStripMenuItem_Click);
             // 
             // cargosToolStripMenuItem
             // 
             this.cargosToolStripMenuItem.Name = "cargosToolStripMenuItem";
-            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.cargosToolStripMenuItem.Text = "Cargos";
             this.cargosToolStripMenuItem.Click += new System.EventHandler(this.cargosToolStripMenuItem_Click);
             // 
             // modeloToolStripMenuItem
             // 
             this.modeloToolStripMenuItem.Name = "modeloToolStripMenuItem";
-            this.modeloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modeloToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.modeloToolStripMenuItem.Text = "Modelo";
             this.modeloToolStripMenuItem.Click += new System.EventHandler(this.modeloToolStripMenuItem_Click);
             // 
             // lugarToolStripMenuItem
             // 
             this.lugarToolStripMenuItem.Name = "lugarToolStripMenuItem";
-            this.lugarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lugarToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.lugarToolStripMenuItem.Text = "Lugar";
             this.lugarToolStripMenuItem.Click += new System.EventHandler(this.lugarToolStripMenuItem_Click);
             // 
             // rutaToolStripMenuItem
             // 
             this.rutaToolStripMenuItem.Name = "rutaToolStripMenuItem";
-            this.rutaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rutaToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.rutaToolStripMenuItem.Text = "Ruta";
             this.rutaToolStripMenuItem.Click += new System.EventHandler(this.rutaToolStripMenuItem_Click);
             // 
@@ -169,14 +169,14 @@
             // boletosToolStripMenuItem
             // 
             this.boletosToolStripMenuItem.Name = "boletosToolStripMenuItem";
-            this.boletosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.boletosToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.boletosToolStripMenuItem.Text = "Boletos";
             this.boletosToolStripMenuItem.Click += new System.EventHandler(this.boletosToolStripMenuItem_Click);
             // 
             // facturasToolStripMenuItem
             // 
             this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
-            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.facturasToolStripMenuItem.Text = "Facturas";
             this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
             // 
@@ -192,8 +192,8 @@
             // recervacionesToolStripMenuItem
             // 
             this.recervacionesToolStripMenuItem.Name = "recervacionesToolStripMenuItem";
-            this.recervacionesToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.recervacionesToolStripMenuItem.Text = "Rutas";
+            this.recervacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recervacionesToolStripMenuItem.Text = "Reservacion";
             this.recervacionesToolStripMenuItem.Click += new System.EventHandler(this.recervacionesToolStripMenuItem_Click);
             // 
             // boletosToolStripMenuItem1
@@ -211,6 +211,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menuprincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menuprincipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menuprincipal_FormClosed);

@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Objetos;
 using static Objetos.Empleado;
-
+using System.Reflection.Emit;
+using System.Data.SqlClient;
 
 namespace sistema_de_viajes
 {
@@ -26,7 +27,6 @@ namespace sistema_de_viajes
             InitializeComponent();
             modelocargo = new ModeloCargo();
             MostrarTodosLosCargos();
-
             // Se desactivan los campos de texto al inicio del formulario.
             desactivartxt();
         }
@@ -50,7 +50,16 @@ namespace sistema_de_viajes
 
         private void TablaCargos_Load(object sender, EventArgs e)
         {
-       
+            toolTip1.SetToolTip(btnañadir, "Añadir");
+            toolTip1.SetToolTip(btneliminar, "Eliminar");
+            toolTip1.SetToolTip(btncancelar, "Cancelar");
+            toolTip1.SetToolTip(btnguardar, "Guardar");
+            toolTip1.SetToolTip(btneditar, "Editar");
+            MostrarTodosLosCargos();
+            btneditar.Enabled = false;
+            btnguardar.Enabled = false;
+            btneliminar.Enabled = false;
+            desactivartxt();
         }
 
         // Botón para realizar la búsqueda de Cargos.
@@ -86,7 +95,7 @@ namespace sistema_de_viajes
             btnguardar.Enabled = true;
             btneditar.Enabled = false;
             btneliminar.Enabled = false;
-
+            dataGridView1.Enabled = false;
             // Habilita los campos de texto para la entrada de nuevos datos.
             activartxt();
 
@@ -161,7 +170,7 @@ namespace sistema_de_viajes
 
                     // Desactiva los campos de texto.
                     desactivartxt();
-
+                    cancelar();
                     // Actualiza la lista de Cargos en el DataGridView.
                     MostrarTodosLosCargos();
                 }
@@ -180,39 +189,25 @@ namespace sistema_de_viajes
         private void btneditar_Click(object sender, EventArgs e)
         {
             estado = "E";
-
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
-
-                Cargo cargo = TodosLosCargos.FirstOrDefault(l => l.ID == id);
-
-                if (cargo != null)
-                {
-                    // Rellena los campos de texto con la información del Cargo seleccionado.
-                    txtnombre.Text = cargo.cargo;
-                    txtDescripcion.Text = cargo.descripcion;
-
-                    // Habilita los campos de texto para la edición.
-                    activartxt();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un Cargo para editar.");
-            }
+            dataGridView1.Enabled = false;
+            btnguardar.Enabled = true;
+            activartxt();
+            btnañadir.Enabled = false;
         }
-
+        private void cancelar()
+        {
+            btneditar.Enabled = false;
+            btnguardar.Enabled = false;
+            btnañadir.Enabled = true;
+            btneliminar.Enabled = false;
+            dataGridView1.Enabled = true;
+        }
         // Botón para cancelar la operación actual y volver al estado inicial.
         private void btncancelar_Click(object sender, EventArgs e)
         {
             // Limpia los campos de texto.
             limpiar();
-
-            // Habilita los botones de editar y eliminar.
-            btneditar.Enabled = true;
-            btneliminar.Enabled = true;
-
+            cancelar();
             // Desactiva los campos de texto.
             desactivartxt();
 
@@ -249,6 +244,18 @@ namespace sistema_de_viajes
             c.descripcion = txtDescripcion.Text;
         }
 
-
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            SqlDataReader dr = modelocargo.listarcargoId(id);
+            if (dr.Read())
+            {
+                txtDescripcion.Text = dr["Descripcion"].ToString();
+                txtnombre.Text = dr["Cargo"].ToString();
+                btneditar.Enabled = true;
+                btneliminar.Enabled = true;
+            }
+            datos();
+        }
     }
 }

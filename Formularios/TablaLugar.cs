@@ -5,22 +5,34 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 using Objetos;
+using static Objetos.Empleado;
 
 namespace Formularios
 {
     public partial class TablaLugar : Form
     {
-        private ModeloLugar modeloLugar;
+        private ModeloLugar modeloLugar = new ModeloLugar();
         private List<Lugarr> todosLosLugares;
         private string estado;
 
         public TablaLugar()
         {
             InitializeComponent();
-            modeloLugar = new ModeloLugar();
-            MostrarTodosLosLugares();
+        }
 
+        private void TablaLugar_Load(object sender, EventArgs e)
+        {
+            MostrarTodosLosLugares();
             DesactivarCampos();
+            toolTip1.SetToolTip(btnañadir, "Añadir");
+            toolTip1.SetToolTip(btneliminar, "Eliminar");
+            toolTip1.SetToolTip(btncancelar, "Cancelar");
+            toolTip1.SetToolTip(btnguardar, "Guardar");
+            toolTip1.SetToolTip(btneditar, "Editar");
+            label12.Text = "";
+            btneditar.Enabled = false;
+            btnguardar.Enabled = false;
+            btneliminar.Enabled = false;
         }
         private void ActivarCampos()
         {
@@ -47,6 +59,14 @@ namespace Formularios
             txtTerminal.Text = "";
             txtDireccion.Text = "";
             cbEstado.SelectedIndex = 0;
+        }
+        private void cancelar()
+        {
+            btneditar.Enabled = false;
+            btnguardar.Enabled = false;
+            btnañadir.Enabled = true;
+            btneliminar.Enabled = false;
+            dataGridView2.Enabled = true;
         }
 
         private void MostrarTodosLosLugares()
@@ -90,6 +110,10 @@ namespace Formularios
             estado = "G";
             ActivarCampos();
             LimpiarCampos();
+            dataGridView2.Enabled = false;
+            btneditar.Enabled = false;
+            btneliminar.Enabled = false;
+            btnguardar.Enabled = true;
         }
 
         private void btneliminar_Click_1(object sender, EventArgs e)
@@ -103,9 +127,14 @@ namespace Formularios
                     try
                     {
                         modeloLugar.EliminarLugar(id);
-
                         MostrarTodosLosLugares();
                         LimpiarCampos();
+                        DesactivarCampos();
+                        dataGridView2.Enabled = true;
+                        btneditar.Enabled = false;
+                        btnguardar.Enabled = false;
+                        btnañadir.Enabled = true;
+                        MessageBox.Show("Se elimino con exito");
                     }
                     catch (Exception ex)
                     {
@@ -164,6 +193,7 @@ namespace Formularios
                     MostrarTodosLosLugares();
                     LimpiarCampos();
                     DesactivarCampos();
+                    cancelar();
                 }
                 catch (Exception ex)
                 {
@@ -178,28 +208,10 @@ namespace Formularios
 
         private void btneditar_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView2.SelectedRows.Count > 0)
-            {
-                int id = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["ID"].Value);
-
-                Lugarr lugar = todosLosLugares.FirstOrDefault(l => l.ID == id);
-
-                if (lugar != null)
-                {
-                    estado = "E";
-                    ActivarCampos();
-
-                    txtDepartamento.Text = lugar.Departamento;
-                    txtDistrito.Text = lugar.Distrito;
-                    txtTerminal.Text = lugar.Terminal;
-                    txtDireccion.Text = lugar.Direccion;
-                    cbEstado.SelectedItem = lugar.Estado;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un lugar para editar.");
-            }
+            estado = "E";
+            ActivarCampos();
+            btnguardar.Enabled = true;
+            btnañadir.Enabled = false;
         }
 
         private void btncancelar_Click_1(object sender, EventArgs e)
@@ -207,30 +219,44 @@ namespace Formularios
             LimpiarCampos();
             MostrarTodosLosLugares();
             DesactivarCampos();
+            cancelar();
+        }
+
+        private void txtlugar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("No se permite ese tipo de caracteres", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtdistrito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 33 && e.KeyChar <= 45) || (e.KeyChar >= 47 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("No se permite ese tipo de caracteres", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            int id = (int)dataGridView2.CurrentRow.Cells[0].Value;
+            SqlDataReader dr = modeloLugar.listarlugarId(id);
+            if (dr.Read())
             {
-                int id = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["ID"].Value);
-
-                Lugarr lugar = todosLosLugares.FirstOrDefault(l => l.ID == id);
-
-                if (lugar != null)
-                {
-                    txtDepartamento.Text = lugar.Departamento;
-                    txtDistrito.Text = lugar.Distrito;
-                    txtTerminal.Text = lugar.Terminal;
-                    txtDireccion.Text = lugar.Direccion;
-                    cbEstado.SelectedItem = lugar.Estado;
-                }
+                txtDepartamento.Text = dr["Departamento"].ToString();
+                txtTerminal.Text = dr["Terminal"].ToString();
+                txtDistrito.Text = dr["Distrito"].ToString();
+                txtDireccion.Text = dr["Direccion"].ToString();
+                int idcargo = cbEstado.FindStringExact(dr["Estado"].ToString());
+                cbEstado.SelectedIndex = idcargo;
+                btneditar.Enabled = true;
+                btneliminar.Enabled = true;
             }
-        }
-
-        private void TablaLugar_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

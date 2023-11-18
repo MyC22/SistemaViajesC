@@ -80,6 +80,15 @@ namespace Objetos
                 }
             }
         }
+        public SqlDataReader listarlugarId(int id)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("select * from Lugar where ID = @id", con.Open());
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+
+        }
 
         public void AgregarLugar(string distrito, string direccion, string terminal, string departamento, string estado)
         {
