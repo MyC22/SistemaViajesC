@@ -57,6 +57,7 @@
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(136, 257);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
@@ -71,6 +72,8 @@
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(168, 20);
             this.txtusuario.TabIndex = 3;
+            this.txtusuario.TextChanged += new System.EventHandler(this.txtusuario_TextChanged);
+            this.txtusuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtusuario_KeyPress);
             // 
             // txtcontraseña
             // 
@@ -79,6 +82,8 @@
             this.txtcontraseña.PasswordChar = '*';
             this.txtcontraseña.Size = new System.Drawing.Size(168, 20);
             this.txtcontraseña.TabIndex = 4;
+            this.txtcontraseña.TextChanged += new System.EventHandler(this.txtcontraseña_TextChanged);
+            this.txtcontraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcontraseña_KeyPress);
             // 
             // panel1
             // 

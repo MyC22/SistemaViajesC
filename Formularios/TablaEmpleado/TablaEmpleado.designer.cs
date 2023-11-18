@@ -50,8 +50,8 @@
             this.cbpermisos = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtcontraseña = new System.Windows.Forms.TextBox();
-            this.txtdni = new System.Windows.Forms.MaskedTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtdni = new System.Windows.Forms.TextBox();
             this.dtnacimiento = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -205,6 +205,8 @@
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(158, 20);
             this.txtusuario.TabIndex = 17;
+            this.txtusuario.TextChanged += new System.EventHandler(this.txtusuario_TextChanged);
+            this.txtusuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtusuario_KeyPress);
             // 
             // cbsexo
             // 
@@ -248,23 +250,16 @@
             this.txtcontraseña.Name = "txtcontraseña";
             this.txtcontraseña.Size = new System.Drawing.Size(159, 20);
             this.txtcontraseña.TabIndex = 23;
-            // 
-            // txtdni
-            // 
-            this.txtdni.Location = new System.Drawing.Point(83, 139);
-            this.txtdni.Mask = "99999999";
-            this.txtdni.Name = "txtdni";
-            this.txtdni.Size = new System.Drawing.Size(158, 20);
-            this.txtdni.TabIndex = 30;
-            this.txtdni.ValidatingType = typeof(int);
+            this.txtcontraseña.TextChanged += new System.EventHandler(this.txtcontraseña_TextChanged);
+            this.txtcontraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcontraseña_KeyPress);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtdni);
             this.panel1.Controls.Add(this.dtnacimiento);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtdni);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtcontraseña);
             this.panel1.Controls.Add(this.label1);
@@ -285,6 +280,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(275, 391);
             this.panel1.TabIndex = 31;
+            // 
+            // txtdni
+            // 
+            this.txtdni.Location = new System.Drawing.Point(83, 139);
+            this.txtdni.Name = "txtdni";
+            this.txtdni.Size = new System.Drawing.Size(158, 20);
+            this.txtdni.TabIndex = 33;
+            this.txtdni.TextChanged += new System.EventHandler(this.txtdni_TextChanged);
+            this.txtdni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdni_KeyPress);
             // 
             // dtnacimiento
             // 
@@ -423,7 +427,6 @@
         private System.Windows.Forms.ComboBox cbpermisos;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtcontraseña;
-        private System.Windows.Forms.MaskedTextBox txtdni;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btneditar;
@@ -439,5 +442,6 @@
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.DateTimePicker dtnacimiento;
+        private System.Windows.Forms.TextBox txtdni;
     }
 }

@@ -517,3 +517,32 @@ INSERT INTO Boletos(IDComprobante,IDPasajero,IDServicio,Precio )
 VALUES (@idcomprobante, @idpasajero,@idservicio,@precio);
 end
 go
+
+/*Mostrar Boleto*/
+create procedure mostrarboleto
+
+AS BEGIN
+SELECT * from Boletos;
+END
+go
+/*Eliminar Boleto*/
+create procedure eliminarboleto
+@id INT
+AS BEGIN
+DELETE FROM Boletos WHERE ID=@id
+END
+
+create procedure editarboleto
+@id int,
+@idcomprobante  int,
+@idpasajero int,
+@idservicio int,
+@precio real
+AS BEGIN
+UPDATE Boletos SET IDComprobante=@idcomprobante,
+		IDPasajero=@idpasajero,
+		IDServicio=@idservicio,
+		Precio=@precio 
+		Where ID=@id
+END
+

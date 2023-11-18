@@ -53,5 +53,48 @@ namespace sistema_de_viajes
                 MessageBox.Show("Error en el usuario");
             }
         }
+
+        private void txtusuario_TextChanged(object sender, EventArgs e)
+        {
+            int limiteCaracteres = 50;
+
+            if (txtusuario.Text.Length > limiteCaracteres)
+            {
+                // Si la longitud excede el límite, truncar el texto o mostrar un mensaje al usuario.
+                txtusuario.Text = txtusuario.Text.Substring(0, limiteCaracteres);
+                MessageBox.Show("Usted supero el limite de caracteres.");
+            }
+        }
+
+        private void txtusuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))             {
+                MessageBox.Show("No se permite ese tipo de caracteres", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtcontraseña_TextChanged(object sender, EventArgs e)
+        {
+            int limiteCaracteres = 50;
+
+            if (txtusuario.Text.Length > limiteCaracteres)
+            {
+                // Si la longitud excede el límite, truncar el texto o mostrar un mensaje al usuario.
+                txtusuario.Text = txtusuario.Text.Substring(0, limiteCaracteres);
+                MessageBox.Show("Usted supero el limite de caracteres.");
+            }
+        }
+
+        private void txtcontraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("No se permite ese tipo de caracteres", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }
