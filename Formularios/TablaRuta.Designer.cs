@@ -319,6 +319,7 @@
             this.Controls.Add(this.txtnombreB);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TablaRuta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TablaRuta";
             this.Load += new System.EventHandler(this.TablaRuta_Load);
             this.panel1.ResumeLayout(false);

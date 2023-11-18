@@ -307,6 +307,7 @@
             this.Controls.Add(this.btnañadir);
             this.Controls.Add(this.btnguardar);
             this.Name = "CrearBoleto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form6";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CrearBoleto_Load);

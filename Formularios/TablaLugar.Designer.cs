@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablaLugar));
             this.btncancelar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtdistritoB = new System.Windows.Forms.TextBox();
             this.txtdepartamentB = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -254,8 +256,10 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(330, 44);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(826, 335);
             this.dataGridView2.TabIndex = 139;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // label2
             // 
@@ -331,6 +335,7 @@
             this.Controls.Add(this.btBuscar);
             this.Controls.Add(this.panel1);
             this.Name = "TablaLugar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TablaLugar";
             this.Load += new System.EventHandler(this.TablaLugar_Load);
             this.panel1.ResumeLayout(false);
@@ -369,5 +374,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtdistritoB;
         private System.Windows.Forms.TextBox txtdepartamentB;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

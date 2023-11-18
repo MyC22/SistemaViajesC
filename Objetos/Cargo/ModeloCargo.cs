@@ -51,7 +51,15 @@ namespace Objetos
         }
     }
 }
+        public SqlDataReader listarcargoId(int id)
+        {
+            Conexion con = new Conexion();
+            SqlCommand cmd = new SqlCommand("select * from Cargo where ID = @id", con.Open());
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
 
+        }
         public List<Cargo> MostrarTodosLosCargos()
         {
             // Se establece una conexión a la base de datos utilizando la clase de conexión personalizada.

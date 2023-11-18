@@ -49,8 +49,6 @@ namespace Formularios
 
         private void recervacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TablaRuta TablaRuta = new TablaRuta();
-            TablaRuta.Show();
         }
 
         private void boletosToolStripMenuItem_Click(object sender, EventArgs e)

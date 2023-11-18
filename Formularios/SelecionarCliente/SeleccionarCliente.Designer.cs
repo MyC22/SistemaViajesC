@@ -250,6 +250,7 @@
             this.Controls.Add(this.btnañadirCliente);
             this.Controls.Add(this.dataGridView1);
             this.Name = "SeleccionarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SeleccionarCliente";
             this.Load += new System.EventHandler(this.SeleccionarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
